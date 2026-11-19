@@ -77,3 +77,4 @@ table.t th { background: var(--soft); }
 @media (max-width: 520px) { body { font-size: 16px; } h1 { font-size: 1.6rem; } }
 .out { font-family: "Cambria Math", "STIX Two Math", Georgia, serif; font-size: 1.08em; overflow-wrap: anywhere; margin-top: 8px; }
 .out div { margin: 2px 0; }
+.tablewrap { overflow-x: auto; margin: 10px 0; } .tablewrap table.t { margin: 0; min-width: 480px; }

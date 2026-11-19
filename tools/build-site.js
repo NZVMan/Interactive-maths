@@ -78,20 +78,20 @@ ${items}
 
   <h2>Timeline</h2>
   <p>${esc(c.note)}</p>
-  <table class="t"><tr><th>Week</th><th>Dates</th><th>Topic</th><th>Assessment</th></tr>
+  <div class="tablewrap"><table class="t"><tr><th>Week</th><th>Dates</th><th>Topic</th><th>Assessment</th></tr>
 ${tl}
-  </table>
+  </table></div>
 
   <h2>Common test weeks for ${esc(ctw.thisClass)}</h2>
-  <table class="t"><tr><th>Test</th><th>When</th></tr>
+  <div class="tablewrap"><table class="t"><tr><th>Test</th><th>When</th></tr>
 ${tests}
-  </table>
+  </table></div>
 
   <h2>Command words</h2>
   <p>These words are used in assessments. Knowing what they ask for helps you answer the question that was set.</p>
-  <table class="t"><tr><th>Command word</th><th>What it means</th></tr>
+  <div class="tablewrap"><table class="t"><tr><th>Command word</th><th>What it means</th></tr>
 ${cmd}
-  </table>
+  </table></div>
 
   <h2>Success criteria</h2>
 ${sc}
