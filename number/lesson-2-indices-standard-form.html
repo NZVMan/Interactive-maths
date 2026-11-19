@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 2: Indices and standard form – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 1: Number</a> › Lesson 2</div></header>
+<main>
+  <span class="tag">Topic 1 · Lesson 2</span>
+  <h1>Indices and standard form</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>use the index laws</li>
+      <li>work out zero, negative and fractional indices</li>
+      <li>write numbers in standard form and calculate with them</li>
+    </ul>
+  </div>
+
+  <h2>1. The index laws</h2>
+  <p>In <span class="m">a<sup>n</sup></span>, <em>a</em> is the <strong>base</strong> and <em>n</em> is the <strong>index</strong> (or power). It says how many copies of <em>a</em> to multiply.</p>
+  <table class="t">
+    <tr><th>Law</th><th>Example</th></tr>
+    <tr><td class="m">a<sup>m</sup> × a<sup>n</sup> = a<sup>m+n</sup></td><td class="m">2³ × 2⁴ = 2⁷</td></tr>
+    <tr><td class="m">a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m−n</sup></td><td class="m">5⁶ ÷ 5² = 5⁴</td></tr>
+    <tr><td class="m">(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup></td><td class="m">(3²)⁴ = 3⁸</td></tr>
+  </table>
+  <div class="try">
+    <p>Pick a law, choose numbers, and see why it works.</p>
+    <div class="row">
+      <label for="law">Law</label>
+      <select id="law"><option value="mul">multiply</option><option value="div">divide</option><option value="pow">power of a power</option></select>
+      <label for="la">Base</label><input type="number" id="la" min="2" max="9" value="2" style="width:5em">
+      <label for="lm">m</label><input type="number" id="lm" min="0" max="6" value="3" style="width:5em">
+      <label for="ln">n</label><input type="number" id="ln" min="0" max="6" value="4" style="width:5em">
+    </div>
+    <div id="law-out" class="out" aria-live="polite"></div>
+  </div>
+
+  <h2>2. Zero, negative and fractional indices</h2>
+  <div class="key">
+    <span class="m">a⁰ = 1</span> (for any <em>a</em> that isn't 0)<br>
+    <span class="m">a<sup>−n</sup> = 1 ÷ a<sup>n</sup></span> (a negative index means <em>reciprocal</em>, not a negative answer)<br>
+    <span class="m">a<sup>1/n</sup></span> is the <em>n</em>th root of <em>a</em>, so <span class="m">a<sup>1/2</sup> = √a</span> and <span class="m">a<sup>1/3</sup> = ∛a</span><br>
+    <span class="m">a<sup>m/n</sup> = (ⁿ√a)<sup>m</sup></span> (root first, then power)
+  </div>
+  <div class="try">
+    <p>Choose a base and an index (a whole number like <span class="m">−2</span> or a fraction like <span class="m">2/3</span>) and follow the steps.</p>
+    <div class="row">
+      <label for="ib">Base</label><input type="number" id="ib" min="1" max="1000" value="8" style="width:6em">
+      <label for="ii">Index</label><input type="text" id="ii" value="2/3" size="6" aria-label="Index">
+      <button class="btn" id="i-go" type="button">Work it out</button>
+    </div>
+    <div id="i-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="indexval"></div>
+
+  <h2>3. Standard form</h2>
+  <p>Standard form writes very large or very small numbers as <span class="m">A × 10<sup>n</sup></span>, where <span class="m">1 ≤ A &lt; 10</span> and <em>n</em> is an integer.</p>
+  <ul>
+    <li>Big numbers have a <strong>positive</strong> <em>n</em>: 45 000 = 4.5 × 10⁴.</li>
+    <li>Small numbers have a <strong>negative</strong> <em>n</em>: 0.0032 = 3.2 × 10⁻³.</li>
+  </ul>
+  <div class="try">
+    <p>Type an ordinary number to convert it.</p>
+    <div class="row">
+      <label for="sf-in">Number</label><input type="text" id="sf-in" value="0.00032" inputmode="decimal" size="14">
+      <button class="btn" id="sf-go" type="button">Convert</button>
+    </div>
+    <div id="sf-out" class="out" aria-live="polite"></div>
+  </div>
+  <div class="try">
+    <p>Now go the other way: choose <em>A</em> and <em>n</em>.</p>
+    <div class="row">
+      <label for="sa">A</label><input type="number" id="sa" min="1" max="9.99" step="0.01" value="6.7" style="width:6em">
+      <label for="sn">n</label><input type="number" id="sn" min="-12" max="12" value="5" style="width:5em">
+    </div>
+    <div class="row"><label for="sn-r">Slide n</label><input type="range" id="sn-r" min="-8" max="8" value="5" style="flex:1 1 180px"></div>
+    <div id="sb-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="tostd"></div>
+  <div data-practice="fromstd"></div>
+
+  <h3>Calculating in standard form</h3>
+  <div class="worked">
+    <p>Work out <span class="m">(3 × 10⁴) × (4 × 10⁵)</span>. Give the answer in standard form.</p>
+    <p>Multiply the numbers and add the indices: <span class="m">12 × 10⁹</span>.</p>
+    <p>But 12 is not between 1 and 10, so adjust: <span class="m">12 × 10⁹ = 1.2 × 10¹⁰</span>.</p>
+  </div>
+  <div data-practice="stdcalc"></div>
+
+  <div class="nav"><a class="btn ghost" href="lesson-1-types-of-numbers.html">‹ Lesson 1</a><a class="btn" href="lesson-3-fractions-decimals-percentages.html">Lesson 3 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="lesson2.js"></script>
+</body>
+</html>

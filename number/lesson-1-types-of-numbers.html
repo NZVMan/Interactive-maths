@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 1: Types of numbers – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 1: Number</a> › Lesson 1</div></header>
+<main>
+  <span class="tag">Topic 1 · Lesson 1</span>
+  <h1>Types of numbers, factors and multiples</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>name the number families: natural, integer, rational, irrational and real</li>
+      <li>spot prime, square and cube numbers</li>
+      <li>write a number as a product of prime factors</li>
+      <li>find the HCF and LCM of two numbers</li>
+    </ul>
+  </div>
+
+  <h2>1. The number families</h2>
+  <p>Every number you will meet in this course is a <strong>real number</strong>. Real numbers split into families that sit inside each other:</p>
+  <ul>
+    <li><strong>Natural numbers</strong> are the counting numbers: 1, 2, 3, …</li>
+    <li><strong>Integers</strong> are whole numbers, including zero and negatives: …, −2, −1, 0, 1, 2, …</li>
+    <li><strong>Rational numbers</strong> can be written as a fraction of two integers, like <span class="m">¾</span>, 0.5 or −7. Their decimals either stop or repeat.</li>
+    <li><strong>Irrational numbers</strong> cannot be written as a fraction. Their decimals go on forever with no repeating pattern, like <span class="m">π</span> and <span class="m">√2</span>.</li>
+  </ul>
+  <div class="key">Every natural number is an integer, every integer is rational, and every rational or irrational number is real. A number is never both rational and irrational.</div>
+
+  <div class="try">
+    <p>Type a number and see which families it belongs to. You can use a whole number, a decimal, a fraction like <span class="m">3/4</span>, <span class="m">√2</span> or <span class="m">π</span>.</p>
+    <div class="row">
+      <input type="text" id="cls-in" value="√2" aria-label="Number to classify" size="12">
+      <button class="btn" id="cls-go" type="button">Classify</button>
+      <button class="btn ghost" id="cls-rand" type="button">Surprise me</button>
+    </div>
+    <div id="cls-out" aria-live="polite"></div>
+  </div>
+
+  <h2>2. Primes, squares and cubes</h2>
+  <ul>
+    <li>A <strong>prime number</strong> has exactly two factors: 1 and itself. The first few are 2, 3, 5, 7, 11, 13. Note that 1 is <em>not</em> prime, and 2 is the only even prime.</li>
+    <li>A <strong>square number</strong> is a whole number times itself: 1, 4, 9, 16, 25, …</li>
+    <li>A <strong>cube number</strong> is a whole number times itself twice: 1, 8, 27, 64, 125, …</li>
+  </ul>
+  <p>Use the classifier above on 49, 64 and 91. Does 91 surprise you?</p>
+  <div data-practice="isprime"></div>
+
+  <h2>3. Prime factors</h2>
+  <p>Every whole number above 1 can be built from primes multiplied together, in exactly one way. A <strong>factor tree</strong> finds them: keep splitting until every branch ends in a prime (the highlighted ones).</p>
+  <div class="try">
+    <div class="row">
+      <label for="tree-n">Number (2 to 9999):</label>
+      <input type="number" id="tree-n" min="2" max="9999" value="360" inputmode="numeric" style="width:7em">
+      <button class="btn" id="tree-go" type="button">Build tree</button>
+    </div>
+    <div class="tree" id="tree-out" aria-live="polite"></div>
+    <p id="tree-prod" class="m"></p>
+  </div>
+  <div class="worked">
+    <p>Write 180 as a product of prime factors.</p>
+    <p>180 = 2 × 90 = 2 × 2 × 45 = 2 × 2 × 3 × 15 = 2 × 2 × 3 × 3 × 5.</p>
+    <p>In index form: <span class="m">180 = 2² × 3² × 5</span>.</p>
+  </div>
+  <p>In the practice box, type powers with a caret, like <span class="m">2^2 x 3^2 x 5</span>.</p>
+  <div data-practice="factorise"></div>
+
+  <h2>4. HCF and LCM</h2>
+  <ul>
+    <li>The <strong>highest common factor (HCF)</strong> is the biggest number that divides into both.</li>
+    <li>The <strong>lowest common multiple (LCM)</strong> is the smallest number that both divide into.</li>
+  </ul>
+  <p>Write both numbers as products of primes. The primes they <em>share</em> go in the middle of the diagram.</p>
+  <div class="key"><strong>HCF</strong> = multiply the numbers in the <em>middle</em>.<br><strong>LCM</strong> = multiply <em>everything</em> in the diagram.</div>
+
+  <div class="try">
+    <div class="row">
+      <label for="a-in">First number</label><input type="number" id="a-in" min="2" max="999" value="12" style="width:6em">
+      <label for="b-in">Second number</label><input type="number" id="b-in" min="2" max="999" value="18" style="width:6em">
+      <button class="btn" id="hl-go" type="button">Show diagram</button>
+    </div>
+    <div class="venn" id="venn-out" aria-live="polite"></div>
+    <p id="hl-text"></p>
+  </div>
+  <div data-practice="hcflcm"></div>
+
+  <div class="nav"><a class="btn ghost" href="index.html">‹ Topic 1 contents</a><a class="btn" href="lesson-2-indices-standard-form.html">Lesson 2 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="lesson1.js"></script>
+</body>
+</html>

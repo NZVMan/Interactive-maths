@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 3: Fractions, decimals and percentages – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 1: Number</a> › Lesson 3</div></header>
+<main>
+  <span class="tag">Topic 1 · Lesson 3</span>
+  <h1>Fractions, decimals and percentages</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>convert between fractions, decimals and percentages</li>
+      <li>order quantities using =, ≠, &gt;, &lt;, ≥ and ≤</li>
+      <li>find a percentage of a quantity, and one quantity as a percentage of another</li>
+      <li>calculate a percentage increase or decrease</li>
+    </ul>
+  </div>
+
+  <h2>1. Three ways to write the same amount</h2>
+  <p>A fraction, a decimal and a percentage can all describe the same amount. <strong>Percent</strong> means "out of 100", so 35% is <span class="m">35/100</span> or 0.35.</p>
+  <div class="try">
+    <p>Choose a fraction and watch it shown three ways.</p>
+    <div class="row">
+      <label for="fn">Numerator</label><input type="number" id="fn" min="0" max="40" value="3" style="width:5em">
+      <label for="fd">Denominator</label><input type="number" id="fd" min="1" max="40" value="8" style="width:5em">
+    </div>
+    <div class="bar" id="f-bar" aria-hidden="true"></div>
+    <div class="row"><div class="grid100" id="f-grid" aria-hidden="true"></div></div>
+    <div id="f-out" class="out" aria-live="polite"></div>
+  </div>
+
+  <h2>2. Converting</h2>
+  <ul>
+    <li><strong>Fraction → decimal:</strong> divide the top by the bottom. <span class="m">3/8 = 3 ÷ 8 = 0.375</span></li>
+    <li><strong>Decimal → percentage:</strong> multiply by 100. <span class="m">0.375 = 37.5%</span></li>
+    <li><strong>Percentage → fraction:</strong> write it over 100, then simplify. <span class="m">35% = 35/100 = 7/20</span></li>
+  </ul>
+  <p>Some fractions give <strong>recurring decimals</strong>. In the box below, the digits in brackets repeat forever.</p>
+  <div class="try">
+    <p>Type a fraction (<span class="m">3/8</span>), a decimal (<span class="m">0.35</span>) or a percentage (<span class="m">35%</span>).</p>
+    <div class="row">
+      <input type="text" id="cv-in" value="35%" size="12" aria-label="Fraction, decimal or percentage">
+      <button class="btn" id="cv-go" type="button">Convert</button>
+    </div>
+    <div id="cv-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="fdp"></div>
+
+  <h2>3. Ordering with symbols</h2>
+  <p>Put numbers in the same form (usually decimals) to compare them.</p>
+  <table class="t">
+    <tr><th>Symbol</th><th>Means</th></tr>
+    <tr><td class="m">=</td><td>equal to</td></tr>
+    <tr><td class="m">≠</td><td>not equal to</td></tr>
+    <tr><td class="m">&gt;  &lt;</td><td>greater than, less than</td></tr>
+    <tr><td class="m">≥  ≤</td><td>greater than or equal to, less than or equal to</td></tr>
+  </table>
+  <div data-practice="compare"></div>
+
+  <h2>4. Percentages of quantities</h2>
+  <div class="try">
+    <div class="row">
+      <label for="pm">What do you want to do?</label>
+      <select id="pm">
+        <option value="of">Find a percentage of a quantity</option>
+        <option value="as">Write one quantity as a percentage of another</option>
+        <option value="chg">Percentage increase or decrease</option>
+      </select>
+    </div>
+    <div class="row" id="pm-fields"></div>
+    <div id="pm-out" class="out" aria-live="polite"></div>
+  </div>
+  <div class="key">
+    <strong>Increase by 15%:</strong> multiply by 1.15 (100% + 15% = 115%).<br>
+    <strong>Decrease by 15%:</strong> multiply by 0.85 (100% − 15% = 85%).<br>
+    <strong>Percentage change</strong> = (change ÷ original) × 100.
+  </div>
+  <div class="worked">
+    <p>A jacket costs $80. It goes up by 15%. What is the new price?</p>
+    <p>Multiplier = 1.15, so new price = 80 × 1.15 = <strong>$92</strong>.</p>
+  </div>
+  <div data-practice="pcof"></div>
+  <div data-practice="pcchange"></div>
+
+  <div class="nav"><a class="btn ghost" href="lesson-2-indices-standard-form.html">‹ Lesson 2</a><a class="btn ghost" href="index.html">Topic 1 contents</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="lesson3.js"></script>
+</body>
+</html>
