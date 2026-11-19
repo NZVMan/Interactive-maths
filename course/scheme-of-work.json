@@ -1,0 +1,1576 @@
+{
+ "course": {
+  "title": "10MAY Mathematics Course Handbook 2027",
+  "school": "King’s College, Auckland",
+  "class": "10MAY (Year 10)",
+  "revised": "November 2026 by L Lee",
+  "note": "Times are indicative only and are subject to change as the year progresses.",
+  "levels": "Year 10 students should be demonstrating proficiency at levels 5 and 6 of the New Zealand Curriculum. Emphasis is placed on problem solving, preparing students for NCEA Level 1 / Cambridge IGCSE.",
+  "equipment": "Scientific calculator, blue or black pen, pencil, rubber, ruler",
+  "textbooks": [
+   "Cambridge IGCSE Core Mathematics 4th edition (Ric Pimentel & Terry Wall) – page references in this scheme refer to this book",
+   "Cambridge IGCSE Complete Mathematics 6th edition Core (David Rayner, Ian Bettison & Mathew Taylor)",
+   "Cambridge IGCSE Complete Mathematics 6th edition Extended (same authors) – C7.1 Vectors uses the Extended book"
+  ],
+  "resources": [
+   {
+    "name": "MME Revise",
+    "url": "https://mmerevise.co.uk/gcse-maths-revision/#revise",
+    "what": "notes, video lessons, worksheets and practice online tests"
+   },
+   {
+    "name": "Corbett Maths",
+    "url": "https://corbettmaths.com/contents/",
+    "what": "video lessons and worksheets"
+   },
+   {
+    "name": "Save My Exams (IGCSE Core)",
+    "url": "https://www.savemyexams.co.uk/igcse/maths_core/cie/-/pages/topic-questions/",
+    "what": "topic questions"
+   }
+  ],
+  "assessment": [
+   "Mark schedules (key skills, learning outcomes and success criteria linked to the assessment point)",
+   "Junior common summative task",
+   "Exemplars",
+   "Past common tests (kept in the school Drive)"
+  ],
+  "aims": [
+   "develop an understanding of mathematical principles, concepts and methods in a way which encourages confidence, provides satisfaction and enjoyment, and develops a positive attitude towards mathematics",
+   "develop a feel for number and understand the significance of the results obtained",
+   "apply mathematics in everyday situations and develop an understanding of the part that mathematics plays in learners’ own lives and the world around them",
+   "analyse and solve problems, present the solutions clearly, and check and interpret the results",
+   "recognise when and how a situation may be represented mathematically, identify and interpret relevant factors, select an appropriate mathematical method to solve the problem, and evaluate the method used",
+   "use mathematics as a means of communication with emphasis on the use of clear expression and structured argument",
+   "develop an ability to apply mathematics in other subjects, particularly science and technology",
+   "develop the ability to reason logically, make deductions and inferences, and draw conclusions",
+   "appreciate patterns and relationships in mathematics and make generalisations",
+   "appreciate the interdependence of different areas of mathematics",
+   "acquire a foundation for further study of mathematics or for other disciplines"
+  ],
+  "competencies": [
+   "Thinking",
+   "Using language, symbols, and texts",
+   "Managing self",
+   "Relating to others",
+   "Participating and contributing"
+  ],
+  "successCriteria": [
+   {
+    "title": "1. Demonstrate knowledge and understanding of mathematical techniques",
+    "points": [
+     "organising, processing and presenting information accurately in written, tabular, graphical and diagrammatic forms",
+     "using and interpreting mathematical notation correctly",
+     "performing calculations and procedures by suitable methods, including using a calculator",
+     "understanding systems of measurement in everyday use and making use of these",
+     "estimating, approximating and working to degrees of accuracy appropriate to the context and converting between equivalent numerical forms",
+     "using geometrical instruments to measure and to draw to an acceptable degree of accuracy",
+     "recognising and using spatial relationships in two and three dimensions"
+    ]
+   },
+   {
+    "title": "2. Reason, interpret and communicate mathematically when solving problems",
+    "points": [
+     "making logical deductions, making inferences and drawing conclusions from given mathematical data",
+     "recognising patterns and structures in a variety of situations, and forming generalisations",
+     "presenting arguments and chains of reasoning in a logical and structured way",
+     "interpreting and communicating information accurately and changing from one form of presentation to another",
+     "assessing the validity of an argument and critically evaluating a given way of presenting information",
+     "solving unstructured problems by putting them into a structured form involving a series of processes",
+     "applying combinations of mathematical skills and techniques using connections between different areas of mathematics in problem solving",
+     "interpreting results in the context of a given problem and evaluating the methods used and solutions obtained"
+    ]
+   }
+  ]
+ },
+ "commandWords": [
+  [
+   "Calculate",
+   "work out from given facts, figures or information, generally using a calculator"
+  ],
+  [
+   "Construct",
+   "make an accurate drawing"
+  ],
+  [
+   "Describe",
+   "state the points of a topic / give characteristics and main features"
+  ],
+  [
+   "Determine",
+   "establish with certainty"
+  ],
+  [
+   "Explain",
+   "set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence"
+  ],
+  [
+   "Give",
+   "produce an answer from a given source or recall/memory"
+  ],
+  [
+   "Plot",
+   "mark point(s) on a graph"
+  ],
+  [
+   "Show (that)",
+   "provide structured evidence that leads to a given result"
+  ],
+  [
+   "Sketch",
+   "make a simple freehand drawing showing the key features"
+  ],
+  [
+   "Work out",
+   "calculate from given facts, figures or information with or without the use of a calculator"
+  ],
+  [
+   "Write",
+   "give an answer in a specific form"
+  ],
+  [
+   "Write down",
+   "give an answer without significant working"
+  ]
+ ],
+ "timeline": [
+  {
+   "term": 1,
+   "week": 0,
+   "dates": "18–24 Jan",
+   "topic": "Admin",
+   "assessment": "",
+   "activities": "20 Jan: New Staff Orientation Day / Subject Options Day; 21 & 22 Jan: Staff Only Day"
+  },
+  {
+   "term": 1,
+   "week": 1,
+   "dates": "25–31 Jan",
+   "topic": "Y9 Revision / 1. Number",
+   "assessment": "",
+   "activities": "25 Jan: New Students & Parents Orientation Day; 26 Jan: New Students Orientation Day; 27 Jan: Term 1 begins"
+  },
+  {
+   "term": 1,
+   "week": 2,
+   "dates": "1–7 Feb",
+   "topic": "",
+   "assessment": "",
+   "activities": "1 Feb: Auckland Anniversary Day; 5 Feb: Swimming Finals"
+  },
+  {
+   "term": 1,
+   "week": 3,
+   "dates": "8–14 Feb",
+   "topic": "",
+   "assessment": "",
+   "activities": "8 Feb: Waitangi Day"
+  },
+  {
+   "term": 1,
+   "week": 4,
+   "dates": "15–21 Feb",
+   "topic": "",
+   "assessment": "",
+   "activities": "16 Feb: Athletics Prelims; 19 Feb: Athletics Finals"
+  },
+  {
+   "term": 1,
+   "week": 5,
+   "dates": "22–28 Feb",
+   "topic": "",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 1,
+   "week": 6,
+   "dates": "1–7 Mar",
+   "topic": "",
+   "assessment": "CT#1: Number",
+   "activities": ""
+  },
+  {
+   "term": 1,
+   "week": 7,
+   "dates": "8–14 Mar",
+   "topic": "2. Algebra",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 1,
+   "week": 8,
+   "dates": "15–21 Mar",
+   "topic": "",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 1,
+   "week": 9,
+   "dates": "22–28 Mar",
+   "topic": "",
+   "assessment": "",
+   "activities": "24 Mar: Y10 Parents interviews; 26 Mar: Easter Friday"
+  },
+  {
+   "term": 1,
+   "week": 10,
+   "dates": "29 Mar–4 Apr",
+   "topic": "",
+   "assessment": "CT#2: Algebra (first half)",
+   "activities": "29 Mar: Easter Monday; 30 Mar: Easter Tuesday"
+  },
+  {
+   "term": 1,
+   "week": 11,
+   "dates": "5–11 Apr",
+   "topic": "",
+   "assessment": "",
+   "activities": "9 Apr: Term 1 ends"
+  },
+  {
+   "term": 2,
+   "week": 1,
+   "dates": "26 Apr–2 May",
+   "topic": "10MAY at Camp",
+   "assessment": "",
+   "activities": "26 Apr: ANZAC Day Observance; 27 Apr: Term 2 begins / 10MAY camp departs"
+  },
+  {
+   "term": 2,
+   "week": 2,
+   "dates": "3–9 May",
+   "topic": "10MAY at Camp",
+   "assessment": "",
+   "activities": "7 May: Small House Music"
+  },
+  {
+   "term": 2,
+   "week": 3,
+   "dates": "10–16 May",
+   "topic": "10MAY at Camp",
+   "assessment": "",
+   "activities": "14 May: 10MAY returns"
+  },
+  {
+   "term": 2,
+   "week": 4,
+   "dates": "17–23 May",
+   "topic": "",
+   "assessment": "",
+   "activities": "18 May: Big House Music"
+  },
+  {
+   "term": 2,
+   "week": 5,
+   "dates": "24–30 May",
+   "topic": "",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 2,
+   "week": 6,
+   "dates": "31 May–6 Jun",
+   "topic": "3. Coordinate Geometry",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 2,
+   "week": 7,
+   "dates": "7–13 Jun",
+   "topic": "",
+   "assessment": "CT#3: Algebra (second half) + Coordinate Geometry",
+   "activities": "7 Jun: King’s Birthday"
+  },
+  {
+   "term": 2,
+   "week": 8,
+   "dates": "14–20 Jun",
+   "topic": "4. Graphs",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 2,
+   "week": 9,
+   "dates": "21–27 Jun",
+   "topic": "",
+   "assessment": "",
+   "activities": "25 Jun: Matariki"
+  },
+  {
+   "term": 2,
+   "week": 10,
+   "dates": "28 Jun–4 Jul",
+   "topic": "",
+   "assessment": "CT#4: Graphs",
+   "activities": "28 Jun: Cross Country; 2 Jul: Term 2 ends"
+  },
+  {
+   "term": 3,
+   "week": 1,
+   "dates": "26 Jul–1 Aug",
+   "topic": "5. Geometry",
+   "assessment": "",
+   "activities": "26 Jul: Term 3 begins"
+  },
+  {
+   "term": 3,
+   "week": 2,
+   "dates": "2–8 Aug",
+   "topic": "",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 3,
+   "week": 3,
+   "dates": "9–15 Aug",
+   "topic": "",
+   "assessment": "",
+   "activities": "13 Aug: Subject Options evening"
+  },
+  {
+   "term": 3,
+   "week": 4,
+   "dates": "16–22 Aug",
+   "topic": "6. Mensuration",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 3,
+   "week": 5,
+   "dates": "23–29 Aug",
+   "topic": "",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 3,
+   "week": 6,
+   "dates": "30 Aug–5 Sep",
+   "topic": "",
+   "assessment": "CT#5: Geometry + Mensuration",
+   "activities": "30 Aug: Mid-term Exeat"
+  },
+  {
+   "term": 3,
+   "week": 7,
+   "dates": "6–12 Sep",
+   "topic": "7. Trigonometry",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 3,
+   "week": 8,
+   "dates": "13–19 Sep",
+   "topic": "",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 3,
+   "week": 9,
+   "dates": "20–26 Sep",
+   "topic": "8. Probability",
+   "assessment": "",
+   "activities": "24 Sep: Term 3 ends"
+  },
+  {
+   "term": 4,
+   "week": 1,
+   "dates": "11–17 Oct",
+   "topic": "9. Statistics",
+   "assessment": "",
+   "activities": "11 Oct: Term 4 begins"
+  },
+  {
+   "term": 4,
+   "week": 2,
+   "dates": "18–24 Oct",
+   "topic": "",
+   "assessment": "CT#6: Trigonometry + Probability",
+   "activities": ""
+  },
+  {
+   "term": 4,
+   "week": 3,
+   "dates": "25–31 Oct",
+   "topic": "10. Vectors",
+   "assessment": "",
+   "activities": "25 Oct: Labour Day"
+  },
+  {
+   "term": 4,
+   "week": 4,
+   "dates": "1–7 Nov",
+   "topic": "",
+   "assessment": "CT#7: Statistics + Vectors",
+   "activities": ""
+  },
+  {
+   "term": 4,
+   "week": 5,
+   "dates": "8–14 Nov",
+   "topic": "Revision",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 4,
+   "week": 6,
+   "dates": "15–21 Nov",
+   "topic": "Revision",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 4,
+   "week": 7,
+   "dates": "22–28 Nov",
+   "topic": "EOY",
+   "assessment": "",
+   "activities": "22–24 Nov: Junior Exams"
+  },
+  {
+   "term": 4,
+   "week": 8,
+   "dates": "29 Nov–5 Dec",
+   "topic": "11. Transformations",
+   "assessment": "",
+   "activities": ""
+  },
+  {
+   "term": 4,
+   "week": 9,
+   "dates": "6–12 Dec",
+   "topic": "",
+   "assessment": "",
+   "activities": "8 Dec: Junior Prizegiving / Term 4 ends; 9 Dec: Staff Only Day"
+  }
+ ],
+ "commonTestWeeks": {
+  "columns": [
+   "CT1",
+   "CT2",
+   "CT3",
+   "CT4",
+   "CT5",
+   "CT6",
+   "CT7",
+   "EOY"
+  ],
+  "classes": {
+   "MAR": [
+    "W9, T1",
+    "W3, T2",
+    "W7, T2",
+    "W10, T2",
+    "W6, T3",
+    "W2, T4",
+    "W4, T4",
+    "W7, T4"
+   ],
+   "APR": [
+    "W6, T1",
+    "W3, T2",
+    "W7, T2",
+    "W10, T2",
+    "W6, T3",
+    "W2, T4",
+    "W4, T4",
+    "W7, T4"
+   ],
+   "MAY": [
+    "W6, T1",
+    "W10, T1",
+    "W7, T2",
+    "W10, T2",
+    "W6, T3",
+    "W2, T4",
+    "W4, T4",
+    "W7, T4"
+   ],
+   "JUN": [
+    "W6, T1",
+    "W10, T1",
+    "W4, T2",
+    "W7, T2",
+    "W6, T3",
+    "W2, T4",
+    "W4, T4",
+    "W7, T4"
+   ],
+   "AUG": [
+    "W6, T1",
+    "W10, T1",
+    "W4, T2",
+    "W7, T2",
+    "W6, T3",
+    "W2, T4",
+    "W4, T4",
+    "W7, T4"
+   ],
+   "SEP": [
+    "W6, T1",
+    "W10, T1",
+    "W4, T2",
+    "W7, T2",
+    "W3, T3",
+    "W2, T4",
+    "W4, T4",
+    "W7, T4"
+   ],
+   "OCT": [
+    "W6, T1",
+    "W10, T1",
+    "W4, T2",
+    "W7, T2",
+    "W3, T3",
+    "W8, T4",
+    "W4, T4",
+    "W7, T4"
+   ]
+  },
+  "thisClass": "MAY"
+ },
+ "topics": [
+  {
+   "n": 1,
+   "slug": "number",
+   "title": "Number",
+   "status": "live",
+   "lessons": 13,
+   "revision": 1,
+   "test": "CT#1",
+   "weeks": "Term 1, weeks 1–6 (25 Jan – 7 Mar)",
+   "groups": [
+    {
+     "lessons": 1,
+     "objectives": [
+      {
+       "code": "1.1",
+       "objectives": [
+        "Identify and use natural numbers, integers (positive, negative and zero), prime numbers, square and cube numbers, common factors and common multiples, rational and irrational numbers (e.g. π, √2), real numbers, reciprocals."
+       ],
+       "notes": [
+        "Includes expressing numbers as a product of prime factors.",
+        "Finding the lowest common multiple (LCM) and highest common factor (HCF) of two numbers."
+       ],
+       "textbook": "pp. 4–11"
+      },
+      {
+       "code": "1.3",
+       "objectives": [
+        "Calculate with squares, square roots, cubes and cube roots and other powers and roots of numbers."
+       ],
+       "notes": [
+        "Work out 3² × ∛16"
+       ]
+      },
+      {
+       "code": "1.4",
+       "objectives": [
+        "Use directed numbers in practical situations."
+       ],
+       "notes": [
+        "e.g. temperature changes, flood levels."
+       ]
+      }
+     ]
+    },
+    {
+     "lessons": 3,
+     "objectives": [
+      {
+       "code": "1.5",
+       "objectives": [
+        "Use the language and notation of simple vulgar and decimal fractions and percentages in appropriate contexts.",
+        "Recognise equivalence and convert between these forms."
+       ],
+       "textbook": "pp. 24–39"
+      },
+      {
+       "code": "1.6",
+       "objectives": [
+        "Order quantities by magnitude and demonstrate familiarity with the symbols =, ≠, >, <, ≥, ≤."
+       ]
+      },
+      {
+       "code": "1.7",
+       "objectives": [
+        "Understand the meaning of indices (fractional, negative and zero) and use the rules of indices.",
+        "Use the standard form A × 10ⁿ where n is a positive or negative integer, and 1 ≤ A < 10."
+       ],
+       "notes": [
+        "5^(1/2) = √5",
+        "Find the value of 5⁻², 100^(1/2), 8^(−2/3)",
+        "Work out 2⁻³ × 2⁴, (2³)², (2⁻³ ÷ 2⁴)",
+        "Convert numbers into and out of standard form.",
+        "Calculate with values in standard form."
+       ],
+       "textbook": "pp. 62–70"
+      }
+     ]
+    },
+    {
+     "lessons": 2,
+     "objectives": [
+      {
+       "code": "1.8",
+       "objectives": [
+        "Use the four rules for calculations with whole numbers, decimals and fractions (including mixed numbers and improper fractions), including correct ordering of operations and use of brackets."
+       ],
+       "notes": [
+        "Applies to positive and negative numbers."
+       ],
+       "textbook": "pp. 33–39"
+      },
+      {
+       "code": "1.9",
+       "objectives": [
+        "Make estimates of numbers, quantities and lengths, give approximations to specified numbers of significant figures and decimal places and round off answers to reasonable accuracy in the context of a given problem."
+       ],
+       "textbook": "pp. 13–16"
+      },
+      {
+       "code": "1.10",
+       "objectives": [
+        "Give appropriate upper and lower bounds for data given to a specified accuracy."
+       ],
+       "notes": [
+        "e.g. measured lengths."
+       ],
+       "textbook": "pp. 17–18"
+      }
+     ]
+    },
+    {
+     "lessons": 3,
+     "objectives": [
+      {
+       "code": "1.11",
+       "objectives": [
+        "Demonstrate an understanding of ratio and proportion.",
+        "Calculate average speed.",
+        "Use common measures of rate."
+       ],
+       "notes": [
+        "To include numerical problems involving direct and inverse proportion.",
+        "Use ratio and scales in practical situations.",
+        "Formulae for other rates will be given in the question e.g. pressure and density."
+       ],
+       "textbook": "pp. 50–54"
+      },
+      {
+       "code": "1.12",
+       "objectives": [
+        "Calculate a given percentage of a quantity.",
+        "Express one quantity as a percentage of another.",
+        "Calculate percentage increase or decrease."
+       ],
+       "textbook": "pp. 43–47"
+      },
+      {
+       "code": "1.13",
+       "objectives": [
+        "Use a calculator efficiently.",
+        "Apply appropriate checks of accuracy."
+       ],
+       "textbook": "pp. 26–28"
+      },
+      {
+       "code": "1.14",
+       "objectives": [
+        "Calculate times in terms of the 24-hour and 12-hour clock.",
+        "Read clocks, dials and timetables."
+       ],
+       "textbook": "pp. 83–84"
+      }
+     ]
+    },
+    {
+     "lessons": 2,
+     "objectives": [
+      {
+       "code": "1.15",
+       "objectives": [
+        "Calculate using money and convert from one currency to another."
+       ],
+       "textbook": "pp. 73–81"
+      },
+      {
+       "code": "1.16",
+       "objectives": [
+        "Use given data to solve problems on personal and household finance involving earnings, simple interest and compound interest.",
+        "Extract data from tables and charts."
+       ],
+       "notes": [
+        "Includes discount, profit and loss.",
+        "Knowledge of compound interest formula is required."
+       ]
+      }
+     ]
+    },
+    {
+     "lessons": 2,
+     "objectives": [
+      {
+       "code": "1.2",
+       "objectives": [
+        "Understand notation of Venn diagrams.",
+        "Definition of sets e.g. A = {x: x is a natural number}, B = {a, b, c, …}"
+       ],
+       "notes": [
+        "Notation: number of elements in set A is n(A); universal set is ℰ; union of A and B is A ∪ B; intersection of A and B is A ∩ B."
+       ],
+       "textbook": "pp. 85–89"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "slug": "algebra",
+   "title": "Algebra",
+   "status": "outline",
+   "lessons": 13,
+   "revision": 1,
+   "test": "CT#2 (first half) and CT#3 (second half, with Coordinate Geometry)",
+   "weeks": "Starts Term 1 week 7 (8 Mar). First-half test CT#2 in Term 1 week 10; second half after camp, tested in CT#3 in Term 2 week 7",
+   "groups": [
+    {
+     "lessons": 5,
+     "objectives": [
+      {
+       "code": "2.1",
+       "objectives": [
+        "Use letters to express generalised numbers and express basic arithmetic processes algebraically.",
+        "Substitute numbers for words and letters in formulae.",
+        "Rearrange simple formulae.",
+        "Construct simple expressions and set up simple equations."
+       ],
+       "textbook": "pp. 105–106"
+      },
+      {
+       "code": "2.2",
+       "objectives": [
+        "Manipulate directed numbers.",
+        "Use brackets and extract common factors.",
+        "Expand products of algebraic expressions.",
+        "Factorise expressions of the form ax² + bx + c."
+       ],
+       "notes": [
+        "e.g. expand 3x(2x − 4y)",
+        "e.g. factorise 9x² + 15xy",
+        "Two brackets only, e.g. expand (x + 4)(x − 7)"
+       ],
+       "textbook": "pp. 102–104, 109, 111, 112"
+      }
+     ]
+    },
+    {
+     "lessons": 3,
+     "objectives": [
+      {
+       "code": "2.4",
+       "objectives": [
+        "Use and interpret positive, negative and zero indices.",
+        "Use the rules of indices."
+       ],
+       "notes": [
+        "e.g. simplify 3x⁴ × 5x, 10x³ ÷ 2x², (x⁶)²"
+       ],
+       "textbook": "pp. 122–123"
+      }
+     ]
+    },
+    {
+     "lessons": 5,
+     "objectives": [
+      {
+       "code": "2.5",
+       "objectives": [
+        "Derive and solve simple linear equations in one unknown.",
+        "Derive and solve simultaneous linear equations in two unknowns."
+       ],
+       "textbook": "pp. 126–137"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "slug": "coordinate-geometry",
+   "title": "Coordinate Geometry",
+   "status": "outline",
+   "lessons": 4,
+   "revision": 1,
+   "test": "CT#3 (with second half of Algebra)",
+   "weeks": "Term 2 weeks 6–7",
+   "groups": [
+    {
+     "lessons": 3,
+     "objectives": [
+      {
+       "code": "3.1",
+       "objectives": [
+        "Demonstrate familiarity with Cartesian coordinates in two dimensions."
+       ],
+       "textbook": "pp. 250–252"
+      },
+      {
+       "code": "3.2",
+       "objectives": [
+        "Find the gradient of a straight line."
+       ],
+       "textbook": "pp. 252–256"
+      },
+      {
+       "code": "3.4",
+       "objectives": [
+        "Interpret and obtain the equation of a straight line graph in the form y = mx + c."
+       ],
+       "notes": [
+        "Problems will involve finding the equation where the graph is given."
+       ],
+       "textbook": "pp. 257–264"
+      }
+     ]
+    },
+    {
+     "lessons": 1,
+     "objectives": [
+      {
+       "code": "3.5",
+       "objectives": [
+        "Determine the equation of a straight line parallel to a given line."
+       ],
+       "notes": [
+        "e.g. find the equation of a line parallel to y = 4x − 1 that passes through (0, −3)."
+       ],
+       "textbook": "p. 265"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "slug": "graphs",
+   "title": "Graphs",
+   "status": "outline",
+   "lessons": 7,
+   "revision": 1,
+   "test": "CT#4",
+   "weeks": "Term 2 weeks 8–10",
+   "groups": [
+    {
+     "lessons": 2,
+     "objectives": [
+      {
+       "code": "2.7",
+       "objectives": [
+        "Continue a given number sequence.",
+        "Recognise patterns in sequences including the term to term rule and relationships between different sequences.",
+        "Find and use the nth term of sequences."
+       ],
+       "notes": [
+        "Recognise sequences of square, cube and triangular numbers.",
+        "Linear, simple quadratic and cubic sequences."
+       ],
+       "textbook": "pp. 153–159"
+      }
+     ]
+    },
+    {
+     "lessons": 2,
+     "objectives": [
+      {
+       "code": "2.10",
+       "objectives": [
+        "Interpret and use graphs in practical situations including travel graphs and conversion graphs.",
+        "Draw graphs from given data."
+       ],
+       "notes": [
+        "e.g. interpret the gradient of a straight line graph as a rate of change."
+       ],
+       "textbook": "pp. 266–267, 172–177"
+      }
+     ]
+    },
+    {
+     "lessons": 3,
+     "objectives": [
+      {
+       "code": "2.11",
+       "objectives": [
+        "Construct tables of values for functions of the form ax + b, ±x² + ax + b, a/x (x ≠ 0), where a and b are integer constants.",
+        "Draw and interpret these graphs.",
+        "Solve linear and quadratic equations approximately, including finding and interpreting roots by graphical methods.",
+        "Recognise, sketch and interpret graphs of functions."
+       ],
+       "notes": [
+        "Linear and quadratic only.",
+        "Knowledge of turning points is not required."
+       ],
+       "textbook": "pp. 193–196, 198–199, 203–212"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "slug": "geometry",
+   "title": "Geometry",
+   "status": "outline",
+   "lessons": 7,
+   "revision": 0,
+   "test": "CT#5 (with Mensuration)",
+   "weeks": "Term 3 weeks 1–3",
+   "groups": [
+    {
+     "lessons": 3,
+     "objectives": [
+      {
+       "code": "4.1",
+       "objectives": [
+        "Use and interpret the geometric terms: point, line, parallel, bearing, right angle, acute, obtuse and reflex angles, perpendicular, similarity and congruence.",
+        "Use and interpret vocabulary of triangles, quadrilaterals, circles, polygons and simple solid figures including nets."
+       ],
+       "textbook": "pp. 282–287"
+      },
+      {
+       "code": "4.2",
+       "objectives": [
+        "Measure and draw lines and angles."
+       ],
+       "textbook": "p. 288"
+      },
+      {
+       "code": "4.4",
+       "objectives": [
+        "Calculate lengths of similar figures."
+       ],
+       "textbook": "pp. 293–294"
+      },
+      {
+       "code": "4.5",
+       "objectives": [
+        "Recognise congruent shapes."
+       ],
+       "textbook": "pp. 301–302"
+      },
+      {
+       "code": "4.6",
+       "objectives": [
+        "Recognise rotational and line symmetry (including order of rotational symmetry) in two dimensions."
+       ],
+       "notes": [
+        "Includes properties of triangles, quadrilaterals and circles directly related to their symmetries."
+       ],
+       "textbook": "p. 310"
+      }
+     ]
+    },
+    {
+     "lessons": 4,
+     "objectives": [
+      {
+       "code": "4.7",
+       "objectives": [
+        "Calculate unknown angles using the following geometric properties:",
+        "angles at a point",
+        "angles at a point on a straight line and intersecting straight lines",
+        "angles formed within parallel lines",
+        "angle properties of triangles and quadrilaterals",
+        "angle properties of regular polygons",
+        "angle in a semicircle",
+        "angle between tangent and radius of a circle."
+       ],
+       "notes": [
+        "Students will be expected to use the correct geometrical terminology when giving reasons for answers."
+       ],
+       "textbook": "pp. 318–329"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "slug": "mensuration",
+   "title": "Mensuration",
+   "status": "outline",
+   "lessons": 7,
+   "revision": 1,
+   "test": "CT#5 (with Geometry)",
+   "weeks": "Term 3 weeks 4–6",
+   "groups": [
+    {
+     "lessons": 7,
+     "objectives": [
+      {
+       "code": "5.1",
+       "objectives": [
+        "Use current units of mass, length, area, volume and capacity in practical situations and express quantities in terms of larger or smaller units."
+       ],
+       "notes": [
+        "Convert between units including units of area and volume."
+       ],
+       "textbook": "pp. 346–349"
+      },
+      {
+       "code": "5.2",
+       "objectives": [
+        "Carry out calculations involving the perimeter and area of a rectangle, triangle, parallelogram and trapezium and compound shapes derived from these."
+       ],
+       "textbook": "pp. 351–356"
+      },
+      {
+       "code": "5.3",
+       "objectives": [
+        "Carry out calculations involving the circumference and area of a circle.",
+        "Solve simple problems involving the arc length and sector area as fractions of the circumference and area of a circle."
+       ],
+       "notes": [
+        "Answers may be asked for in multiples of π.",
+        "Where the sector angle is a factor of 360."
+       ],
+       "textbook": "pp. 356–358, 365–370"
+      },
+      {
+       "code": "5.4",
+       "objectives": [
+        "Carry out calculations involving the surface area and volume of a cuboid, prism and cylinder.",
+        "Carry out calculations involving the surface area and volume of a sphere, pyramid and cone."
+       ],
+       "notes": [
+        "Answers may be asked for in multiples of π.",
+        "Formulae will be given for the surface area and volume of the sphere, pyramid and cone in the question."
+       ],
+       "textbook": "pp. 359–364, 371–382"
+      },
+      {
+       "code": "5.5",
+       "objectives": [
+        "Carry out calculations involving the areas and volumes of compound shapes."
+       ],
+       "notes": [
+        "Answers may be asked for in multiples of π."
+       ],
+       "textbook": "pp. 355, 364, 381–382"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 7,
+   "slug": "trigonometry",
+   "title": "Trigonometry",
+   "status": "outline",
+   "lessons": 7,
+   "revision": 0,
+   "test": "CT#6 (with Probability)",
+   "weeks": "Term 3 weeks 7–8",
+   "groups": [
+    {
+     "lessons": 7,
+     "objectives": [
+      {
+       "code": "6.1",
+       "objectives": [
+        "Interpret and use three-figure bearings."
+       ],
+       "notes": [
+        "Measure clockwise from the North, i.e. 000° – 360°."
+       ],
+       "textbook": "pp. 392–393"
+      },
+      {
+       "code": "6.2",
+       "objectives": [
+        "Apply Pythagoras’ theorem and the sine, cosine and tangent ratios for acute angles to the calculation of a side or of an angle of a right-angled triangle."
+       ],
+       "notes": [
+        "Angles will be quoted in degrees. Answers should be written in degrees and decimals to one decimal place."
+       ],
+       "textbook": "pp. 394–405"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 8,
+   "slug": "probability",
+   "title": "Probability",
+   "status": "outline",
+   "lessons": 3,
+   "revision": 1,
+   "test": "CT#6 (with Trigonometry)",
+   "weeks": "Term 3 week 9",
+   "groups": [
+    {
+     "lessons": 3,
+     "objectives": [
+      {
+       "code": "8.1",
+       "objectives": [
+        "Calculate the probability of a single event as either a fraction, decimal or percentage."
+       ],
+       "notes": [
+        "Problems could be set involving extracting information from tables or graphs."
+       ],
+       "textbook": "pp. 476–487"
+      },
+      {
+       "code": "8.2",
+       "objectives": [
+        "Understand and use the probability scale from 0 to 1."
+       ]
+      },
+      {
+       "code": "8.3",
+       "objectives": [
+        "Understand that the probability of an event occurring = 1 – the probability of the event not occurring."
+       ]
+      },
+      {
+       "code": "8.4",
+       "objectives": [
+        "Understand relative frequency as an estimate of probability.",
+        "Expected frequency of occurrences."
+       ]
+      },
+      {
+       "code": "8.5",
+       "objectives": [
+        "Calculate the probability of simple combined events, using possibility diagrams, tree diagrams and Venn diagrams."
+       ],
+       "notes": [
+        "In possibility diagrams, outcomes will be represented by points on a grid, and in tree diagrams, outcomes will be written at the end of branches and probabilities by the side of the branches.",
+        "Venn diagrams will be limited to two sets."
+       ],
+       "textbook": "pp. 488–492"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 9,
+   "slug": "statistics",
+   "title": "Statistics",
+   "status": "outline",
+   "lessons": 5,
+   "revision": 0,
+   "test": "CT#7 (with Vectors)",
+   "weeks": "Term 4 weeks 1–2",
+   "groups": [
+    {
+     "lessons": 5,
+     "objectives": [
+      {
+       "code": "9.1",
+       "objectives": [
+        "Collect, classify and tabulate statistical data."
+       ],
+       "textbook": "pp. 510–517"
+      },
+      {
+       "code": "9.2",
+       "objectives": [
+        "Read, interpret and draw simple inferences from tables and statistical diagrams.",
+        "Compare sets of data using tables, graphs and statistical measures.",
+        "Appreciate restrictions on drawing conclusions from given data."
+       ]
+      },
+      {
+       "code": "9.3",
+       "objectives": [
+        "Construct and interpret bar charts, pie charts, pictograms, stem-and-leaf diagrams, simple frequency distributions, histograms with equal intervals and scatter diagrams."
+       ]
+      },
+      {
+       "code": "9.4",
+       "objectives": [
+        "Calculate the mean, median, mode and range for individual and discrete data and distinguish between the purposes for which they are used."
+       ],
+       "textbook": "pp. 504–506"
+      },
+      {
+       "code": "9.7",
+       "objectives": [
+        "Understand what is meant by positive, negative and zero correlation with reference to a scatter diagram."
+       ],
+       "textbook": "pp. 519–527"
+      },
+      {
+       "code": "9.8",
+       "objectives": [
+        "Draw, interpret and use lines of best fit by eye."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 10,
+   "slug": "vectors",
+   "title": "Vectors",
+   "status": "outline",
+   "lessons": 2,
+   "revision": 1,
+   "test": "CT#7 (with Statistics)",
+   "weeks": "Term 4 week 3",
+   "groups": [
+    {
+     "lessons": 2,
+     "objectives": [
+      {
+       "code": "7.1",
+       "objectives": [
+        "Describe a translation by using a vector represented by a column vector (x, y), AB→ or a.",
+        "Add and subtract vectors.",
+        "Multiply a vector by a scalar."
+       ],
+       "textbook": "pp. 440–444"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 11,
+   "slug": "transformations",
+   "title": "Transformations",
+   "status": "outline",
+   "lessons": 2,
+   "revision": 0,
+   "test": "None listed",
+   "weeks": "Term 4 week 8 (29 Nov – 5 Dec)",
+   "groups": [
+    {
+     "lessons": 2,
+     "objectives": [
+      {
+       "code": "7.2",
+       "objectives": [
+        "Reflect simple plane figures in horizontal or vertical lines.",
+        "Rotate simple plane figures about the origin, vertices or midpoints of edges of the figures, through multiples of 90°.",
+        "Construct given translations and enlargements of simple plane figures.",
+        "Recognise and describe reflections, rotations, translations and enlargements."
+       ],
+       "notes": [
+        "Positive and fractional scale factors for enlargements only."
+       ],
+       "textbook": "pp. 452–462"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "coreSyllabusPages": {
+  "C1 Number": [
+   [
+    "C1.1",
+    "Types of numbers",
+    "20–25"
+   ],
+   [
+    "C1.2",
+    "Sets",
+    "306–309"
+   ],
+   [
+    "C1.3",
+    "Powers and roots",
+    "20–25, 30–34"
+   ],
+   [
+    "C1.4",
+    "Directed numbers",
+    "10–13"
+   ],
+   [
+    "C1.5",
+    "Fractions, decimals and percentages",
+    "14–19, 26–29, 182–183"
+   ],
+   [
+    "C1.6",
+    "Ordering",
+    "2–5, 14–19, 26–29"
+   ],
+   [
+    "C1.7",
+    "Indices and standard form",
+    "30–37"
+   ],
+   [
+    "C1.8",
+    "The four operations",
+    "4–9, 14–19, 26–29"
+   ],
+   [
+    "C1.9",
+    "Estimation and approximation",
+    "118–125"
+   ],
+   [
+    "C1.10",
+    "Limits of accuracy",
+    "126–127"
+   ],
+   [
+    "C1.11",
+    "Ratio and proportion",
+    "196–209"
+   ],
+   [
+    "C1.12",
+    "Percentages",
+    "184–195"
+   ],
+   [
+    "C1.13",
+    "Using a calculator",
+    "128–131"
+   ],
+   [
+    "C1.14",
+    "Time",
+    "218–222"
+   ],
+   [
+    "C1.15",
+    "Money",
+    "188–195"
+   ],
+   [
+    "C1.16",
+    "Personal and household finance",
+    "188–195"
+   ]
+  ],
+  "C2 Algebra and graphs": [
+   [
+    "C2.1",
+    "Introduction to algebra",
+    "42–44, 320–323"
+   ],
+   [
+    "C2.2",
+    "Algebraic manipulation",
+    "55–57"
+   ],
+   [
+    "C2.4",
+    "Indices",
+    "30–34, 65–66"
+   ],
+   [
+    "C2.5",
+    "Equations",
+    "58–64, 324–331"
+   ],
+   [
+    "C2.7",
+    "Sequences",
+    "45–54"
+   ],
+   [
+    "C2.10",
+    "Graphs in practical situations",
+    "280–289"
+   ],
+   [
+    "C2.11",
+    "Graphs of functions",
+    "264–289"
+   ]
+  ],
+  "C3 Coordinate geometry": [
+   [
+    "C3.1",
+    "Cartesian coordinates",
+    "264–270"
+   ],
+   [
+    "C3.2",
+    "Gradient of a straight line",
+    "271–277"
+   ],
+   [
+    "C3.4",
+    "Equation of a straight line",
+    "271–277"
+   ],
+   [
+    "C3.5",
+    "Parallel lines",
+    "271–277"
+   ]
+  ],
+  "C4 Geometry": [
+   [
+    "C4.1",
+    "Geometrical terms and vocabulary",
+    "74–102, 103–112"
+   ],
+   [
+    "C4.2",
+    "Measuring, drawing and constructions",
+    "74–87"
+   ],
+   [
+    "C4.3",
+    "Scale drawings",
+    "103–105"
+   ],
+   [
+    "C4.4",
+    "Similarity",
+    "362–365"
+   ],
+   [
+    "C4.5",
+    "Congruence",
+    "79–99, 362–365"
+   ],
+   [
+    "C4.6",
+    "Symmetry",
+    "100–102, 336–353"
+   ],
+   [
+    "C4.7",
+    "Angle properties",
+    "79–99"
+   ]
+  ],
+  "C5 Mensuration": [
+   [
+    "C5.1",
+    "Units of measurement",
+    "215–217"
+   ],
+   [
+    "C5.2",
+    "Perimeter and area",
+    "228–233"
+   ],
+   [
+    "C5.3",
+    "Circles, circumference, arcs and sectors",
+    "234–245"
+   ],
+   [
+    "C5.4",
+    "Surface area and volume",
+    "246–255"
+   ],
+   [
+    "C5.5",
+    "Compound shapes",
+    "228–255"
+   ]
+  ],
+  "C6 Trigonometry": [
+   [
+    "C6.1",
+    "Bearings",
+    "106–112"
+   ],
+   [
+    "C6.2",
+    "Pythagoras and right-angled trigonometry",
+    "366–375"
+   ]
+  ],
+  "C7 Vectors and transformations": [
+   [
+    "C7.1",
+    "Vectors and vector operations",
+    "Use Extended book"
+   ],
+   [
+    "C7.2",
+    "Transformations",
+    "336–361"
+   ]
+  ],
+  "C8 Probability": [
+   [
+    "C8.1",
+    "Probability of a single event",
+    "296–300"
+   ],
+   [
+    "C8.2",
+    "Probability scale",
+    "296–300"
+   ],
+   [
+    "C8.3",
+    "Complementary probability",
+    "296–300"
+   ],
+   [
+    "C8.4",
+    "Relative frequency",
+    "303–305"
+   ],
+   [
+    "C8.5",
+    "Combined events",
+    "301–312"
+   ]
+  ],
+  "C9 Statistics": [
+   [
+    "C9.1",
+    "Collecting and organising data",
+    "154–163"
+   ],
+   [
+    "C9.2",
+    "Interpreting statistical data",
+    "136–174"
+   ],
+   [
+    "C9.3",
+    "Statistical diagrams",
+    "144–174"
+   ],
+   [
+    "C9.4",
+    "Mean, median, mode and range",
+    "136–143"
+   ],
+   [
+    "C9.7",
+    "Correlation",
+    "168–174"
+   ],
+   [
+    "C9.8",
+    "Lines of best fit",
+    "168–174"
+   ]
+  ]
+ }
+}

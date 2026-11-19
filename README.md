@@ -1,30 +1,43 @@
 # Interactive Maths
 
-An interactive learning resource for Year 10 Mathematics (King's College 10MAY scheme of work, Cambridge IGCSE Core).
-Each lesson has short explanations, things to play with, and practice questions that mark themselves.
+An interactive learning resource for Year 10 Mathematics, following the King's College 10MAY scheme of work for 2027 (Cambridge IGCSE Core). Each lesson has short explanations, things to play with, and practice questions that mark themselves.
 
-It is a plain static website (HTML, CSS and JavaScript). There is no build step and no dependencies.
+It is a plain static website (HTML, CSS and JavaScript) with no build step and no dependencies for the lessons.
 
-## Contents
+**Live site:** https://nzvman.github.io/interactive-maths/ (once GitHub Pages is switched on; see `PLAN.md`)
+
+## Where things are up to
 
 | Topic | Status |
 |---|---|
-| 1. Number | Lessons 1–3 done (types of numbers, indices and standard form, fractions/decimals/percentages) |
-| 2–11 | Not started |
+| 1. Number | Lessons 1–3 built; lessons 4–11 planned |
+| 2–11 | Outline pages generated from the handbook; interactive lessons not started |
 
-## Viewing it
+Full status, the next steps and the lesson checklist are in **[PLAN.md](PLAN.md)**.
 
-Open `index.html` in a browser, or turn on GitHub Pages (Settings → Pages → deploy from the main branch, root folder) to get a link students can use.
+## Picking this up from any Claude client
 
-## Layout
+1. Open this repository in Claude (Claude Code, or a claude.ai chat with the GitHub repository attached).
+2. Say: *"Read CLAUDE.md and PLAN.md, then build the next unchecked lesson."*
+3. Claude works on a branch, runs the tests, updates `PLAN.md`, and pushes. Merge to `main` when you are happy.
 
-- `index.html`: home page listing the topics
-- `number/`: Topic 1 pages and one script per lesson
-- `assets/style.css`: shared styles (light and dark mode)
-- `assets/maths.js`: shared maths helpers and the practice-question engine
-- `tests/`: `node tests/maths.test.js` checks the maths helpers; `node tests/browser.test.js` loads every page in headless Chrome (needs Playwright)
+Details for each client are in **[CLAUDE.md](CLAUDE.md)**.
 
-## Adding a practice question type
+## What is in the repository
+
+- `index.html`, `number/`: the website (Topic 1 lessons are hand-written)
+- `course/scheme-of-work.json`: the handbook as structured data (topics, objectives, lesson counts, textbook pages, timeline, common tests, command words)
+- `course/handbook.md` and `course/index.html`: readable copies of that data, plus the "Course information" page for students
+- `<topic>/index.html` for Topics 2–11: outline pages of what each topic covers
+- `assets/style.css`, `assets/maths.js`: shared styles, maths helpers and the practice-question engine
+- `tools/build-site.js`: regenerates the home page, course page, handbook copy and outline pages from the JSON
+- `tests/`: `node tests/maths.test.js` (logic) and `node tests/browser.test.js` (loads every page in headless Chrome and checks every practice question type)
+
+## Working on it
+
+View locally by opening `index.html` in a browser. After changing `course/scheme-of-work.json`, run `node tools/build-site.js`.
+
+### Adding a practice question type
 
 In a lesson script, register a generator and put `<div data-practice="name"></div>` in the page:
 
@@ -36,3 +49,7 @@ M.registerPractice("name", () => ({
   hint: "Shown after a wrong answer."
 }));
 ```
+
+## Source
+
+Course content is taken from the *10MAY Mathematics Course Handbook 2027* (King's College, revised November 2026). Textbook page numbers refer to Cambridge IGCSE Core Mathematics 4th edition (Pimentel & Wall).

@@ -2,7 +2,9 @@
 const { chromium } = require("/opt/npm-tools/node_modules/playwright");
 const path = require("path");
 const root = path.resolve(__dirname, "..");
-const pages = ["index.html", "number/index.html", "number/lesson-1-types-of-numbers.html", "number/lesson-2-indices-standard-form.html", "number/lesson-3-fractions-decimals-percentages.html"];
+const fs = require("fs");
+const extra = ["course", "algebra", "coordinate-geometry", "graphs", "geometry", "mensuration", "trigonometry", "probability", "statistics", "vectors", "transformations"].map((d) => d + "/index.html");
+const pages = extra.concat(["index.html", "number/index.html", "number/lesson-1-types-of-numbers.html", "number/lesson-2-indices-standard-form.html", "number/lesson-3-fractions-decimals-percentages.html"]);
 
 (async () => {
   const browser = await chromium.launch({ executablePath: "/usr/bin/google-chrome", args: ["--no-sandbox"] });
