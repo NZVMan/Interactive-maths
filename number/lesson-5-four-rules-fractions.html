@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 5: Four rules, fractions and order of operations – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 1: Number</a> › Lesson 5</div></header>
+<main id="main">
+  <span class="tag">Topic 1 · Lesson 5</span>
+  <h1>Four rules, fractions and order of operations</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>do calculations in the right order, using brackets and powers</li>
+      <li>add, subtract, multiply and divide fractions, including mixed numbers and improper fractions</li>
+      <li>add, subtract, multiply and divide decimals</li>
+      <li>do all of this with positive and negative numbers</li>
+    </ul>
+  </div>
+
+  <h2>1. Order of operations</h2>
+  <p>A calculation has to be done in the right order, or two people get two different answers. Work through it like this:</p>
+  <ol>
+    <li><strong>B</strong>rackets</li>
+    <li><strong>I</strong>ndices (powers and roots)</li>
+    <li><strong>D</strong>ivision and <strong>M</strong>ultiplication, from left to right</li>
+    <li><strong>A</strong>ddition and <strong>S</strong>ubtraction, from left to right</li>
+  </ol>
+  <div class="key">Multiplication and division have equal priority, so work from the left: <span class="m">8 ÷ 2 × 4 = 4 × 4 = 16</span>. Addition and subtraction work the same way.</div>
+
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> Is <span class="m">2 + 3 × 4</span> equal to 20 or 14?<details><summary>Check my prediction</summary><p>14. Multiplication comes before addition, so 3 × 4 = 12 first, then 2 + 12 = 14.</p></details></div>
+    <p>Type an expression, or tap an example. Use + − × ÷ ^ and brackets.</p>
+    <div class="row">
+      <input type="text" id="op-in" value="2 + 3 × 4" size="22" aria-label="Expression" autocapitalize="off" spellcheck="false">
+      <button class="btn" id="op-go" type="button">Show steps</button>
+    </div>
+    <div class="chips" id="op-ex"></div>
+    <div id="op-out" class="out" aria-live="polite"></div>
+  </div>
+  <div class="worked">
+    <p>Work out <span class="m">20 − 3 × (4 + 1)</span>.</p>
+    <p class="m">Brackets: 4 + 1 = 5, so 20 − 3 × 5</p>
+    <p class="m">Multiply: 3 × 5 = 15, so 20 − 15</p>
+    <p class="m">Subtract: 20 − 15 = 5</p>
+  </div>
+  <div data-practice="orderops"></div>
+
+  <h2>2. Fractions</h2>
+  <ul>
+    <li><strong>Simplify</strong> by dividing the top and bottom by their HCF: <span class="m">6/8 = 3/4</span>.</li>
+    <li><strong>Add or subtract</strong> by first giving both fractions the same bottom number (a common denominator), then adding or subtracting the tops.</li>
+    <li><strong>Multiply</strong> the tops together and the bottoms together.</li>
+    <li><strong>Divide</strong> by flipping the second fraction and multiplying: <span class="m">a ÷ b = a × (flipped b)</span>.</li>
+    <li>A <strong>mixed number</strong> like <span class="m">2 1/3</span> is a whole number and a fraction. Change it to an <strong>improper fraction</strong> (<span class="m">7/3</span>) before you multiply or divide.</li>
+  </ul>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> Is <span class="m">1/2 + 1/3</span> equal to <span class="m">2/5</span>?<details><summary>Check my prediction</summary><p>No. You can't add the tops and the bottoms. Use a common denominator of 6: 3/6 + 2/6 = 5/6.</p></details></div>
+    <p>Type fractions like <span class="m">3/4</span>, mixed numbers like <span class="m">2 1/3</span>, or negatives like <span class="m">−1/2</span>.</p>
+    <div class="row">
+      <input type="text" id="fc-a" value="1/2" size="7" aria-label="First fraction" autocapitalize="off" spellcheck="false">
+      <select id="fc-op" aria-label="Operation"><option value="+" selected>+</option><option value="-">−</option><option value="*">×</option><option value="/">÷</option></select>
+      <input type="text" id="fc-b" value="1/3" size="7" aria-label="Second fraction" autocapitalize="off" spellcheck="false">
+    </div>
+    <div id="fc-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="fracops"></div>
+
+  <h2>3. Decimals</h2>
+  <ul>
+    <li><strong>Add and subtract</strong> by lining up the decimal points.</li>
+    <li><strong>Multiply</strong> by ignoring the decimal points, multiplying, then putting the point back so the answer has as many decimal places as both numbers together.</li>
+    <li><strong>Divide by a decimal</strong> by multiplying both numbers by 10 (or 100) until you are dividing by a whole number: <span class="m">5.6 ÷ 0.7 = 56 ÷ 7 = 8</span>.</li>
+  </ul>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> Is <span class="m">0.3 × 0.4</span> equal to 1.2 or 0.12?<details><summary>Check my prediction</summary><p>0.12. 3 × 4 = 12, and there are 2 decimal places altogether, so the answer is 0.12.</p></details></div>
+    <div class="row">
+      <input type="text" id="dm-a" value="0.3" size="7" inputmode="decimal" aria-label="First decimal">
+      <span aria-hidden="true">×</span>
+      <input type="text" id="dm-b" value="0.4" size="7" inputmode="decimal" aria-label="Second decimal">
+    </div>
+    <div id="dm-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="decops"></div>
+
+  <div class="nav"><a class="btn ghost" href="lesson-4-directed-numbers-roots.html">‹ Lesson 4</a><a class="btn" href="lesson-6-estimating-rounding-bounds.html">Lesson 6 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="lesson5.js"></script>
+</body>
+</html>

@@ -124,3 +124,11 @@ input::placeholder { color: var(--muted); opacity: 1; }
 output { font-weight: 700; min-width: 2ch; }
 table.t.compact { min-width: 0 !important; } table.t.compact th, table.t.compact td { padding: 4px 6px; text-align: center; font-size: 15px; }
 .tablewrap table.t.compact { min-width: 0; }
+.frac { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; line-height: 1.15; margin: 0 2px; font-size: .95em; }
+.frac > span:first-child { border-bottom: 1.5px solid currentColor; padding: 0 3px; }
+.frac > span:last-child { padding: 0 3px; }
+.steps { margin: 8px 0; padding-left: 1.3em; }
+.steps li { margin: 4px 0; }
+.chips button.chip { cursor: pointer; font: inherit; font-size: 15px; min-height: 40px; color: var(--ink); }
+.chips button.chip:hover { border-color: var(--accent); }
+.chips button.chip:focus-visible { outline: 3px solid var(--hi); outline-offset: 2px; }

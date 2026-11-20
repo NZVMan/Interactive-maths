@@ -4,7 +4,7 @@ const path = require("path");
 const root = path.resolve(__dirname, "..");
 const fs = require("fs");
 const extra = ["course", "algebra", "coordinate-geometry", "graphs", "geometry", "mensuration", "trigonometry", "probability", "statistics", "vectors", "transformations"].map((d) => d + "/index.html");
-const pages = extra.concat(["index.html", "number/index.html", "number/lesson-1-types-of-numbers.html", "number/lesson-2-indices-standard-form.html", "number/lesson-3-fractions-decimals-percentages.html"]);
+const pages = extra.concat(["index.html", "number/index.html"].concat(fs.readdirSync(path.join(__dirname,"..","number")).filter((f)=>/^lesson-\d+-.*\.html$/.test(f)).map((f)=>"number/"+f)));
 
 (async () => {
   const browser = await chromium.launch({ executablePath: "/usr/bin/google-chrome", args: ["--no-sandbox"] });

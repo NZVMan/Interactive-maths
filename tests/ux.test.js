@@ -1,3 +1,4 @@
+const fs = require("fs");
 // Interaction tests: practice sets, symbol keys, choices, progress saving, jump links, no sideways scroll.
 const { chromium } = require("/opt/npm-tools/node_modules/playwright");
 const path = require("path");
@@ -46,7 +47,7 @@ const ok = (cond, msg) => { if (!cond) { failed++; console.log("FAIL", msg); } e
   ok(/1 of 3 sets done/.test(txt), "topic page shows saved progress (" + txt + ")");
 
   // 4. no sideways scrolling on phone width
-  for (const p of ["index.html", "course/index.html", "number/index.html", "number/lesson-1-types-of-numbers.html", "number/lesson-2-indices-standard-form.html", "number/lesson-3-fractions-decimals-percentages.html", "algebra/index.html"]) {
+  for (const p of ["index.html", "course/index.html", "number/index.html", "algebra/index.html"].concat(fs.readdirSync(path.join(__dirname,"..","number")).filter((f)=>/^lesson-\d+-.*\.html$/.test(f)).map((f)=>"number/"+f))) {
     await page.goto(url(p));
     const w = await page.evaluate(() => document.documentElement.scrollWidth);
     ok(w <= 390, "no sideways scroll: " + p + " (" + w + ")");

@@ -146,6 +146,241 @@
     return { value, label, sets };
   }
 
+
+  /* ---------- Fractions (as [numerator, denominator], always simplified, denominator > 0) ---------- */
+  const fr = (n, d) => simplify(n, d);
+  const fracAdd = (a, b) => fr(a[0] * b[1] + b[0] * a[1], a[1] * b[1]);
+  const fracSub = (a, b) => fr(a[0] * b[1] - b[0] * a[1], a[1] * b[1]);
+  const fracMul = (a, b) => fr(a[0] * b[0], a[1] * b[1]);
+  const fracDiv = (a, b) => fr(a[0] * b[1], a[1] * b[0]);
+  const fracStr = (f) => (f[1] === 1 ? minus(f[0]) : minus(f[0]) + "/" + f[1]);
+  function mixedStr(f) {
+    const neg = f[0] < 0, n = Math.abs(f[0]), d = f[1];
+    if (d === 1 || n < d) return fracStr(f);
+    const w = Math.floor(n / d), r = n % d;
+    return (neg ? "−" : "") + w + (r ? " " + r + "/" + d : "");
+  }
+  /* "3/4", "−1/2", "2 1/3", "5" -> [n, d] (simplified), or null */
+  function parseFracInput(str) {
+    const s = String(str).trim().replace(/−/g, "-").replace(/\s+/g, " ");
+    let m;
+    if ((m = /^(-?)(\d+) (\d+)\/(\d+)$/.exec(s))) { const d = +m[4]; if (!d) return null; return fr((m[1] ? -1 : 1) * (+m[2] * d + +m[3]), d); }
+    if ((m = /^(-?\d+)\s*\/\s*(\d+)$/.exec(s))) { const d = +m[2]; return d ? fr(+m[1], d) : null; }
+    if ((m = /^-?\d+$/.exec(s))) return [parseInt(s, 10), 1];
+    return null;
+  }
+  /* Like parseFracInput but also reports whether the student's form is already in simplest terms. */
+  function parseFracAnswer(str) {
+    const s = String(str).trim().replace(/−/g, "-").replace(/\s+/g, " ");
+    const v = parseFracInput(s);
+    if (!v) return null;
+    let m, simplest = true;
+    if ((m = /^-?(\d+) (\d+)\/(\d+)$/.exec(s))) simplest = gcd(+m[2], +m[3]) === 1 && +m[2] < +m[3];
+    else if ((m = /^-?(\d+)\s*\/\s*(\d+)$/.exec(s))) simplest = gcd(+m[1], +m[2]) === 1;
+    return { n: v[0], d: v[1], simplest };
+  }
+
+  /* ---------- Rounding (half up, done on the decimal digits so 1.005 -> 1.01) ---------- */
+  function roundDP(x, dp) {
+    if (!isFinite(x)) return x;
+    const sgn = x < 0 ? -1 : 1, a = Math.abs(x);
+    const r = Number(Math.round(Number(a + "e" + dp)) + "e" + (-dp));
+    return sgn * (isNaN(r) ? Math.round(a * Math.pow(10, dp)) / Math.pow(10, dp) : r);
+  }
+  function roundSF(x, sf) {
+    if (x === 0 || !isFinite(x)) return x;
+    let e = Math.floor(Math.log10(Math.abs(x)));
+    if (Math.abs(x) >= Math.pow(10, e + 1)) e += 1;
+    const dp = sf - 1 - e;
+    if (dp >= 0) return roundDP(x, dp);
+    const f = Math.pow(10, -dp);
+    return Math.sign(x) * Math.round(Math.abs(x) / f + 1e-12) * f;
+  }
+  const toFixedDP = (x, dp) => roundDP(x, dp).toFixed(Math.max(0, dp));
+  function toSF(x, sf) {
+    const r = roundSF(x, sf);
+    if (r === 0) return "0";
+    const e = Math.floor(Math.log10(Math.abs(r)) + 1e-12);
+    const dp = sf - 1 - e;
+    return dp > 0 ? r.toFixed(dp) : String(r);
+  }
+
+  /* ---------- Expression evaluator that shows its steps (brackets, powers, ×÷, +−) ---------- */
+  const OPNAME = { "^": "Power", "*": "Multiply", "/": "Divide", "+": "Add", "-": "Subtract" };
+  const OPSYM = { "^": "^", "*": "×", "/": "÷", "+": "+", "-": "−" };
+  function tokenise(src) {
+    const s = String(src).replace(/\s+/g, "");
+    if (!s) return { error: "Type an expression, like 3 + 4 × 2." };
+    if (s.length > 60) return { error: "That expression is too long. Keep it under 60 characters." };
+    const t = [];
+    for (let i = 0; i < s.length;) {
+      const c = s[i];
+      if (/[0-9.]/.test(c)) {
+        let j = i; while (j < s.length && /[0-9.]/.test(s[j])) j++;
+        const txt = s.slice(i, j);
+        if (!/^(\d+\.?\d*|\.\d+)$/.test(txt)) return { error: "I can't read the number " + txt + "." };
+        t.push({ k: "num", v: parseFloat(txt) }); i = j; continue;
+      }
+      if (c === "+") t.push({ k: "op", v: "+" });
+      else if (c === "-" || c === "−" || c === "–") t.push({ k: "op", v: "-" });
+      else if (c === "×" || c === "*" || c === "x" || c === "X" || c === "·") t.push({ k: "op", v: "*" });
+      else if (c === "÷" || c === "/") t.push({ k: "op", v: "/" });
+      else if (c === "^") t.push({ k: "op", v: "^" });
+      else if (c === "(") t.push({ k: "(" });
+      else if (c === ")") t.push({ k: ")" });
+      else if (/[²³]/.test(c)) { t.push({ k: "op", v: "^" }); t.push({ k: "num", v: c === "²" ? 2 : 3 }); }
+      else return { error: "I can't use the symbol " + c + " here. Use numbers, + − × ÷ ^ and brackets." };
+      i++;
+    }
+    // implicit multiplication: 2(3+4), (1+2)(3+4), (1+2)3
+    const u = [];
+    t.forEach((tok, idx) => {
+      const prev = u[u.length - 1];
+      if (prev && (prev.k === "num" || prev.k === ")") && (tok.k === "(" || tok.k === "num")) u.push({ k: "op", v: "*" });
+      u.push(tok);
+    });
+    // unary minus: merge into a number unless followed by a power (so −3² = −9) ; otherwise mark as "neg"
+    const out = [];
+    for (let i = 0; i < u.length; i++) {
+      const tok = u[i], prev = out[out.length - 1];
+      const unary = tok.k === "op" && (tok.v === "-" || tok.v === "+") && (!prev || prev.k === "op" || prev.k === "neg" || prev.k === "(");
+      if (unary) {
+        if (tok.v === "+") continue;
+        const nx = u[i + 1], after = u[i + 2];
+        if (nx && nx.k === "num" && !(after && after.k === "op" && after.v === "^")) { out.push({ k: "num", v: -nx.v }); i++; }
+        else out.push({ k: "neg" });
+      } else out.push(tok);
+    }
+    let depth = 0;
+    for (const tok of out) { if (tok.k === "(") depth++; if (tok.k === ")") { depth--; if (depth < 0) return { error: "There is a closing bracket without an opening one." }; } }
+    if (depth !== 0) return { error: "A bracket is not closed." };
+    return { tokens: out };
+  }
+  function show(tokens) {
+    let out = "";
+    tokens.forEach((t, i) => {
+      const prev = tokens[i - 1];
+      if (t.k === "num") {
+        const txt = fmtNum(Math.abs(t.v));
+        if (t.v < 0) out += prev && (prev.k === "op" || prev.k === "neg") ? "(−" + txt + ")" : "−" + txt;
+        else out += txt;
+      } else if (t.k === "op") out += " " + OPSYM[t.v] + " ";
+      else if (t.k === "neg") out += "−";
+      else out += t.k;
+    });
+    return out.replace(/ +/g, " ").replace(/\( /g, "(").replace(/ \)/g, ")").trim();
+  }
+  function flat(tokens) { // pick and perform one operation on a bracket-free list; returns {tokens, note} or {error}
+    const isNum = (t) => t && t.k === "num";
+    let i = -1;
+    for (let j = tokens.length - 1; j >= 0; j--) if (tokens[j].k === "op" && tokens[j].v === "^" && isNum(tokens[j - 1]) && isNum(tokens[j + 1])) { i = j; break; }
+    if (i < 0) for (let j = 0; j < tokens.length; j++) if (tokens[j].k === "neg" && isNum(tokens[j + 1])) {
+      const v = -tokens[j + 1].v;
+      return { tokens: tokens.slice(0, j).concat([{ k: "num", v }], tokens.slice(j + 2)), note: "Make " + fmtNum(tokens[j + 1].v) + " negative: " + fmtNum(v).replace("-", "−") };
+    }
+    if (i < 0) for (let j = 0; j < tokens.length; j++) if (tokens[j].k === "op" && (tokens[j].v === "*" || tokens[j].v === "/") && isNum(tokens[j - 1]) && isNum(tokens[j + 1])) { i = j; break; }
+    if (i < 0) for (let j = 0; j < tokens.length; j++) if (tokens[j].k === "op" && (tokens[j].v === "+" || tokens[j].v === "-") && isNum(tokens[j - 1]) && isNum(tokens[j + 1])) { i = j; break; }
+    if (i < 0) return { error: "That expression doesn't make sense. Check for a missing number or a double operation." };
+    const a = tokens[i - 1].v, b = tokens[i + 1].v, op = tokens[i].v;
+    let v;
+    if (op === "^") { if (a === 0 && b < 0) return { error: "You can't divide by zero." }; v = Math.pow(a, b); if (!isFinite(v) || Math.abs(v) > 1e12) return { error: "That number gets too big for this tool." }; }
+    else if (op === "*") v = a * b;
+    else if (op === "/") { if (b === 0) return { error: "You can't divide by zero." }; v = a / b; }
+    else if (op === "+") v = a + b; else v = a - b;
+    v = parseFloat(v.toPrecision(12));
+    const pa = a < 0 ? "(" + fmtNum(a).replace("-", "−") + ")" : fmtNum(a), pb = b < 0 ? "(" + fmtNum(b).replace("-", "−") + ")" : fmtNum(b);
+    const res = fmtNum(v).replace("-", "−");
+    return { tokens: tokens.slice(0, i - 1).concat([{ k: "num", v }], tokens.slice(i + 2)), note: OPNAME[op] + ": " + pa + " " + OPSYM[op] + " " + pb + " = " + res };
+  }
+  function evalSteps(src) {
+    const tk = tokenise(src);
+    if (tk.error) return { error: tk.error };
+    let tokens = tk.tokens;
+    const steps = [];
+    for (let guard = 0; guard < 60; guard++) {
+      if (tokens.length === 1 && tokens[0].k === "num") return { ok: true, start: show(tk.tokens), steps, result: tokens[0].v };
+      // drop brackets around a single number
+      let changed = false;
+      for (let i = 0; i + 2 < tokens.length; i++) if (tokens[i].k === "(" && tokens[i + 1].k === "num" && tokens[i + 2].k === ")") { tokens = tokens.slice(0, i).concat([tokens[i + 1]], tokens.slice(i + 3)); changed = true; break; }
+      if (changed) continue;
+      // innermost bracket
+      let open = -1, close = -1;
+      for (let i = 0; i < tokens.length; i++) { if (tokens[i].k === "(") open = i; if (tokens[i].k === ")") { close = i; break; } }
+      let r;
+      if (open >= 0 && close > open) {
+        const inner = tokens.slice(open + 1, close);
+        r = flat(inner);
+        if (r.error) return { error: r.error };
+        r.tokens = tokens.slice(0, open + 1).concat(r.tokens, tokens.slice(close));
+        r.note = "Brackets first. " + r.note;
+      } else {
+        r = flat(tokens);
+        if (r.error) return { error: r.error };
+      }
+      tokens = r.tokens;
+      for (let i = 0; i + 2 < tokens.length; i++) if (tokens[i].k === "(" && tokens[i + 1].k === "num" && tokens[i + 2].k === ")") { tokens = tokens.slice(0, i).concat([tokens[i + 1]], tokens.slice(i + 3)); i = -1; }
+      steps.push({ note: r.note, expr: show(tokens) });
+    }
+    return { error: "That took too many steps for this tool." };
+  }
+
+  /* ---------- Time ---------- */
+  /* "3:25", "15:25", "3.25pm", "7:45 am", "0745", "noon" -> minutes after midnight, or null */
+  function parseTime(str) {
+    let s = String(str).trim().toLowerCase().replace(/\s+/g, "").replace(/\./g, ":");
+    if (s === "noon" || s === "midday") return 720;
+    if (s === "midnight") return 0;
+    const m = /^(\d{1,2}):?(\d{2})?(am|pm)?$/.exec(s);
+    if (!m) return null;
+    let h = +m[1]; const mi = m[2] ? +m[2] : 0;
+    if (mi > 59) return null;
+    if (m[3]) { if (h < 1 || h > 12) return null; if (m[3] === "am") h = h % 12; else h = (h % 12) + 12; }
+    else if (h > 24 || (h === 24 && mi > 0)) return null;
+    return (h % 24) * 60 + mi;
+  }
+  const pad2 = (n) => (n < 10 ? "0" : "") + n;
+  const fmt24 = (min) => pad2(Math.floor(((min % 1440) + 1440) % 1440 / 60)) + ":" + pad2(((min % 60) + 60) % 60);
+  function fmt12(min) {
+    const m = ((min % 1440) + 1440) % 1440, h = Math.floor(m / 60), mi = m % 60;
+    return ((h % 12) || 12) + ":" + pad2(mi) + " " + (h < 12 ? "am" : "pm");
+  }
+  function durationStr(min) {
+    const h = Math.floor(min / 60), m = min % 60;
+    return (h ? h + " h" : "") + (h && m ? " " : "") + (m || !h ? m + " min" : "");
+  }
+
+  /* ---------- Clock and dial pictures (SVG markup strings; numbers only, no user text) ---------- */
+  function clockSVG(h, m, size) {
+    size = size || 170;
+    const c = 100, pt = (deg, r) => [(c + r * Math.sin(deg * Math.PI / 180)).toFixed(1), (c - r * Math.cos(deg * Math.PI / 180)).toFixed(1)];
+    let g = '<circle cx="100" cy="100" r="94" style="fill: var(--card); stroke: var(--ink); stroke-width: 3"/>';
+    for (let i = 0; i < 60; i++) {
+      const a = pt(i * 6, i % 5 === 0 ? 80 : 86), b = pt(i * 6, 92);
+      g += '<line x1="' + a[0] + '" y1="' + a[1] + '" x2="' + b[0] + '" y2="' + b[1] + '" style="stroke: var(--ink); stroke-width: ' + (i % 5 === 0 ? 2.5 : 1) + '"/>';
+    }
+    for (let i = 1; i <= 12; i++) { const p = pt(i * 30, 66); g += '<text x="' + p[0] + '" y="' + (+p[1] + 6) + '" text-anchor="middle" style="fill: var(--ink); font-size: 17px; font-weight: 600">' + i + "</text>"; }
+    const hh = pt(((h % 12) + m / 60) * 30, 48), mm = pt(m * 6, 74);
+    g += '<line x1="100" y1="100" x2="' + hh[0] + '" y2="' + hh[1] + '" style="stroke: var(--ink); stroke-width: 6; stroke-linecap: round"/>';
+    g += '<line x1="100" y1="100" x2="' + mm[0] + '" y2="' + mm[1] + '" style="stroke: var(--accent); stroke-width: 3.5; stroke-linecap: round"/>';
+    g += '<circle cx="100" cy="100" r="5" style="fill: var(--ink)"/>';
+    return '<svg viewBox="0 0 200 200" width="' + size + '" height="' + size + '" role="img" aria-label="Analogue clock" style="display:block;margin:8px 0">' + g + "</svg>";
+  }
+  function dialSVG(value, max, major, minor, unit, size) {
+    size = size || 220;
+    const c = 100, a0 = -135, span = 270, pt = (deg, r) => [(c + r * Math.sin(deg * Math.PI / 180)).toFixed(1), (c - r * Math.cos(deg * Math.PI / 180)).toFixed(1)];
+    let g = '<circle cx="100" cy="100" r="94" style="fill: var(--card); stroke: var(--ink); stroke-width: 3"/>';
+    for (let v = 0; v <= max + 1e-9; v += minor) {
+      const isMajor = Math.abs(v / major - Math.round(v / major)) < 1e-9, ang = a0 + span * v / max;
+      const a = pt(ang, isMajor ? 72 : 80), b = pt(ang, 88);
+      g += '<line x1="' + a[0] + '" y1="' + a[1] + '" x2="' + b[0] + '" y2="' + b[1] + '" style="stroke: var(--ink); stroke-width: ' + (isMajor ? 2.5 : 1) + '"/>';
+      if (isMajor) { const p = pt(ang, 58); g += '<text x="' + p[0] + '" y="' + (+p[1] + 5) + '" text-anchor="middle" style="fill: var(--ink); font-size: 14px; font-weight: 600">' + v + "</text>"; }
+    }
+    const n = pt(a0 + span * value / max, 70);
+    g += '<line x1="100" y1="100" x2="' + n[0] + '" y2="' + n[1] + '" style="stroke: var(--bad); stroke-width: 3.5; stroke-linecap: round"/><circle cx="100" cy="100" r="6" style="fill: var(--ink)"/>';
+    if (unit) g += '<text x="100" y="150" text-anchor="middle" style="fill: var(--muted); font-size: 13px">' + unit + "</text>";
+    return '<svg viewBox="0 0 200 200" width="' + size + '" height="' + size + '" role="img" aria-label="Dial with a needle" style="display:block;margin:8px 0">' + g + "</svg>";
+  }
+
   /* ---------- Practice engine ---------- */
   const rnd = (a, b) => Math.floor(Math.random() * (b - a + 1)) + a;
   const pick = (arr) => arr[rnd(0, arr.length - 1)];
@@ -272,7 +507,7 @@
       } else {
         attempts++;
         fb.className = "p-fb bad";
-        fb.innerHTML = (cur.hint ? "Not quite. " + cur.hint : "Not quite. Have another go.");
+        fb.innerHTML = (cur.hint ? "Not quite. " + (typeof cur.hint === "function" ? cur.hint(inp.value) : cur.hint) : "Not quite. Have another go.");
         if (attempts >= 2) show.hidden = false;
         if (cur.choices) { inp.value = ""; }
         else inp.focus({ preventScroll: true });
@@ -334,7 +569,9 @@
   }
 
   return {
-    sup, minus, paren, iroot, gcd, lcm, primeFactors, isPrime, isSquare, isCube, factorCounts, factorString, simplify,
+    sup, minus, paren, iroot, gcd, lcm, primeFactors,
+    fracAdd, fracSub, fracMul, fracDiv, fracStr, mixedStr, parseFracInput, parseFracAnswer,
+    roundDP, roundSF, toFixedDP, toSF, evalSteps, parseTime, fmt24, fmt12, durationStr, clockSVG, dialSVG, isPrime, isSquare, isCube, factorCounts, factorString, simplify,
     toDecimal, decimalToFraction, toStandardForm, fromStandardForm, shiftDecimal, fmtNum, classify,
     rnd, pick, parseFactorProduct, sameCounts, parseStandardForm, parseNumber,
     registerPractice, mountAll, progress, _generators: generators
