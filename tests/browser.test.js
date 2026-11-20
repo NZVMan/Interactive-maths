@@ -24,7 +24,7 @@ const pages = extra.concat(["index.html", "number/index.html", "number/lesson-1-
         const text = explain.replace(/<[^>]+>/g, "");
         const out = new Set();
         text.split("=").forEach((seg) => out.add(seg.replace(/\.\s*$/, "").trim().split(/\s{2,}|,|\. /)[0]));
-        (text.match(/-?\d+(?:\.\d+)?(?:\/\d+)?/g) || []).forEach((n) => out.add(n));
+        (text.match(/[−-]?\d+(?:\.\d+)?(?:\/\d+)?/g) || []).forEach((n) => out.add(n));
         (text.match(/\d+(?:\.\d+)?\s*×\s*10[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+/g) || []).forEach((n) => out.add(n));
         if (/less than/.test(text)) out.add("<"); if (/greater than/.test(text)) out.add(">"); if (/equal to/.test(text)) out.add("=");
         out.add(text.includes("not") ? "no" : "yes"); out.add("yes"); out.add("no");

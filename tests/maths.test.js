@@ -56,4 +56,16 @@ assert.strictEqual(M.parseNumber("3/8"), 0.375);
 assert.strictEqual(M.parseNumber("37.5%"), 37.5);
 assert.ok(Number.isNaN(M.parseNumber("abc")));
 
+assert.strictEqual(M.iroot(16, 4), 2);
+assert.strictEqual(M.iroot(125, 3), 5);
+assert.strictEqual(M.iroot(144, 2), 12);
+assert.strictEqual(M.iroot(15, 2), null);
+assert.strictEqual(M.iroot(0, 3), 0);
+assert.strictEqual(M.iroot(1000, 3), 10);
+assert.strictEqual(M.minus(-3), "−3");
+assert.strictEqual(M.paren(-3), "(−3)");
+assert.strictEqual(M.paren(4), "4");
+assert.strictEqual(M.parseNumber("+45"), 45);
+assert.strictEqual(M.parseNumber("−12"), -12);
+
 console.log("all maths tests passed");

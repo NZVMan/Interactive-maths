@@ -18,6 +18,15 @@
     if (n > 1) out.push(n);
     return out;
   }
+  /* Exact integer k-th root: returns r when r^k === n, otherwise null. */
+  function iroot(n, k) {
+    if (!Number.isInteger(n) || n < 0) return null;
+    const r = Math.round(Math.pow(n, 1 / k));
+    for (let c = Math.max(0, r - 1); c <= r + 1; c++) if (Math.pow(c, k) === n) return c;
+    return null;
+  }
+  const minus = (n) => (n < 0 ? "−" + Math.abs(n) : String(n));
+  const paren = (n) => (n < 0 ? "(−" + Math.abs(n) + ")" : String(n));
   const isPrime = (n) => Number.isInteger(n) && n > 1 && primeFactors(n).length === 1;
   const isSquare = (n) => Number.isInteger(n) && n >= 0 && Number.isInteger(Math.sqrt(n));
   const isCube = (n) => Number.isInteger(n) && Number.isInteger(Math.round(Math.cbrt(n))) && Math.round(Math.cbrt(n)) ** 3 === n;
@@ -168,7 +177,7 @@
   }
 
   function parseNumber(s) {
-    s = String(s).trim().replace(/−/g, "-").replace(/,/g, "").replace(/%$/, "");
+    s = String(s).trim().replace(/−/g, "-").replace(/,/g, "").replace(/%$/, "").replace(/^\+/, "");
     let m;
     if ((m = /^(-?\d+)\/(\d+)$/.exec(s))) return parseInt(m[1], 10) / parseInt(m[2], 10);
     return /^-?\d*\.?\d+$/.test(s) ? parseFloat(s) : NaN;
@@ -325,7 +334,7 @@
   }
 
   return {
-    sup, gcd, lcm, primeFactors, isPrime, isSquare, isCube, factorCounts, factorString, simplify,
+    sup, minus, paren, iroot, gcd, lcm, primeFactors, isPrime, isSquare, isCube, factorCounts, factorString, simplify,
     toDecimal, decimalToFraction, toStandardForm, fromStandardForm, shiftDecimal, fmtNum, classify,
     rnd, pick, parseFactorProduct, sameCounts, parseStandardForm, parseNumber,
     registerPractice, mountAll, progress, _generators: generators

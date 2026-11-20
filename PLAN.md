@@ -16,7 +16,7 @@ Term 1 starts 27 Jan 2027. The class needs Number from week 1 (25 Jan), Common T
 
 | Topic | Lessons in scheme | Interactive lessons built | State |
 |---|---|---|---|
-| 1. Number | 13 | 3 of 11 planned pages | in progress |
+| 1. Number | 13 | 4 of 11 planned pages | in progress |
 | 2. Algebra | 13 | 0 | outline page only |
 | 3. Coordinate Geometry | 4 | 0 | outline page only |
 | 4. Graphs | 7 | 0 | outline page only |
@@ -41,8 +41,8 @@ Done:
 - [x] Lesson 3: fractions, decimals, percentages, ordering, percentage change (1.5, 1.6, 1.12)
 
 To build (file names follow `number/lesson-N-short-name.html` plus `number/lessonN.js`):
-- [ ] Lesson 4: directed numbers, squares and roots (1.3, 1.4). Number-line applet for adding and subtracting negatives; temperature and flood-level contexts; calculate with squares, cubes and roots, e.g. 3² × ∛16. *Gap: 1.3 and 1.4 are in the handbook but not yet covered anywhere.*
-- [ ] Lesson 5: four rules, fractions and order of operations (1.8). Fraction arithmetic with mixed numbers, a BIDMAS step-through, brackets.
+- [x] Lesson 4: directed numbers, squares, cubes and roots (1.3, 1.4): number-line applet, sign rules, temperature and flood-level contexts, squares/cubes dot grid, roots finder (square, cube and fourth roots), mixed calculations such as 3² × ⁴√16
+- [ ] Lesson 5 (next): four rules, fractions and order of operations (1.8). Fraction arithmetic with mixed numbers, a BIDMAS step-through, brackets.
 - [ ] Lesson 6: estimating, rounding and bounds (1.9, 1.10). Rounding to decimal places and significant figures, upper and lower bounds on a number line.
 - [ ] Lesson 7: ratio, proportion and rates (1.11). Share in a ratio (bar model), direct and inverse proportion, average speed, scale drawings.
 - [ ] Lesson 8: calculator use and time (1.13, 1.14). Checking answers, 12/24-hour clock, timetables.

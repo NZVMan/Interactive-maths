@@ -119,3 +119,8 @@ input::placeholder { color: var(--muted); opacity: 1; }
 .predict summary { cursor: pointer; color: var(--accent); font-weight: 650; padding: 6px 0; min-height: 32px; }
 .predict summary:focus-visible { outline: 3px solid var(--hi); outline-offset: 2px; }
 .predict p { margin: 4px 0; }
+.dots { display: grid; gap: 4px; max-width: 320px; margin: 10px 0; }
+.dots i { aspect-ratio: 1; background: var(--accent); border-radius: 50%; }
+output { font-weight: 700; min-width: 2ch; }
+table.t.compact { min-width: 0 !important; } table.t.compact th, table.t.compact td { padding: 4px 6px; text-align: center; font-size: 15px; }
+.tablewrap table.t.compact { min-width: 0; }

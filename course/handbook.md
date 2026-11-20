@@ -73,7 +73,7 @@ Common test weeks for MAY: CT1 W6, T1; CT2 W10, T1; CT3 W7, T2; CT4 W10, T2; CT5
   - *Note:* Finding the lowest common multiple (LCM) and highest common factor (HCF) of two numbers.
 - **1.3**
   - Calculate with squares, square roots, cubes and cube roots and other powers and roots of numbers.
-  - *Note:* Work out 3² × ∛16
+  - *Note:* Work out 3² × ⁴√16
 - **1.4**
   - Use directed numbers in practical situations.
   - *Note:* e.g. temperature changes, flood levels.
