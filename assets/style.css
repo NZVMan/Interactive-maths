@@ -97,8 +97,8 @@ h2 { scroll-margin-top: 12px; }
 .key-btn { font: inherit; font-size: 20px; min-width: 52px; min-height: 48px; border-radius: 10px; border: 1px solid var(--field); background: var(--soft); color: var(--ink); cursor: pointer; }
 .key-btn:active { background: var(--accent); color: var(--accent-ink); }
 .key-btn:focus-visible { outline: 3px solid var(--hi); outline-offset: 2px; }
-.p-choices { display: flex; gap: 10px; margin: 6px 0; }
-.p-choices .choice { flex: 1; min-height: 52px; font-size: 1.2rem; }
+.p-choices { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0; }
+.p-choices .choice { flex: 1 1 130px; min-height: 52px; font-size: 1.2rem; white-space: nowrap; }
 .p-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
 .p-result { padding: 4px 0; }
 .p-result p { font-size: 1.1rem; font-weight: 600; }
@@ -140,3 +140,4 @@ table.t.compact { min-width: 0 !important; } table.t.compact th, table.t.compact
 .ratiobar span:nth-child(3n+1) { background: #cfe0f5; }
 .ratiobar span:nth-child(3n+2) { background: #f3c14a; }
 .ratiobar span:nth-child(3n) { background: #cfeadb; }
+.p-q .m { white-space: normal; overflow-wrap: anywhere; }

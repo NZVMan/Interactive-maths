@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 10: Sets and Venn diagrams – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 1: Number</a> › Lesson 10</div></header>
+<main id="main">
+  <span class="tag">Topic 1 · Lesson 10</span>
+  <h1>Sets and Venn diagrams</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>describe a set by listing it, or with a rule like {x: x is a natural number}</li>
+      <li>use the notation n(A), ℰ, A ∪ B and A ∩ B</li>
+      <li>place numbers in a Venn diagram</li>
+      <li>use counts to find how many are in each part of a Venn diagram</li>
+    </ul>
+  </div>
+
+  <h2>1. What is a set?</h2>
+  <p>A <strong>set</strong> is a collection of things, called <strong>elements</strong>. We write a set inside curly brackets.</p>
+  <div class="key">
+    <p><span class="m">B = {a, b, c, …}</span> lists the elements. The dots mean "and so on".</p>
+    <p><span class="m">A = {x: x is a natural number}</span> is read "A is the set of all x such that x is a natural number". The part after the colon is the rule.</p>
+    <p><span class="m">n(A)</span> is the <strong>number of elements</strong> in A.</p>
+    <p><span class="m">ℰ</span> is the <strong>universal set</strong>: everything we are choosing from.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> Let ℰ = {1, 2, 3, …, 20}. How many prime numbers are in ℰ: 6, 8 or 10?<details><summary>Check my prediction</summary><p>8. The primes up to 20 are 2, 3, 5, 7, 11, 13, 17 and 19. Remember that 1 is not prime.</p></details></div>
+    <label for="st-r">Choose a rule. ℰ = {1, 2, 3, …, 20}</label>
+    <select id="st-r"></select>
+    <div id="st-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="setcount"></div>
+
+  <h2>2. Union and intersection</h2>
+  <div class="key">
+    <p><span class="m">A ∩ B</span> (intersection) = the elements in <strong>both</strong> A and B.</p>
+    <p><span class="m">A ∪ B</span> (union) = the elements in A, or B, or both.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> A = even numbers and B = multiples of 3, both from 1 to 20. Is 6 in A ∩ B?<details><summary>Check my prediction</summary><p>Yes. 6 is even and it is a multiple of 3, so it is in both circles.</p></details></div>
+    <div class="row">
+      <label for="vn-a">A =</label><select id="vn-a"></select>
+      <label for="vn-b">B =</label><select id="vn-b"></select>
+    </div>
+    <div id="vn-svg" role="img" aria-label="Venn diagram of the two sets"></div>
+    <div id="vn-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="region"></div>
+  <div data-practice="setops"></div>
+
+  <h2>3. Counting with Venn diagrams</h2>
+  <div class="key">
+    <p>The numbers in the circles add up to the total: <span class="m">n(A ∪ B) = n(A) + n(B) − n(A ∩ B)</span>.</p>
+    <p>We take away n(A ∩ B) because the overlap was counted twice, once in A and once in B.</p>
+    <p>Anything in ℰ outside both circles is in <strong>neither</strong> set.</p>
+  </div>
+  <div data-practice="vencount"></div>
+
+  <div class="nav"><a class="btn ghost" href="lesson-9-money-finance.html">‹ Lesson 9</a><a class="btn" href="lesson-11-revision-test.html">Lesson 11 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="lesson10.js"></script>
+</body>
+</html>
