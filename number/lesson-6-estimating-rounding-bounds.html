@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 6: Estimating, rounding and bounds – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 1: Number</a> › Lesson 6</div></header>
+<main id="main">
+  <span class="tag">Topic 1 · Lesson 6</span>
+  <h1>Estimating, rounding and bounds</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>round to a number of decimal places or significant figures</li>
+      <li>estimate an answer by rounding each number to 1 significant figure</li>
+      <li>round an answer sensibly for its context (money, buses, tiles)</li>
+      <li>give the lower and upper bounds of a number that has been rounded</li>
+    </ul>
+  </div>
+
+  <h2>1. Rounding to decimal places and significant figures</h2>
+  <div class="key">
+    <p><strong>Decimal places (d.p.)</strong> are counted after the decimal point.</p>
+    <p><strong>Significant figures (s.f.)</strong> are counted from the first digit that is not zero.</p>
+    <p>To round, find the last digit you keep, then look at the next digit. If it is <strong>5 or more</strong>, round up. If it is <strong>4 or less</strong>, leave the last digit alone.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> What is 0.0764 to 2 significant figures? Is it 0.07 or 0.076?<details><summary>Check my prediction</summary><p>0.076. The zeros at the start don't count. The first significant figure is the 7, so you keep 7 and 6, and the next digit (4) says leave it.</p></details></div>
+    <div class="row">
+      <input type="text" id="rd-in" value="0.0764" size="12" inputmode="decimal" aria-label="Number to round" autocapitalize="off" spellcheck="false">
+      <select id="rd-mode" aria-label="Round to"><option value="sf" selected>significant figures</option><option value="dp">decimal places</option></select>
+      <select id="rd-n" aria-label="How many"><option>0</option><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+    </div>
+    <div id="rd-out" class="out" aria-live="polite"></div>
+  </div>
+  <div class="worked">
+    <p>Round 5.996 to 2 decimal places.</p>
+    <p>The 2nd decimal place is 9. The next digit is 6, so round the 9 up.</p>
+    <p>9 + 1 = 10, so carry: 5.99 + 0.01 = 6.00</p>
+    <p class="m">Answer: 6.00</p>
+  </div>
+  <div data-practice="rdp"></div>
+  <div data-practice="rsf"></div>
+
+  <h2>2. Estimating</h2>
+  <p>An estimate is a quick check that an answer is about the right size. Round every number to <strong>1 significant figure</strong>, then do the calculation with the easy numbers.</p>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> Estimate <span class="m">38.2 × 9.7</span>. Will it be about 40, 400 or 4000?<details><summary>Check my prediction</summary><p>About 400. 38.2 rounds to 40 and 9.7 rounds to 10, and 40 × 10 = 400.</p></details></div>
+    <p>Type a calculation with + − × ÷ and brackets, or tap an example.</p>
+    <div class="row">
+      <input type="text" id="es-in" value="38.2 × 9.7" size="22" aria-label="Calculation to estimate" autocapitalize="off" spellcheck="false">
+      <button class="btn" id="es-go" type="button">Estimate</button>
+    </div>
+    <div class="chips" id="es-ex"></div>
+    <div id="es-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="estimate"></div>
+
+  <h2>3. Rounding in context</h2>
+  <div class="key">Read what the question is about. <strong>Money</strong> is rounded to the nearest cent (2 d.p.). If you need <strong>whole things</strong> (buses, packs, tins), round <strong>up</strong>, because rounding down would leave people or tiles short.</div>
+  <div data-practice="rdcontext"></div>
+
+  <h2>4. Upper and lower bounds</h2>
+  <p>If a length is 8 cm to the nearest cm, the real length could be anything that rounds to 8. The smallest it can be is the <strong>lower bound</strong>, and the value it can never quite reach is the <strong>upper bound</strong>.</p>
+  <div class="key">Go half a unit either way. For 8 cm to the nearest cm: <span class="m">7.5 ≤ length &lt; 8.5</span>. The upper bound uses &lt; (not ≤) because 8.5 itself would round up to 9.</div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> A mass is 12.4 kg to 1 decimal place. What is the lower bound: 12.3, 12.35 or 12.399?<details><summary>Check my prediction</summary><p>12.35. The accuracy is 0.1, so go half of that (0.05) below 12.4. 12.35 rounds up to 12.4.</p></details></div>
+    <div class="row">
+      <input type="text" id="bd-v" value="12.4" size="8" inputmode="decimal" aria-label="Measured value">
+      <select id="bd-a" aria-label="Rounded to the nearest"><option value="10">nearest 10</option><option value="1">nearest 1</option><option value="0.1" selected>nearest 0.1</option><option value="0.01">nearest 0.01</option></select>
+    </div>
+    <div id="bd-out" class="out" aria-live="polite"></div>
+    <div id="bd-svg" aria-hidden="true"></div>
+  </div>
+  <div data-practice="bounds"></div>
+
+  <div class="nav"><a class="btn ghost" href="lesson-5-four-rules-fractions.html">‹ Lesson 5</a><a class="btn" href="lesson-7-ratio-proportion-rates.html">Lesson 7 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="lesson6.js"></script>
+</body>
+</html>
