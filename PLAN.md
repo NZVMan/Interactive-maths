@@ -17,7 +17,7 @@ Term 1 starts 27 Jan 2027. The class needs Number from week 1 (25 Jan), Common T
 | Topic | Lessons in scheme | Interactive lessons built | State |
 |---|---|---|---|
 | 1. Number | 13 | 11 of 11 planned pages | built (check with students) |
-| 2. Algebra | 13 | 0 | outline page only |
+| 2. Algebra | 13 | 14 of 14 planned pages | built (check with students) |
 | 3. Coordinate Geometry | 4 | 0 | outline page only |
 | 4. Graphs | 7 | 0 | outline page only |
 | 5. Geometry | 7 | 0 | outline page only |
@@ -51,7 +51,7 @@ To build (file names follow `number/lesson-N-short-name.html` plus `number/lesso
 - [x] Lesson 11: revision and practice test: "I can" checklist (saved on the device) with links and progress per lesson, four mixed practice sets (mix1–mix4)
 - [x] `number/index.html` links all eleven lessons.
 
-Topic 1 is complete. Next: Topic 2 (Algebra) is the next live topic; see the suggested breakdown below. Handbook lists 1.2 as two lessons; Lesson 10 covers it in one, so add a second Sets lesson (shading regions, problems) if the teacher wants it.
+Topics 1 and 2 are complete. Next: Topic 3 (Coordinate Geometry); see the suggested breakdown below. Handbook lists 1.2 as two lessons; Lesson 10 covers it in one, so add a second Sets lesson (shading regions, problems) if the teacher wants it.
 
 ## Topics 2–11: suggested lesson breakdown
 

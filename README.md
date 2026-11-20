@@ -11,6 +11,7 @@ It is a plain static website (HTML, CSS and JavaScript) with no build step and n
 | Topic | Status |
 |---|---|
 | 1. Number | All 11 lessons built (complete) |
+| 2. Algebra | All 14 lessons built (complete) |
 | 2–11 | Outline pages generated from the handbook; interactive lessons not started |
 
 Full status, the next steps and the lesson checklist are in **[PLAN.md](PLAN.md)**.
