@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 7: Ratio, proportion and rates – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 1: Number</a> › Lesson 7</div></header>
+<main id="main">
+  <span class="tag">Topic 1 · Lesson 7</span>
+  <h1>Ratio, proportion and rates</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>simplify a ratio and share an amount in a given ratio</li>
+      <li>solve direct and inverse proportion problems</li>
+      <li>calculate speed, distance, time and average speed</li>
+      <li>use other rates (density, pressure) when the formula is given</li>
+      <li>use ratio and scales on maps and models</li>
+    </ul>
+  </div>
+
+  <h2>1. Ratio</h2>
+  <div class="key">
+    <p>A ratio compares quantities in the same units. Simplify it by dividing every part by the same number, just like a fraction: <span class="m">24 : 36 = 2 : 3</span>.</p>
+    <p>To <strong>share in a ratio</strong>: add the parts, find one part (total ÷ parts), then multiply.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> $60 is shared in the ratio 2 : 3. Does the bigger share get $30 or $36?<details><summary>Check my prediction</summary><p>$36. There are 2 + 3 = 5 parts, so one part is $60 ÷ 5 = $12. The shares are 2 × 12 = $24 and 3 × 12 = $36.</p></details></div>
+    <div class="row">
+      <input type="text" id="ra-t" value="60" size="8" inputmode="decimal" aria-label="Total amount">
+      <input type="text" id="ra-r" value="2:3" size="10" aria-label="Ratio, like 2:3 or 1:2:5" autocapitalize="off" spellcheck="false">
+    </div>
+    <div id="ra-out" class="out" aria-live="polite"></div>
+    <div id="ra-bar" aria-hidden="true"></div>
+  </div>
+  <div data-practice="ratio"></div>
+
+  <h2>2. Direct and inverse proportion</h2>
+  <ul>
+    <li><strong>Direct</strong> proportion: when one quantity doubles, so does the other (more pens cost more money). Find the value of <strong>one</strong>, then scale up.</li>
+    <li><strong>Inverse</strong> proportion: when one quantity doubles, the other halves (more workers take fewer days). The <strong>product stays the same</strong>.</li>
+  </ul>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> 4 workers build a wall in 6 days. With 3 workers, will it take more than 6 days or fewer?<details><summary>Check my prediction</summary><p>More: 8 days. Fewer workers means more days. 4 × 6 = 24 worker-days of work, and 24 ÷ 3 = 8.</p></details></div>
+    <div class="row">
+      <select id="pr-k" aria-label="Type of proportion"><option value="d">Direct</option><option value="i" selected>Inverse</option></select>
+      <label for="pr-a1">A</label><input type="text" id="pr-a1" value="4" size="5" inputmode="decimal">
+      <label for="pr-b1">B</label><input type="text" id="pr-b1" value="6" size="5" inputmode="decimal">
+    </div>
+    <div class="row"><label for="pr-a2">New A</label><input type="text" id="pr-a2" value="3" size="5" inputmode="decimal"></div>
+    <div id="pr-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="proportion"></div>
+
+  <h2>3. Speed and other rates</h2>
+  <div class="key">
+    <p><span class="m">speed = distance ÷ time</span>, <span class="m">distance = speed × time</span>, <span class="m">time = distance ÷ speed</span>.</p>
+    <p><strong>Average speed</strong> = <strong>total</strong> distance ÷ <strong>total</strong> time. It is not the average of the speeds.</p>
+    <p>Change minutes to hours first: 30 min = 0.5 h, 45 min = 0.75 h.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> You drive 60 km at 30 km/h, then 60 km at 60 km/h. Is your average speed 45 km/h?<details><summary>Check my prediction</summary><p>No, it is 40 km/h. The total distance is 120 km. The times are 2 h and 1 h, so 3 h in total. 120 ÷ 3 = 40.</p></details></div>
+    <p>Fill in two boxes and leave the one you want to find blank. Distance in km, time in hours, speed in km/h.</p>
+    <div class="row">
+      <label for="sp-d">Distance</label><input type="text" id="sp-d" value="150" size="6" inputmode="decimal">
+      <label for="sp-t">Time</label><input type="text" id="sp-t" value="2.5" size="6" inputmode="decimal">
+      <label for="sp-s">Speed</label><input type="text" id="sp-s" value="" size="6" inputmode="decimal">
+    </div>
+    <div id="sp-out" class="out" aria-live="polite"></div>
+  </div>
+  <p>Other rates work the same way. When a question needs a formula, it will be given, for example <span class="m">density = mass ÷ volume</span> and <span class="m">pressure = force ÷ area</span>.</p>
+  <div data-practice="rates"></div>
+
+  <h2>4. Scales</h2>
+  <div class="key">A map scale of <span class="m">1 : 50 000</span> means 1 cm on the map is 50 000 cm in real life. Multiply by the scale, then change units: ÷ 100 for metres, ÷ 100 000 for kilometres.</div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> On a 1 : 50 000 map, 4 cm shows a track. Is it 200 m, 2 km or 20 km long?<details><summary>Check my prediction</summary><p>2 km. 4 × 50 000 = 200 000 cm, and 200 000 ÷ 100 000 = 2 km.</p></details></div>
+    <div class="row">
+      <label for="sc-n">Scale 1 :</label><input type="text" id="sc-n" value="50000" size="8" inputmode="numeric">
+      <label for="sc-l">Map length (cm)</label><input type="text" id="sc-l" value="4" size="6" inputmode="decimal">
+    </div>
+    <div id="sc-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="scale"></div>
+
+  <div class="nav"><a class="btn ghost" href="lesson-6-estimating-rounding-bounds.html">‹ Lesson 6</a><a class="btn" href="lesson-8-calculator-and-time.html">Lesson 8 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="lesson7.js"></script>
+</body>
+</html>
