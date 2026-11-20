@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 12: Simultaneous equations: elimination – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 2: Algebra</a> › Lesson 12</div></header>
+<main id="main">
+  <span class="tag">Topic 2 · Lesson 12</span>
+  <h1>Simultaneous equations: elimination</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>explain what simultaneous equations are and what their solution means</li>
+      <li>solve simultaneous equations by adding or subtracting to eliminate a letter</li>
+      <li>multiply one or both equations first when no letter matches</li>
+      <li>check a solution in both equations</li>
+    </ul>
+  </div>
+
+  <h2>1. Two equations, two unknowns</h2>
+  <p>Simultaneous equations are two equations that are both true at the same time, like <span class="m">2x + y = 7</span> and <span class="m">x − y = 2</span>. The solution is a pair of values (x, y) that works in <strong>both</strong>.</p>
+  <div class="key">
+    <p><strong>Elimination:</strong> make the numbers in front of one letter the same size, then <strong>add</strong> or <strong>subtract</strong> the equations so that letter disappears.</p>
+    <p>If the signs of the matching terms are <strong>different</strong> (+y and −y), <strong>add</strong>. If they are the <strong>same</strong> (+y and +y), <strong>subtract</strong>.</p>
+    <p>Then solve for the remaining letter, put it back into an equation to find the other, and <strong>check in both</strong>.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> For <span class="m">2x + y = 7</span> and <span class="m">x − y = 2</span>, will adding the two equations remove x or y?<details><summary>Check my prediction</summary><p>y. The y terms are +y and −y, which cancel when you add. That leaves 3x = 9, so x = 3, and then y = 1.</p></details></div>
+    <p>Type two equations in x and y, or tap an example.</p>
+    <div class="row"><label for="sp-a">Equation 1</label><input type="text" id="sp-a" value="2x + y = 7" size="16" autocapitalize="off" spellcheck="false"></div>
+    <div class="row"><label for="sp-b">Equation 2</label><input type="text" id="sp-b" value="x − y = 2" size="16" autocapitalize="off" spellcheck="false"></div>
+    <div class="chips" id="sp-ch"></div>
+    <div id="sp-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="sim1"></div>
+
+  <h2>2. Multiplying first</h2>
+  <p>For <span class="m">3x + 2y = 12</span> and <span class="m">x + y = 5</span>, no letter matches. Multiply the second equation by 2 to get <span class="m">2x + 2y = 10</span>. Now the y terms match, so subtract.</p>
+  <div data-practice="sim2"></div>
+
+  <h2>3. Multiplying both equations</h2>
+  <p>Sometimes you must multiply <strong>both</strong> equations. For <span class="m">2x + 3y = 13</span> and <span class="m">3x − 2y = 0</span>, multiply the first by 2 and the second by 3 to make the y terms 6y and −6y.</p>
+  <div data-practice="sim3"></div>
+  <div class="nav"><a class="btn ghost" href="lesson-11-forming-equations.html">‹ Lesson 11</a><a class="btn" href="lesson-13-simultaneous-substitution-graphs.html">Lesson 13 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="../assets/algebra.js"></script>
+<script src="lesson12.js"></script>
+</body>
+</html>

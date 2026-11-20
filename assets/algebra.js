@@ -210,7 +210,11 @@
     if (!v) { const s = new Set(); [L, R].forEach((p) => p.forEach((c, k) => Object.keys(unkey(k)).forEach((u) => s.add(u)))); if (s.size !== 1) return { error: "Use exactly one letter, like x." }; v = Array.from(s)[0]; }
     if (degreeOf(L, v) > 1 || degreeOf(R, v) > 1) return { error: "Only equations without powers (linear equations) work here." };
     const steps = []; let { a: a1, b: b1 } = lin(L, v), { a: a2, b: b2 } = lin(R, v);
-    const side = (a, b) => polyStr(new Map([...(a ? [[v + "1", a]] : []), ...(b ? [["", b]] : [])]));
+    const side = (a, b) => {
+      const inv = a && !Number.isInteger(a) ? Math.round(1 / Math.abs(a) * 1e9) / 1e9 : 0;
+      if (inv && Number.isInteger(inv)) { const t = (a < 0 ? MINUS : "") + v + "/" + inv; return b ? t + (b < 0 ? " " + MINUS + " " : " + ") + fmt(Math.abs(b)) : t; }
+      return polyStr(new Map([...(a ? [[v + "1", a]] : []), ...(b ? [["", b]] : [])]));
+    };
     steps.push({ note: "Start", eq: String(src).replace(/-/g, MINUS).replace(/\s+/g, " ").trim() });
     if (hasBrackets(src)) steps.push({ note: "Expand the brackets and collect like terms", eq: side(a1, b1) + " = " + side(a2, b2) });
     if (a1 === a2) return a1 === 0 || b1 !== b2 ? { error: b1 === b2 ? "This is true for every x." : "No value of " + v + " makes this true." } : { error: "This is true for every " + v + "." };
@@ -222,9 +226,9 @@
       if (a1 === 0) { const t = [a1, a2, b1, b2]; a1 = a2; a2 = 0; const tb = b1; b1 = b2; b2 = tb; steps.push({ note: "Swap the sides so the " + v + " term is on the left", eq: side(a1, b1) + " = " + side(a2, b2) }); }
     }
     if (b1 !== 0) { steps.push({ note: (b1 > 0 ? "Subtract " : "Add ") + fmt(Math.abs(b1)) + " " + "from both sides", eq: "" }); b2 -= b1; b1 = 0; steps[steps.length - 1].eq = side(a1, 0) + " = " + fmt(b2); }
-    if (a1 !== 1) { steps.push({ note: "Divide both sides by " + fmt(a1), eq: "" }); }
-    const f = frac(b2, a1), val = b2 / a1;
-    const vs = f[1] === 1 || !Number.isInteger(f[0]) ? fmt(val) : fmt(f[0]) + "/" + f[1];
+    if (a1 !== 1) { const iv = Math.round(1 / a1 * 1e9) / 1e9; steps.push({ note: Math.abs(a1) < 1 && Number.isInteger(iv) ? "Multiply both sides by " + fmt(iv) : "Divide both sides by " + fmt(a1), eq: "" }); }
+    const f = frac(b2, a1), val = b2 / a1, mulCase = Math.abs(a1) < 1 && Number.isInteger(Math.round(1 / a1 * 1e9) / 1e9);
+    const vs = mulCase || f[1] === 1 || !Number.isInteger(f[0]) ? fmt(val) : fmt(f[0]) + "/" + f[1];
     if (a1 !== 1) steps[steps.length - 1].eq = v + " = " + vs;
     return { ok: true, v, value: val, steps, answer: v + " = " + vs };
   }
