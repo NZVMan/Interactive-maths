@@ -36,13 +36,12 @@
     const peek = () => toks[p], eat = (k) => { if (peek() && peek().k === k) return toks[p++]; return null; };
     const startsFactor = (t) => t && (t.k === "v" || t.k === "(" || t.k === "f");
     function expr() { let a = term(); for (;;) { if (eat("+")) a = { t: "bin", op: "+", a, b: term() }; else if (eat("-")) a = { t: "bin", op: "-", a, b: term() }; else return a; } }
+    function chain() { let a = unary(); while (startsFactor(peek())) a = { t: "bin", op: "*", a, b: power(), implicit: true }; return a; }
     function term() {
-      let a = unary();
+      let a = chain();
       for (;;) {
-        if (eat("*")) a = { t: "bin", op: "*", a, b: unary() };
-        else if (eat("/")) { let b = unary(); while (startsFactor(peek())) b = { t: "bin", op: "*", a: b, b: power(), implicit: true }; a = { t: "bin", op: "/", a, b }; }
-        else if (startsFactor(peek())) a = { t: "bin", op: "*", a, b: power(), implicit: true };
-        else if (peek() && peek().k === "n" && a.t === "bin" && false) return a;
+        if (eat("*")) a = { t: "bin", op: "*", a, b: chain() };
+        else if (eat("/")) a = { t: "bin", op: "/", a, b: chain() };
         else return a;
       }
     }
@@ -91,8 +90,8 @@
         throw new Error("not polynomial");
       }
       case "pow": {
-        const e = evalNode(n.b, {}); if (!Number.isInteger(e) || Math.abs(e) > 12) throw new Error("not polynomial");
-        let b = toPoly(n.a); if (e < 0) { if (b.size !== 1) throw new Error("not polynomial"); b = pinv(b); }
+        const e = evalNode(n.b, {}); if (!Number.isInteger(e) || Math.abs(e) > 60) throw new Error("not polynomial");
+        let b = toPoly(n.a); if (b.size > 1 && Math.abs(e) > 12) throw new Error("not polynomial"); if (e < 0) { if (b.size !== 1) throw new Error("not polynomial"); b = pinv(b); }
         let r = pconst(1); for (let i = 0; i < Math.abs(e); i++) r = pmul(r, b); return r;
       }
       default: throw new Error("not polynomial");
@@ -267,7 +266,7 @@
   }
   /* ---------- display helpers and small browser UI helpers ---------- */
   function disp(str) {
-    let t = String(str).replace(/\s+/g, "").replace(/\^(-?\d+)/g, (m, n) => sup(n)).replace(/\*/g, "×").replace(/\//g, "/");
+    let t = String(str).replace(/\s+/g, "").replace(/\^1(?!\d)/g, "").replace(/\^(-?\d+)/g, (m, n) => sup(n)).replace(/\*/g, "×").replace(/\//g, "/");
     t = t.replace(/(?<=[\w)⁰¹²³⁴⁵⁶⁷⁸⁹])([+\-])/g, " $1 ").replace(/(?<=[\w)⁰¹²³⁴⁵⁶⁷⁸⁹])×(?=[\w(])/g, " × ").replace(/=/g, " = ");
     return t.replace(/-/g, MINUS).replace(/ {2,}/g, " ");
   }
@@ -276,5 +275,5 @@
     say(el, lines) { el.textContent = ""; lines.forEach((l) => { const d = document.createElement("div"); d.textContent = l; el.appendChild(d); }); },
     chips(host, items, fn) { items.forEach((it) => { const b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.textContent = it.label || it; b.addEventListener("click", () => fn(it)); host.appendChild(b); }); }
   };
-  return { disp, ui, sup, fmt, parse, tryParse, poly, tryPoly, peq, polyStr, padd, pmul, pconst, evalNode, equiv, varsOf, terms, checkExpanded, checkFactorised, checkSubject, factorsOf, primitive, solveLinear, solvePair, coeffs, parsePair, gcd, MINUS, hasBrackets };
+  return { normalise, disp, ui, sup, fmt, parse, tryParse, poly, tryPoly, peq, polyStr, padd, pmul, pconst, evalNode, equiv, varsOf, terms, checkExpanded, checkFactorised, checkSubject, factorsOf, primitive, solveLinear, solvePair, coeffs, parsePair, gcd, MINUS, hasBrackets };
 });

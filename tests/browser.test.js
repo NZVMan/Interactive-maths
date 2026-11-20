@@ -27,6 +27,7 @@ const pages = extra.concat(["index.html", "number/index.html"].concat(require(".
         (text.match(/[−-]?\d+(?:\.\d+)?(?:\/\d+)?/g) || []).forEach((n) => out.add(n));
         (text.match(/\d+(?:\.\d+)?\s*×\s*10[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+/g) || []).forEach((n) => out.add(n));
         if (/less than/.test(text)) out.add("<"); if (/greater than/.test(text)) out.add(">"); if (/equal to/.test(text)) out.add("=");
+        if (/\bis false\b/i.test(text)) out.add("False"); if (/\bis true\b/i.test(text)) out.add("True");
         if (/not sensible/i.test(text)) out.add("Not sensible"); else if (/sensible/i.test(text)) out.add("Sensible");
         out.add(text.includes("not") ? "no" : "yes"); out.add("yes"); out.add("no");
         return Array.from(out).filter(Boolean);

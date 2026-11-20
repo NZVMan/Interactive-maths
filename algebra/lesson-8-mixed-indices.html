@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 8: Mixed index practice – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 2: Algebra</a> › Lesson 8</div></header>
+<main id="main">
+  <span class="tag">Topic 2 · Lesson 8</span>
+  <h1>Mixed index practice</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>combine the index laws to simplify expressions with several letters</li>
+      <li>simplify expressions and give answers with positive indices</li>
+      <li>spot which index statements are true and which are false</li>
+    </ul>
+  </div>
+
+  <h2>1. All the laws together</h2>
+  <div class="key">
+    <p>Multiply: add indices. Divide: subtract indices. Power of a power: multiply indices. <span class="m">a⁰ = 1</span> and <span class="m">a⁻ⁿ = 1/aⁿ</span>.</p>
+    <p>Work on the <strong>numbers</strong> and on <strong>each letter</strong> separately. Always say which law you are using.</p>
+  </div>
+  <div class="worked">
+    <p>Simplify <span class="m">(2x³)² ÷ x</span>.</p>
+    <p class="m">(2x³)² = 4x⁶</p>
+    <p class="m">4x⁶ ÷ x = 4x⁵</p>
+  </div>
+  <div data-practice="mixa"></div>
+
+  <h2>2. Answers with positive indices</h2>
+  <p>Sometimes the subtraction gives a negative index. Write it as a fraction: <span class="m">6x² ÷ 3x⁵ = 2x⁻³ = 2/x³</span>.</p>
+  <div data-practice="mixb"></div>
+
+  <h2>3. Test a rule with numbers</h2>
+  <p>If you aren't sure a rule is true, try numbers. If it fails for even one value, the rule is false. Type two expressions with x and y and compare them.</p>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> Is <span class="m">(x²)³</span> equal to <span class="m">x⁵</span>?<details><summary>Check my prediction</summary><p>No. (x²)³ = x⁶ (multiply the indices). Try x = 2: (2²)³ = 4³ = 64, but 2⁵ = 32.</p></details></div>
+    <div class="row"><label for="tr-a">Left</label><input type="text" id="tr-a" value="(x^2)^3" size="16" autocapitalize="off" spellcheck="false"></div>
+    <div class="row"><label for="tr-b">Right</label><input type="text" id="tr-b" value="x^5" size="16" autocapitalize="off" spellcheck="false"></div>
+    <div id="tr-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="truefalse"></div>
+  <div data-practice="evalidx"></div>
+  <div class="nav"><a class="btn ghost" href="lesson-7-zero-negative-indices.html">‹ Lesson 7</a><a class="btn" href="lesson-9-solving-equations.html">Lesson 9 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="../assets/algebra.js"></script>
+<script src="lesson8.js"></script>
+</body>
+</html>

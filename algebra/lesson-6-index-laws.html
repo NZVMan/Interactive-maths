@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 6: The index laws – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 2: Algebra</a> › Lesson 6</div></header>
+<main id="main">
+  <span class="tag">Topic 2 · Lesson 6</span>
+  <h1>The index laws</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>multiply and divide powers of the same letter by adding and subtracting indices</li>
+      <li>find a power of a power by multiplying indices</li>
+      <li>simplify expressions with coefficients such as 3x⁴ × 5x and 10x³ ÷ 2x²</li>
+    </ul>
+  </div>
+
+  <h2>1. Multiplying and dividing powers</h2>
+  <p><span class="m">x³</span> means x × x × x, and <span class="m">x²</span> means x × x. So <span class="m">x³ × x² = x × x × x × x × x = x⁵</span>.</p>
+  <div class="key">
+    <p><strong>Multiply:</strong> add the indices. <span class="m">xᵐ × xⁿ = xᵐ⁺ⁿ</span></p>
+    <p><strong>Divide:</strong> subtract the indices. <span class="m">xᵐ ÷ xⁿ = xᵐ⁻ⁿ</span></p>
+    <p><strong>Power of a power:</strong> multiply the indices. <span class="m">(xᵐ)ⁿ = xᵐⁿ</span></p>
+    <p>The letter on its own, <span class="m">x</span>, has index 1. The rules only work when the <strong>base</strong> (the letter) is the same.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> Is <span class="m">x³ × x²</span> equal to <span class="m">x⁵</span> or <span class="m">x⁶</span>?<details><summary>Check my prediction</summary><p>x⁵. Add the indices: 3 + 2 = 5. (Don't multiply them: that is the rule for a power of a power.)</p></details></div>
+    <p>Type a product, a quotient or a power. Use ^ for powers, × and ÷ (or *, /).</p>
+    <div class="row"><input type="text" id="ix-in" value="3x^4 × 5x" size="24" aria-label="Index expression" autocapitalize="off" spellcheck="false"></div>
+    <div class="chips" id="ix-ch"></div>
+    <div id="ix-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="idx1"></div>
+  <div data-practice="idx2"></div>
+
+  <h2>2. Numbers in front (coefficients)</h2>
+  <div class="key">Deal with the numbers and the letters <strong>separately</strong>. <span class="m">3x⁴ × 5x</span>: numbers 3 × 5 = 15; letters x⁴ × x¹ = x⁵. So the answer is <span class="m">15x⁵</span>. For <span class="m">10x³ ÷ 2x²</span>: 10 ÷ 2 = 5 and x³ ÷ x² = x, so <span class="m">5x</span>.</div>
+  <div data-practice="idx3"></div>
+
+  <h2>3. Powers of brackets</h2>
+  <div class="key">With <span class="m">(2x³)²</span> the power outside applies to <strong>everything inside</strong>: <span class="m">2² × (x³)² = 4x⁶</span>. Don't forget to square the number.</div>
+  <div data-practice="idx4"></div>
+  <div class="nav"><a class="btn ghost" href="lesson-5-factorising-quadratics.html">‹ Lesson 5</a><a class="btn" href="lesson-7-zero-negative-indices.html">Lesson 7 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="../assets/algebra.js"></script>
+<script src="lesson6.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 7: Zero and negative indices – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 2: Algebra</a> › Lesson 7</div></header>
+<main id="main">
+  <span class="tag">Topic 2 · Lesson 7</span>
+  <h1>Zero and negative indices</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>explain why any number to the power 0 equals 1</li>
+      <li>rewrite a negative index as a fraction with a positive index</li>
+      <li>evaluate powers such as 2⁻³ and (2/3)⁻² and simplify expressions like 3x⁻²</li>
+    </ul>
+  </div>
+
+  <h2>1. The zero index</h2>
+  <p>Look at the pattern as the index goes down by one. Each step <strong>divides by 2</strong>.</p>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> What is <span class="m">2⁰</span>: 0, 1 or 2?<details><summary>Check my prediction</summary><p>1. Following the pattern, 2² = 4, 2¹ = 2 (divide by 2), so 2⁰ = 2 ÷ 2 = 1. In fact <strong>any number (not 0) to the power 0 is 1</strong>.</p></details></div>
+    <div class="row">
+      <label for="pt-b">Base</label><select id="pt-b"><option>2</option><option selected>3</option><option>5</option><option>10</option></select>
+    </div>
+    <div class="tablewrap"><table class="compact" id="pt-tab"></table></div>
+  </div>
+  <div class="key">
+    <p><span class="m">a⁰ = 1</span> for any a that isn't 0.</p>
+    <p><span class="m">a⁻ⁿ = 1/aⁿ</span>. A negative index means "one over" the positive power. It does <strong>not</strong> make the answer negative.</p>
+    <p>The negative index only affects the thing directly in front of it: <span class="m">3x⁻² = 3/x²</span> (the 3 stays on top).</p>
+  </div>
+  <div data-practice="zero"></div>
+
+  <h2>2. Negative indices</h2>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> Is <span class="m">2⁻³</span> equal to −8, −6 or 1/8?<details><summary>Check my prediction</summary><p>1/8. 2⁻³ = 1/2³ = 1/8. The negative sign in the index means "reciprocal", not a negative answer.</p></details></div>
+    <p>Type a power like <span class="m">2^-3</span>, <span class="m">(2/3)^-2</span>, <span class="m">5x^-1</span> or <span class="m">x^-2</span>.</p>
+    <div class="row"><input type="text" id="ng-in" value="2^-3" size="16" aria-label="Power with a negative index" autocapitalize="off" spellcheck="false"></div>
+    <div class="chips" id="ng-ch"></div>
+    <div id="ng-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="negnum"></div>
+  <div data-practice="negalg"></div>
+
+  <h2>3. Fractions to a negative power</h2>
+  <div class="key"><span class="m">(2/3)⁻² = (3/2)²= 9/4</span>. A negative index on a fraction <strong>flips</strong> the fraction, then you use the positive index.</div>
+  <div data-practice="negfrac"></div>
+  <div class="nav"><a class="btn ghost" href="lesson-6-index-laws.html">‹ Lesson 6</a><a class="btn" href="lesson-8-mixed-indices.html">Lesson 8 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="../assets/algebra.js"></script>
+<script src="lesson7.js"></script>
+</body>
+</html>
