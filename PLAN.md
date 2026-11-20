@@ -16,7 +16,7 @@ Term 1 starts 27 Jan 2027. The class needs Number from week 1 (25 Jan), Common T
 
 | Topic | Lessons in scheme | Interactive lessons built | State |
 |---|---|---|---|
-| 1. Number | 13 | 4 of 11 planned pages | in progress |
+| 1. Number | 13 | 11 of 11 planned pages | built (check with students) |
 | 2. Algebra | 13 | 0 | outline page only |
 | 3. Coordinate Geometry | 4 | 0 | outline page only |
 | 4. Graphs | 7 | 0 | outline page only |
@@ -33,7 +33,7 @@ Site hosting:
 - [ ] GitHub Pages switched on (Settings → Pages → Deploy from a branch → `main` / root). Expected address: https://nzvman.github.io/interactive-maths/
 - [ ] Teacher has tried it on a phone and a school laptop
 
-## Topic 1: Number (next up)
+## Topic 1: Number (built)
 
 Done:
 - [x] Lesson 1: types of numbers, primes, prime factors, HCF and LCM (1.1)
@@ -46,10 +46,12 @@ To build (file names follow `number/lesson-N-short-name.html` plus `number/lesso
 - [x] Lesson 6: estimating, rounding and bounds (1.9, 1.10): rounding explorer (d.p./s.f.), 1 s.f. estimator, rounding in context, bounds number line; practice rdp, rsf, estimate, rdcontext, bounds
 - [x] Lesson 7: ratio, proportion and rates (1.11): ratio-sharing bar, direct/inverse proportion, speed/density/pressure, map scales; practice ratio, proportion, rates, scale
 - [x] Lesson 8: calculator use and time (1.13, 1.14): "meant vs typed" calculator pitfalls, sense checks (Sensible / Not sensible), 12/24-hour clock slider, durations and timetables, clock and dial reading; practice calcuse, sensecheck, tconv, tdur, clockread, dialread
-- [ ] Lesson 9 (next): money and personal finance (1.15, 1.16). Currency conversion, discount, profit and loss, simple and compound interest (compound interest formula is required).
-- [ ] Lesson 10: sets and Venn diagrams (1.2). Notation n(A), ℰ, A ∪ B, A ∩ B; a drag-the-items Venn applet.
-- [ ] Lesson 11: revision and practice test for Common Test 1.
-- [ ] Update `number/index.html` (lessons 9–11 are still "coming soon") and flip each to a link as it is built.
+- [x] Lesson 9: money and personal finance (1.15, 1.16): currency converter, discount/GST and profit/loss tools, simple vs compound interest table, earnings-from-a-table questions; practice currency, discount, profit, simple, compound, earnings
+- [x] Lesson 10: sets and Venn diagrams (1.2): set rules and n(A), live Venn diagram for any two rules, region-choice questions, n(A ∪ B) counting; practice setcount, region, setops, vencount
+- [x] Lesson 11: revision and practice test: "I can" checklist (saved on the device) with links and progress per lesson, four mixed practice sets (mix1–mix4)
+- [x] `number/index.html` links all eleven lessons.
+
+Topic 1 is complete. Next: Topic 2 (Algebra) is the next live topic; see the suggested breakdown below. Handbook lists 1.2 as two lessons; Lesson 10 covers it in one, so add a second Sets lesson (shading regions, problems) if the teacher wants it.
 
 ## Topics 2–11: suggested lesson breakdown
 

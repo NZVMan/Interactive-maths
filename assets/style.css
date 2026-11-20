@@ -141,3 +141,12 @@ table.t.compact { min-width: 0 !important; } table.t.compact th, table.t.compact
 .ratiobar span:nth-child(3n+2) { background: #f3c14a; }
 .ratiobar span:nth-child(3n) { background: #cfeadb; }
 .p-q .m { white-space: normal; overflow-wrap: anywhere; }
+
+/* Revision checklist (Lesson 11) */
+.checklist { list-style: none; padding: 0; margin: 12px 0; }
+.checklist li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.checklist label.chk { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; min-height: 40px; }
+.checklist input[type=checkbox] { width: 24px; height: 24px; flex: none; margin-top: 2px; accent-color: var(--accent); }
+.checklist a { margin-left: 34px; }
+.checklist .prog { margin-left: 8px; color: var(--muted); font-size: .9em; }
+.checklist .prog.done { color: var(--good); }

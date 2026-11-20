@@ -42,14 +42,14 @@ const ok = (c, m) => { if (!c) { failed++; console.log("FAIL", m); } else consol
       document.querySelectorAll("h1,h2,h3,h4").forEach((h) => { const l = +h.tagName[1]; if (l > last + 1) out.push("heading level jumps to " + h.tagName + ': "' + h.textContent.trim().slice(0, 30) + '"'); last = l; });
       document.querySelectorAll("input,select,textarea").forEach((i) => {
         if (!vis(i)) return;
-        const named = i.getAttribute("aria-label") || (i.id && document.querySelector('label[for="' + i.id + '"]'));
+        const named = i.getAttribute("aria-label") || (i.id && document.querySelector('label[for="' + i.id + '"]')) || i.closest("label");
         if (!named) out.push("unlabelled field: " + (i.id || i.className));
-        if (i.type !== "range" && parseFloat(getComputedStyle(i).fontSize) < 16) out.push("field font under 16px (iOS zooms the page): " + (i.id || i.className));
+        if (i.type !== "range" && i.type !== "checkbox" && parseFloat(getComputedStyle(i).fontSize) < 16) out.push("field font under 16px (iOS zooms the page): " + (i.id || i.className));
       });
       document.querySelectorAll("button").forEach((b) => { if (vis(b) && !(b.textContent.trim() || b.getAttribute("aria-label"))) out.push("button without a name"); });
       document.querySelectorAll("button,input,select,.btn,.key-btn,.l,.start").forEach((e) => {
         if (!vis(e)) return;
-        const r = e.getBoundingClientRect();
+        const r = (e.type === "checkbox" && e.closest("label") ? e.closest("label") : e).getBoundingClientRect();
         if (e.type === "range") return;
         if (r.height < 40) out.push("small tap target (" + Math.round(r.height) + "px): " + (e.id || e.className || e.tagName));
       });
