@@ -127,6 +127,7 @@
     const eStr = q === 1 ? String(p).replace("-", "−") : (p < 0 ? "−" : "") + Math.abs(p) + "/" + q;
     return {
       q: "Work out <span class=\"m\">" + b + "<sup>" + eStr + "</sup></span>. (Give a whole number, fraction or decimal.)",
+      keys: ["/", "−"], placeholder: "e.g. 1/8 or 0.125",
       check: (s) => near(num(s), ans),
       explain: b + "^(" + eStr.replace("−", "-") + ") = " + (ans >= 1 || ans === 0 ? M.fmtNum(ans) : "1/" + Math.round(1 / ans) + " = " + M.fmtNum(ans)) + ".",
       hint: p === 0 ? "Anything to the power 0 is 1." : p < 0 ? "A negative index means reciprocal: flip it to 1 ÷ (positive index version)." : "The bottom of the fraction is the root, the top is the power."
@@ -138,6 +139,7 @@
     const ord = M.shiftDecimal(A, n);
     return {
       q: "Write <strong>" + group(ord) + "</strong> in standard form. (Type it like 3.2 x 10^4.)",
+      keys: ["×", "^", "−"], placeholder: "e.g. 3.2 × 10^4",
       check: (s) => { const r = M.parseStandardForm(s); return !!r && r.n === n && near(r.a, parseFloat(A)); },
       explain: group(ord) + " = " + A + " × 10" + M.sup(n) + ".",
       hint: "Move the decimal point until the number is between 1 and 10. The number of places moved is the index (positive for big numbers, negative for small ones)."
@@ -149,6 +151,7 @@
     const ord = M.shiftDecimal(A, n);
     return {
       q: "Write <span class=\"m\">" + A + " × 10<sup>" + String(n).replace("-", "−") + "</sup></span> as an ordinary number.",
+      placeholder: "e.g. 0.0072 or 72000",
       check: (s) => near(num(s), parseFloat(ord)),
       explain: A + " × 10" + M.sup(n) + " = " + group(ord) + ".",
       hint: n > 0 ? "Move the decimal point " + n + " places to the right." : "Move the decimal point " + (-n) + " places to the left."
@@ -161,6 +164,7 @@
     const n = s.n + n1 + n2;
     return {
       q: "Work out <span class=\"m\">(" + A + " × 10<sup>" + String(n1) + "</sup>) × (" + B + " × 10<sup>" + String(n2).replace("-", "−") + "</sup>)</span>. Give your answer in standard form.",
+      keys: ["×", "^", "−"], placeholder: "e.g. 1.2 × 10^10",
       check: (x) => { const r = M.parseStandardForm(x); return !!r && r.n === n && near(r.a, parseFloat(s.a)); },
       explain: "Multiply " + A + " × " + B + " = " + M.fmtNum(A * B) + " and add indices " + n1 + " + (" + n2 + ") = " + (n1 + n2) + ", then adjust: " + s.a + " × 10" + M.sup(n) + ".",
       hint: "Multiply the numbers, add the indices, then check the first number is between 1 and 10."

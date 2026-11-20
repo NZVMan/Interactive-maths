@@ -162,13 +162,13 @@
   const unsup = (s) => String(s).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+/g, (m) => "^" + m.split("").map((c) => (c === "⁻" ? "-" : "⁰¹²³⁴⁵⁶⁷⁸⁹".indexOf(c))).join(""));
 
   function parseStandardForm(s) {
-    const t = unsup(s).toLowerCase().replace(/\s+/g, "").replace(/[×x*·]/g, "x").replace(/10\^?\(?(-?\d+)\)?$/, "10^$1");
+    const t = unsup(s).replace(/−/g, "-").toLowerCase().replace(/\s+/g, "").replace(/[×x*·]/g, "x").replace(/10\^?\(?(-?\d+)\)?$/, "10^$1");
     const m = /^(-?\d*\.?\d+)x10\^(-?\d+)$/.exec(t);
     return m ? { a: parseFloat(m[1]), n: parseInt(m[2], 10) } : null;
   }
 
   function parseNumber(s) {
-    s = String(s).trim().replace(/,/g, "").replace(/%$/, "");
+    s = String(s).trim().replace(/−/g, "-").replace(/,/g, "").replace(/%$/, "");
     let m;
     if ((m = /^(-?\d+)\/(\d+)$/.exec(s))) return parseInt(m[1], 10) / parseInt(m[2], 10);
     return /^-?\d*\.?\d+$/.test(s) ? parseFloat(s) : NaN;
@@ -177,46 +177,157 @@
   const generators = {};
   const registerPractice = (name, fn) => { generators[name] = fn; };
 
-  function mountPractice(el) {
-    const gen = generators[el.dataset.practice];
+  /* ---- Progress (saved in this browser only; falls back to memory if storage is blocked) ---- */
+  const store = (function () {
+    try { const k = "__im"; localStorage.setItem(k, "1"); localStorage.removeItem(k); return localStorage; }
+    catch (e) { const m = {}; return { getItem: (k) => (k in m ? m[k] : null), setItem: (k, v) => { m[k] = String(v); } }; }
+  })();
+  const fileName = () => (typeof location !== "undefined" ? location.pathname.split("/").pop() : "") || "index.html";
+  const doneKey = (f) => "im:v1:" + f + ":done", totalKey = (f) => "im:v1:" + f + ":total";
+  function readDone(f) { try { return JSON.parse(store.getItem(doneKey(f)) || "[]"); } catch (e) { return []; } }
+  function markDone(f, name) { const d = readDone(f); if (d.indexOf(name) === -1) { d.push(name); store.setItem(doneKey(f), JSON.stringify(d)); } }
+  function progress(f) { return { done: readDone(f).length, total: parseInt(store.getItem(totalKey(f)) || "0", 10) }; }
+
+  const SET_SIZE = 5;
+
+  function mountPractice(el, index, total) {
+    const name = el.dataset.practice, gen = generators[name];
     if (!gen) return;
-    let cur, right = 0, tried = 0, answered = false;
+    const file = fileName();
+    let cur, q = 0, firstTry = 0, attempts = 0, answered = false, revealed = false;
     el.classList.add("practice");
     el.innerHTML =
+      '<div class="p-head"><span class="p-count"></span><span class="p-done" hidden>✓ Completed</span></div>' +
       '<div class="p-q" aria-live="polite"></div>' +
-      '<div class="p-row"><input class="p-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer">' +
-      '<button class="btn p-check" type="button">Check</button>' +
-      '<button class="btn ghost p-new" type="button">New question</button></div>' +
-      '<div class="p-fb" role="status"></div><div class="p-score"></div>';
-    const q = el.querySelector(".p-q"), inp = el.querySelector(".p-in"), fb = el.querySelector(".p-fb"), sc = el.querySelector(".p-score");
-    function next() {
-      cur = gen(); answered = false;
-      q.innerHTML = cur.q; inp.value = ""; fb.textContent = ""; fb.className = "p-fb"; inp.disabled = false; inp.focus({ preventScroll: true });
+      '<div class="p-choices" hidden></div>' +
+      '<div class="p-row"><input class="p-in" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="Your answer">' +
+      '<button class="btn p-check" type="button">Check</button></div>' +
+      '<div class="p-keys" role="group" aria-label="Symbol buttons" hidden></div>' +
+      '<div class="p-fb" role="status"></div>' +
+      '<div class="p-actions"><button class="btn ghost p-show" type="button" hidden>Show me the answer</button><button class="btn p-next" type="button" hidden>Next ›</button></div>' +
+      '<div class="p-result" hidden></div>';
+    const $ = (c) => el.querySelector(c);
+    const head = $(".p-count"), doneTag = $(".p-done"), qEl = $(".p-q"), choices = $(".p-choices"), row = $(".p-row"),
+      inp = $(".p-in"), keys = $(".p-keys"), fb = $(".p-fb"), show = $(".p-show"), nextBtn = $(".p-next"), result = $(".p-result");
+
+    if (readDone(file).indexOf(name) !== -1) doneTag.hidden = false;
+
+    function insert(txt) {
+      const s = inp.selectionStart == null ? inp.value.length : inp.selectionStart, e = inp.selectionEnd == null ? s : inp.selectionEnd;
+      inp.value = inp.value.slice(0, s) + txt + inp.value.slice(e);
+      inp.focus(); inp.setSelectionRange(s + txt.length, s + txt.length);
+    }
+    function load() {
+      cur = gen(); answered = false; revealed = false; attempts = 0;
+      result.hidden = true; qEl.hidden = false; fb.hidden = false;
+      head.textContent = "Question " + (q + 1) + " of " + SET_SIZE + (firstTry ? " · " + firstTry + " right first time" : "");
+      qEl.innerHTML = cur.q;
+      fb.textContent = ""; fb.className = "p-fb";
+      show.hidden = true; nextBtn.hidden = true;
+      inp.value = ""; inp.disabled = false; inp.placeholder = cur.placeholder || "";
+      $(".p-check").disabled = false;
+      keys.textContent = "";
+      (cur.keys || []).forEach((k) => {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "key-btn"; b.textContent = k; b.setAttribute("aria-label", "Insert " + k);
+        b.addEventListener("click", () => insert(k));
+        keys.appendChild(b);
+      });
+      keys.hidden = !(cur.keys && cur.keys.length);
+      choices.textContent = "";
+      if (cur.choices) {
+        cur.choices.forEach((c) => {
+          const b = document.createElement("button");
+          b.type = "button"; b.className = "btn ghost choice"; b.textContent = c;
+          b.addEventListener("click", () => { if (!answered) { inp.value = c; check(); } });
+          choices.appendChild(b);
+        });
+      }
+      choices.hidden = !cur.choices;
+      row.hidden = !!cur.choices;
+    }
+    function finishQuestion(ok) {
+      answered = true;
+      inp.disabled = true; $(".p-check").disabled = true;
+      choices.querySelectorAll("button").forEach((b) => (b.disabled = true));
+      show.hidden = true; nextBtn.hidden = false;
+      nextBtn.textContent = q === SET_SIZE - 1 ? "See my result" : "Next ›";
+      nextBtn.focus({ preventScroll: true });
+      if (ok && attempts === 0 && !revealed) firstTry++;
     }
     function check() {
       if (answered || !inp.value.trim()) return;
-      tried++;
       if (cur.check(inp.value)) {
-        right++; answered = true; fb.className = "p-fb good"; fb.innerHTML = "✓ Correct. " + (cur.explain || "");
+        fb.className = "p-fb good"; fb.innerHTML = "✓ Correct. " + (cur.explain || "");
+        finishQuestion(true);
       } else {
-        fb.className = "p-fb bad"; fb.innerHTML = cur.hint ? "Not quite. " + cur.hint : "Not quite — have another go, or press New question.";
+        attempts++;
+        fb.className = "p-fb bad";
+        fb.innerHTML = (cur.hint ? "Not quite. " + cur.hint : "Not quite. Have another go.");
+        if (attempts >= 2) show.hidden = false;
+        if (cur.choices) { inp.value = ""; }
+        else inp.focus({ preventScroll: true });
       }
-      sc.textContent = "Correct: " + right + " out of " + tried + " attempts";
     }
-    el.querySelector(".p-check").addEventListener("click", check);
-    el.querySelector(".p-new").addEventListener("click", next);
-    inp.addEventListener("keydown", (e) => { if (e.key === "Enter") (answered ? next() : check()); });
-    next();
+    function reveal() {
+      revealed = true;
+      fb.className = "p-fb bad"; fb.innerHTML = "Here it is: " + (cur.explain || "") + " Try the next one.";
+      finishQuestion(false);
+    }
+    function next() {
+      if (q === SET_SIZE - 1) return finishSet();
+      q++; load(); if (!cur.choices) inp.focus({ preventScroll: true });
+    }
+    function finishSet() {
+      markDone(file, name); doneTag.hidden = false;
+      qEl.hidden = true; fb.hidden = true; row.hidden = true; keys.hidden = true; choices.hidden = true; nextBtn.hidden = true; show.hidden = true;
+      head.textContent = "Set finished";
+      const msg = firstTry === SET_SIZE ? "Perfect: all " + SET_SIZE + " right first time." : firstTry >= 3 ? "Good work: " + firstTry + " of " + SET_SIZE + " right first time." : firstTry + " of " + SET_SIZE + " right first time. Worth another go: practice makes it stick.";
+      result.hidden = false; result.textContent = "";
+      const p = document.createElement("p"); p.textContent = msg; result.appendChild(p);
+      const again = document.createElement("button"); again.type = "button"; again.className = "btn"; again.textContent = "Do another set";
+      again.addEventListener("click", () => { q = 0; firstTry = 0; load(); if (!cur.choices) inp.focus({ preventScroll: true }); });
+      result.appendChild(again);
+      again.focus({ preventScroll: true });
+    }
+    $(".p-check").addEventListener("click", check);
+    show.addEventListener("click", reveal);
+    nextBtn.addEventListener("click", next);
+    inp.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); answered ? next() : check(); } });
+    load();
   }
+
+  /* ---- "On this page" jump links ---- */
+  function buildToc() {
+    const obj = document.querySelector("main .obj");
+    const hs = Array.from(document.querySelectorAll("main h2"));
+    if (!obj || hs.length < 3 || document.querySelector("nav.toc")) return;
+    const nav = document.createElement("nav");
+    nav.className = "toc"; nav.setAttribute("aria-label", "On this page");
+    const t = document.createElement("strong"); t.textContent = "On this page"; nav.appendChild(t);
+    const ol = document.createElement("ol");
+    hs.forEach((h, i) => {
+      if (!h.id) h.id = "sec-" + (i + 1);
+      const li = document.createElement("li"), a = document.createElement("a");
+      a.href = "#" + h.id; a.textContent = h.textContent.replace(/^\d+\.\s*/, "");
+      li.appendChild(a); ol.appendChild(li);
+    });
+    nav.appendChild(ol);
+    obj.insertAdjacentElement("afterend", nav);
+  }
+
   function mountAll() {
     if (typeof document === "undefined") return;
-    document.querySelectorAll("[data-practice]").forEach(mountPractice);
+    buildToc();
+    const els = Array.from(document.querySelectorAll("[data-practice]"));
+    store.setItem(totalKey(fileName()), String(els.length));
+    els.forEach((el, i) => mountPractice(el, i, els.length));
   }
 
   return {
     sup, gcd, lcm, primeFactors, isPrime, isSquare, isCube, factorCounts, factorString, simplify,
     toDecimal, decimalToFraction, toStandardForm, fromStandardForm, shiftDecimal, fmtNum, classify,
     rnd, pick, parseFactorProduct, sameCounts, parseStandardForm, parseNumber,
-    registerPractice, mountAll, _generators: generators
+    registerPractice, mountAll, progress, _generators: generators
   };
 });

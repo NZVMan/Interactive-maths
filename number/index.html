@@ -7,16 +7,17 @@
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs">Year 10 Mathematics 2027 › Topic 1: Number</div></header>
-<main>
+<main id="main">
   <span class="tag">Topic 1</span>
   <h1>Number</h1>
   <p class="lead">13 lessons in the scheme, then a revision session and Common Test #1. Work through the lessons in order. Each one has things to try and practice questions that give instant feedback.</p>
 
   <ul class="lessons">
-    <li><a class="l" href="lesson-1-types-of-numbers.html"><strong>Lesson 1: Types of numbers, factors and multiples</strong><small>Handbook 1.1 · natural, integer, rational, irrational · primes · prime factors · HCF and LCM</small></a></li>
-    <li><a class="l" href="lesson-2-indices-standard-form.html"><strong>Lesson 2: Indices and standard form</strong><small>Handbook 1.3, 1.7 · index laws · zero, negative and fractional indices · standard form</small></a></li>
-    <li><a class="l" href="lesson-3-fractions-decimals-percentages.html"><strong>Lesson 3: Fractions, decimals and percentages</strong><small>Handbook 1.5, 1.6, 1.12 · equivalence · ordering with &lt; &gt; · percentage of, increase and decrease</small></a></li>
+    <li><a class="l" href="lesson-1-types-of-numbers.html" data-lesson="lesson-1-types-of-numbers.html"><strong>Lesson 1: Types of numbers, factors and multiples</strong><small>Handbook 1.1 · natural, integer, rational, irrational · primes · prime factors · HCF and LCM</small><span class="prog"></span></a></li>
+    <li><a class="l" href="lesson-2-indices-standard-form.html" data-lesson="lesson-2-indices-standard-form.html"><strong>Lesson 2: Indices and standard form</strong><small>Handbook 1.3, 1.7 · index laws · zero, negative and fractional indices · standard form</small><span class="prog"></span></a></li>
+    <li><a class="l" href="lesson-3-fractions-decimals-percentages.html" data-lesson="lesson-3-fractions-decimals-percentages.html"><strong>Lesson 3: Fractions, decimals and percentages</strong><small>Handbook 1.5, 1.6, 1.12 · equivalence · ordering with &lt; &gt; · percentage of, increase and decrease</small><span class="prog"></span></a></li>
     <li><span class="soon">Lesson 4: Directed numbers, squares and roots (1.3, 1.4) – coming soon</span></li>
     <li><span class="soon">Lesson 5: Four rules, fractions and order of operations (1.8) – coming soon</span></li>
     <li><span class="soon">Lesson 6: Estimating, rounding and bounds (1.9, 1.10) – coming soon</span></li>
@@ -27,5 +28,15 @@
     <li><span class="soon">Lesson 11: Revision and practice test – coming soon</span></li>
   </ul>
 </main>
+<script src="../assets/maths.js"></script>
+<script>
+document.querySelectorAll("a[data-lesson]").forEach(function (a) {
+  var p = M.progress(a.dataset.lesson), el = a.querySelector(".prog");
+  if (!p.total) { el.textContent = "Not started"; return; }
+  if (p.done >= p.total) { el.textContent = "✓ All practice sets done"; el.classList.add("done"); }
+  else if (p.done === 0) { el.textContent = "Practice: " + p.total + " sets to do"; }
+  else { el.textContent = "Practice: " + p.done + " of " + p.total + " sets done"; }
+});
+</script>
 </body>
 </html>

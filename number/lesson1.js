@@ -132,6 +132,7 @@
     return {
       q: "Is <strong>" + n + "</strong> a prime number? (yes or no)",
       check: (s) => { s = s.trim().toLowerCase(); return prime ? ["y", "yes"].includes(s) : ["n", "no"].includes(s); },
+      choices: ["yes", "no"],
       explain: prime ? n + " has no factors except 1 and itself." : n + " = " + M.primeFactors(n).join(" × ") + ", so it has other factors.",
       hint: "Try dividing by 2, 3, 5 and 7. If any divides exactly, it isn't prime."
     };
@@ -144,6 +145,7 @@
     return {
       q: "Write <strong>" + n + "</strong> as a product of prime factors.",
       check: (s) => { const m = M.parseFactorProduct(s); return !!m && M.sameCounts(m, target) && Object.keys(m).every((p) => M.isPrime(+p)); },
+      keys: ["×", "^"], placeholder: "e.g. 2^2 × 3 × 5",
       explain: n + " = " + M.factorString(n) + ".",
       hint: "Keep splitting until every factor is prime. Write repeats as powers, like 2^3 x 5."
     };
@@ -157,6 +159,7 @@
     const ans = wantHcf ? M.gcd(a, b) : M.lcm(a, b);
     return {
       q: "Find the <strong>" + (wantHcf ? "HCF" : "LCM") + "</strong> of <strong>" + a + "</strong> and <strong>" + b + "</strong>.",
+      placeholder: "a whole number",
       check: (s) => M.parseNumber(s) === ans,
       explain: a + " = " + M.factorString(a) + " and " + b + " = " + M.factorString(b) + ", so the " + (wantHcf ? "HCF" : "LCM") + " is " + ans + ".",
       hint: wantHcf ? "Write both as products of primes and multiply the primes they share." : "Write both as products of primes and multiply everything in the diagram (shared primes once)."

@@ -94,12 +94,13 @@
     const bank = [[1, 2], [1, 4], [3, 4], [1, 5], [2, 5], [3, 8], [5, 8], [7, 20], [9, 25], [3, 10], [11, 40], [13, 50]];
     const [n, d] = M.pick(bank);
     const kind = M.rnd(0, 2);
-    if (kind === 0) return { q: "Write <span class=\"m\">" + n + "/" + d + "</span> as a decimal.", check: (s) => near(num(s), n / d),
+    if (kind === 0) return { q: "Write <span class=\"m\">" + n + "/" + d + "</span> as a decimal.", placeholder: "e.g. 0.375", check: (s) => near(num(s), n / d),
       explain: n + " ÷ " + d + " = " + M.fmtNum(n / d) + ".", hint: "Divide the numerator by the denominator." };
-    if (kind === 1) return { q: "Write <span class=\"m\">" + n + "/" + d + "</span> as a percentage. (Just the number is fine.)", check: (s) => near(num(s), n / d * 100),
+    if (kind === 1) return { q: "Write <span class=\"m\">" + n + "/" + d + "</span> as a percentage. (Just the number is fine.)", placeholder: "e.g. 37.5", check: (s) => near(num(s), n / d * 100),
       explain: n + "/" + d + " = " + M.fmtNum(n / d) + " = " + M.fmtNum(parseFloat((n / d * 100).toFixed(6))) + "%.", hint: "Turn it into a decimal first, then multiply by 100." };
     const p = parseFloat((n / d * 100).toFixed(6));
     return { q: "Write <strong>" + M.fmtNum(p) + "%</strong> as a fraction in its simplest form.",
+      keys: ["/"], placeholder: "e.g. 7/20",
       check: (s) => { const m = /^\s*(\d+)\s*\/\s*(\d+)\s*$/.exec(s); if (!m) return false; const a = +m[1], b = +m[2]; return b !== 0 && a === n && b === d; },
       explain: M.fmtNum(p) + "% = " + n + "/" + d + ".", hint: "Write it over 100, then divide top and bottom by their HCF. Type the answer like 7/20." };
   });
@@ -111,6 +112,7 @@
     const sym = near(left, dec) ? "=" : left > dec ? ">" : "<";
     return {
       q: "Which symbol goes in the gap?  <span class=\"m\">" + n + "/" + d + "  ___  " + M.fmtNum(dec) + "</span>  (type &lt;, &gt; or =)",
+      choices: ["<", ">", "="],
       check: (s) => s.trim() === sym,
       explain: n + "/" + d + " = " + M.fmtNum(left) + ", which is " + (sym === "=" ? "equal to " : sym === ">" ? "greater than " : "less than ") + M.fmtNum(dec) + ".",
       hint: "Change the fraction to a decimal, then compare."
@@ -120,7 +122,7 @@
     const p = M.pick([5, 10, 12, 15, 20, 25, 30, 35, 40, 60, 75]);
     const q = M.pick([40, 60, 80, 120, 150, 200, 240, 360, 500]);
     const ans = p / 100 * q;
-    return { q: "Find <strong>" + p + "%</strong> of <strong>" + q + "</strong>.", check: (s) => near(num(s), ans),
+    return { q: "Find <strong>" + p + "%</strong> of <strong>" + q + "</strong>.", placeholder: "a number", check: (s) => near(num(s), ans),
       explain: p + "/100 × " + q + " = " + M.fmtNum(ans) + ".", hint: "Divide by 100 to find 1%, then multiply by " + p + ". Or multiply by " + M.fmtNum(p / 100) + "." };
   });
   M.registerPractice("pcchange", () => {
@@ -130,11 +132,13 @@
     const nv = orig * (1 + (up ? p : -p) / 100);
     if (Math.random() < 0.5) {
       return { q: "A price of <strong>$" + orig + "</strong> " + (up ? "increases" : "decreases") + " by <strong>" + p + "%</strong>. What is the new price? (in dollars)",
+        placeholder: "a number",
         check: (s) => near(num(s), nv),
         explain: "Multiplier " + M.fmtNum(1 + (up ? p : -p) / 100) + ", so " + orig + " × " + M.fmtNum(1 + (up ? p : -p) / 100) + " = $" + M.fmtNum(nv) + ".",
         hint: "Use a multiplier: " + (up ? "100% + " : "100% − ") + p + "% = " + (100 + (up ? p : -p)) + "%, which is " + M.fmtNum(1 + (up ? p : -p) / 100) + "." };
     }
     return { q: "A price changes from <strong>$" + orig + "</strong> to <strong>$" + M.fmtNum(nv) + "</strong>. What is the percentage " + (up ? "increase" : "decrease") + "? (Just the number is fine.)",
+      placeholder: "a number",
       check: (s) => near(num(s), p),
       explain: "Change = " + M.fmtNum(Math.abs(nv - orig)) + ", so " + M.fmtNum(Math.abs(nv - orig)) + "/" + orig + " × 100 = " + p + "%.",
       hint: "Percentage change = change ÷ original × 100." };

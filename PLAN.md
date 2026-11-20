@@ -79,12 +79,28 @@ Lesson counts come from the handbook. Titles and applet ideas are suggestions, n
 
 1. Objectives box that matches the handbook codes it covers.
 2. Short explanation, a key-idea box, at least one "Try it" applet and one worked example.
-3. At least two practice question types using the shared engine (see below). Every question has a `hint` and an `explain`.
+3. At least two practice question types using the shared engine (see below). Every question has a `hint` and an `explain`, plus a `placeholder` showing the answer format. Add `keys: ["×", "^"]` for symbol buttons, or `choices: ["yes", "no"]` for tap-to-answer questions.
 4. Works at 390 px wide with no horizontal scrolling, and in light and dark mode.
 5. Uses NZ English and the handbook's wording and notation (e.g. "HCF", "standard form", "three-figure bearings").
 6. Added to the topic contents page and linked from the previous and next lesson.
-7. `node tests/maths.test.js` and `node tests/browser.test.js` both pass (add tests for any new helper in `assets/maths.js`).
+7. `node tests/maths.test.js`, `node tests/browser.test.js` and `node tests/ux.test.js` all pass (add tests for any new helper in `assets/maths.js`).
 8. This file updated.
+
+## UX review (done and still to do)
+
+Done in round 1:
+- [x] Home page leads with "Start here" (Topic 1); other topics collapsed under "Coming later"; Course information linked near the top; term/week dates removed from student-facing cards
+- [x] Practice is now a set of 5 questions with a result, first-time-right count, "Show me the answer" after two wrong tries, and a "Completed" tag
+- [x] Symbol buttons (×, ^, /, −) and an example in the answer box; yes/no and < > = questions use big tap buttons
+- [x] "On this page" jump links on each lesson; practice progress saved in the browser (no accounts) and shown on the topic contents page
+- [x] Skip-to-content link, larger breadcrumb tap targets, print layout, worked example one step per line
+
+Still to do:
+- [ ] Add a short "predict first" prompt to each "Try it" applet
+- [ ] Check colour contrast with a tool and fix anything under 4.5:1
+- [ ] Try on a real phone (iPhone Safari and Android Chrome) and with a screen reader
+- [ ] Two-column layout for applets on wide screens
+- [ ] Decide whether the outline pages for later topics should be hidden from students
 
 ## Technical notes
 

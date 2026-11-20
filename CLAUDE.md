@@ -16,13 +16,14 @@ You are helping a Year 10 maths teacher at King's College, Auckland build an int
 - Plain HTML, CSS and JavaScript only. No frameworks, no build step for lessons, no network requests at runtime.
 - Build dynamic content with DOM or SVG calls and `textContent`, not by putting user-typed text into `innerHTML`.
 - Do not hand-edit generated files (`index.html`, `course/index.html`, `course/handbook.md`, and the `<topic>/index.html` pages for topics whose `status` is `"outline"`). Change `course/scheme-of-work.json` and run `node tools/build-site.js`.
+- Every practice question needs a `placeholder`; use `keys` for symbols and `choices` for yes/no or comparison questions, because students answer on phones.
 - Do not copy the school's Google Drive links or any student data into the repo.
 
 ## Workflow
 
 1. Work on a branch named for the task (e.g. `topic-1-lesson-4`), not directly on `main`.
 2. Build the lesson following the definition of done in `PLAN.md`.
-3. Run `node tests/maths.test.js` and `node tests/browser.test.js` (the browser test needs Playwright and Chrome; if unavailable, say so and at least run `node --check` on each script and open the page).
+3. Run `node tests/maths.test.js`, `node tests/browser.test.js` and `node tests/ux.test.js` (the browser test needs Playwright and Chrome; if unavailable, say so and at least run `node --check` on each script and open the page).
 4. Look at the page at about 390 px wide before calling it done.
 5. Update the status tables and checkboxes in `PLAN.md` and the lesson list on the topic page.
 6. Commit with a clear message, push the branch, and merge to `main` when the teacher is happy. GitHub Pages serves `main`.

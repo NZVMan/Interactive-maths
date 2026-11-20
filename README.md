@@ -31,7 +31,7 @@ Details for each client are in **[CLAUDE.md](CLAUDE.md)**.
 - `<topic>/index.html` for Topics 2–11: outline pages of what each topic covers
 - `assets/style.css`, `assets/maths.js`: shared styles, maths helpers and the practice-question engine
 - `tools/build-site.js`: regenerates the home page, course page, handbook copy and outline pages from the JSON
-- `tests/`: `node tests/maths.test.js` (logic) and `node tests/browser.test.js` (loads every page in headless Chrome and checks every practice question type)
+- `tests/`: `node tests/maths.test.js` (logic) and `node tests/browser.test.js` (loads every page in headless Chrome and checks every practice question type), `node tests/ux.test.js` (practice sets, symbol buttons, saved progress, no sideways scrolling on a phone)
 
 ## Working on it
 
@@ -46,9 +46,14 @@ M.registerPractice("name", () => ({
   q: "Question text (HTML allowed)",
   check: (answer) => answer.trim() === "42",
   explain: "Shown after a correct answer.",
-  hint: "Shown after a wrong answer."
+  hint: "Shown after a wrong answer.",
+  placeholder: "e.g. 42",        // answer format shown in the box
+  keys: ["×", "^"],              // optional symbol buttons for phones
+  choices: ["yes", "no"]         // optional: tap buttons instead of typing
 }));
 ```
+
+Each practice box is a set of 5 questions; finishing a set saves progress in the student's browser.
 
 ## Source
 

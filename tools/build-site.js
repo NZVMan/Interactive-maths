@@ -25,8 +25,9 @@ function page({ title, depth, crumbs, body }) {
 <link rel="stylesheet" href="${up}assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site"><a href="${up}index.html">Interactive Maths</a><div class="crumbs">${crumbs}</div></header>
-<main>
+<main id="main">
 ${body}
 </main>
 </body>
@@ -36,19 +37,26 @@ ${body}
 
 /* ---------- home ---------- */
 {
-  const items = data.topics.map((t) => {
-    const meta = `${t.lessons} lessons · ${esc(t.weeks.split(".")[0])}`;
-    if (t.status === "live") return `    <li><a class="l" href="${t.slug}/index.html"><strong>${t.n}. ${esc(t.title)}</strong><small>${meta}</small></a></li>`;
-    return `    <li><a class="l" href="${t.slug}/index.html"><strong>${t.n}. ${esc(t.title)}</strong><small>${meta} · interactive lessons coming soon (outline available)</small></a></li>`;
+  const readyCount = (slug) => { try { return fs.readdirSync(path.join(root, slug)).filter((f) => /^lesson-.*\.html$/.test(f)).length; } catch (e) { return 0; } };
+  const live = data.topics.filter((t) => t.status === "live");
+  const later = data.topics.filter((t) => t.status !== "live");
+  const startCards = live.map((t, i) => {
+    const n = readyCount(t.slug);
+    return `  <a class="start" href="${t.slug}/index.html"><strong>${i === 0 ? "Start here: " : ""}Topic ${t.n}: ${esc(t.title)}</strong><span>${n} lesson${n === 1 ? "" : "s"} ready, with practice questions that mark themselves</span></a>`;
   }).join("\n");
+  const laterItems = later.map((t) => `    <li><a class="l" href="${t.slug}/index.html"><strong>${t.n}. ${esc(t.title)}</strong><small>Lessons coming soon · see what it covers</small></a></li>`).join("\n");
   write("index.html", page({
     title: "Year 10 Mathematics", depth: 0, crumbs: "Year 10 Mathematics 2027",
     body: `  <h1>Year 10 Mathematics</h1>
-  <p class="lead">Short explanations, things to play with, and practice questions that mark themselves. Follows the 10MAY scheme of work (Cambridge IGCSE Core).</p>
-  <ul class="lessons">
-${items}
-    <li><a class="l" href="course/index.html"><strong>Course information</strong><small>Timeline, common tests, command words, resources</small></a></li>
-  </ul>`
+  <p class="lead">Short explanations, things to play with, and practice questions that mark themselves.</p>
+${startCards}
+  <p class="quiet"><a href="course/index.html">Course information</a>: timeline, tests and what the exam words mean.</p>
+  <details class="later">
+    <summary>Coming later (${later.length} topics)</summary>
+    <ul class="lessons">
+${laterItems}
+    </ul>
+  </details>`
   }));
 }
 
