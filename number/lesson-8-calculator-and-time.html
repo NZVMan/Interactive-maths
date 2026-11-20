@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 8: Calculator use and time – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 1: Number</a> › Lesson 8</div></header>
+<main id="main">
+  <span class="tag">Topic 1 · Lesson 8</span>
+  <h1>Calculator use and time</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>use a calculator efficiently, with brackets, and round only at the end</li>
+      <li>check an answer for sense using an estimate</li>
+      <li>change between 12-hour and 24-hour time</li>
+      <li>find durations and read clocks, dials and timetables</li>
+    </ul>
+  </div>
+
+  <h2>1. Using a calculator efficiently</h2>
+  <div class="key">
+    <p>A calculator follows the order of operations. It does exactly what you type, so:</p>
+    <ul>
+      <li>Put <strong>brackets</strong> round the top and the bottom of a fraction: <span class="m">(5.2 + 3.8) ÷ 3</span>.</li>
+      <li>Use brackets for negative numbers that are squared: <span class="m">(−3)² = 9</span> but <span class="m">−3² = −9</span>.</li>
+      <li><strong>Don't round in the middle.</strong> Keep the full number on the screen (or use the answer key) and round only at the end.</li>
+    </ul>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> You want <span class="m">(5.2 + 3.8) ÷ 3</span> but type <span class="m">5.2 + 3.8 ÷ 3</span>. Will you get 3?<details><summary>Check my prediction</summary><p>No. Without brackets the calculator divides 3.8 by 3 first and then adds 5.2, which gives about 6.47. The correct answer is 9 ÷ 3 = 3.</p></details></div>
+    <p>Type what you meant and what you typed, or tap an example.</p>
+    <div class="row"><label for="ca-m">I meant</label><input type="text" id="ca-m" value="(5.2 + 3.8) ÷ 3" size="22" autocapitalize="off" spellcheck="false"></div>
+    <div class="row"><label for="ca-t">I typed</label><input type="text" id="ca-t" value="5.2 + 3.8 ÷ 3" size="22" autocapitalize="off" spellcheck="false"></div>
+    <div class="chips" id="ca-ex"></div>
+    <div id="ca-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="calcuse"></div>
+
+  <h2>2. Checking your answer</h2>
+  <p>Always ask: <em>is this about the right size?</em> Round each number to 1 significant figure (Lesson 6) and do a quick estimate. If your calculator answer is very different, check what you typed. You can also check with the <strong>inverse operation</strong>: if 48.7 × 9.8 = 477.26, then 477.26 ÷ 9.8 should give 48.7.</p>
+  <div data-practice="sensecheck"></div>
+
+  <h2>3. 12-hour and 24-hour time</h2>
+  <div class="key">
+    <p>In 24-hour time the day runs from 00:00 to 23:59, with four digits.</p>
+    <p>For times after 1 pm, <strong>add 12 hours</strong>: 3:25 pm = 15:25. Midnight is 00:00 and 12 noon is 12:00. 12:30 am is 00:30.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> What is 3:25 pm in 24-hour time: 13:25 or 15:25?<details><summary>Check my prediction</summary><p>15:25. 3 + 12 = 15, and the minutes stay the same.</p></details></div>
+    <p>Slide to change the time. The clock, the 12-hour time and the 24-hour time all match.</p>
+    <label for="cl-r">Time of day</label>
+    <input type="range" id="cl-r" min="0" max="1435" step="5" value="925" style="width:100%">
+    <div id="cl-svg" aria-hidden="true"></div>
+    <div id="cl-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="tconv"></div>
+
+  <h2>4. Durations and timetables</h2>
+  <div class="key">To find how long something takes, count on to the next whole hour, then add the rest. From 07:45 to 10:20: 15 min to 08:00, 2 h to 10:00, then 20 min. Total 2 h 35 min. Remember 1 hour = 60 minutes, not 100.</div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> How long is it from 10:45 to 12:15?<details><summary>Check my prediction</summary><p>1 h 30 min. 15 min to 11:00, 1 h to 12:00, then 15 min more, so 15 + 60 + 15 = 90 minutes.</p></details></div>
+    <div class="row">
+      <label for="du-a">Start</label><input type="text" id="du-a" value="10:45" size="8" autocapitalize="off" spellcheck="false">
+      <label for="du-b">End</label><input type="text" id="du-b" value="12:15" size="8" autocapitalize="off" spellcheck="false">
+    </div>
+    <div id="du-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="tdur"></div>
+
+  <h2>5. Reading clocks and dials</h2>
+  <p>On an analogue clock the short hand shows the hour and the long hand shows the minutes. Each big number is 5 minutes. On a dial, work out what <strong>one small division</strong> is worth first: count the small steps between two labelled numbers.</p>
+  <div data-practice="clockread"></div>
+  <div data-practice="dialread"></div>
+
+  <div class="nav"><a class="btn ghost" href="lesson-7-ratio-proportion-rates.html">‹ Lesson 7</a><a class="btn" href="index.html">Topic contents</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="lesson8.js"></script>
+</body>
+</html>

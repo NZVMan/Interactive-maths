@@ -42,14 +42,14 @@ Done:
 
 To build (file names follow `number/lesson-N-short-name.html` plus `number/lessonN.js`):
 - [x] Lesson 4: directed numbers, squares, cubes and roots (1.3, 1.4): number-line applet, sign rules, temperature and flood-level contexts, squares/cubes dot grid, roots finder (square, cube and fourth roots), mixed calculations such as 3² × ⁴√16
-- [ ] Lesson 5 (next): four rules, fractions and order of operations (1.8). Fraction arithmetic with mixed numbers, a BIDMAS step-through, brackets.
-- [ ] Lesson 6: estimating, rounding and bounds (1.9, 1.10). Rounding to decimal places and significant figures, upper and lower bounds on a number line.
-- [ ] Lesson 7: ratio, proportion and rates (1.11). Share in a ratio (bar model), direct and inverse proportion, average speed, scale drawings.
-- [ ] Lesson 8: calculator use and time (1.13, 1.14). Checking answers, 12/24-hour clock, timetables.
-- [ ] Lesson 9: money and personal finance (1.15, 1.16). Currency conversion, discount, profit and loss, simple and compound interest (compound interest formula is required).
+- [x] Lesson 5: four rules, fractions and order of operations (1.8): order-of-operations step-through (`M.evalSteps`), fraction calculator with working, decimal multiplication steps; practice orderops, fracops, decops
+- [x] Lesson 6: estimating, rounding and bounds (1.9, 1.10): rounding explorer (d.p./s.f.), 1 s.f. estimator, rounding in context, bounds number line; practice rdp, rsf, estimate, rdcontext, bounds
+- [x] Lesson 7: ratio, proportion and rates (1.11): ratio-sharing bar, direct/inverse proportion, speed/density/pressure, map scales; practice ratio, proportion, rates, scale
+- [x] Lesson 8: calculator use and time (1.13, 1.14): "meant vs typed" calculator pitfalls, sense checks (Sensible / Not sensible), 12/24-hour clock slider, durations and timetables, clock and dial reading; practice calcuse, sensecheck, tconv, tdur, clockread, dialread
+- [ ] Lesson 9 (next): money and personal finance (1.15, 1.16). Currency conversion, discount, profit and loss, simple and compound interest (compound interest formula is required).
 - [ ] Lesson 10: sets and Venn diagrams (1.2). Notation n(A), ℰ, A ∪ B, A ∩ B; a drag-the-items Venn applet.
 - [ ] Lesson 11: revision and practice test for Common Test 1.
-- [ ] Update `number/index.html` (it already lists these as "coming soon") and flip each to a link as it is built.
+- [ ] Update `number/index.html` (lessons 9–11 are still "coming soon") and flip each to a link as it is built.
 
 ## Topics 2–11: suggested lesson breakdown
 
