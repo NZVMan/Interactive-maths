@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 4: Expanding double brackets – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 2: Algebra</a> › Lesson 4</div></header>
+<main id="main">
+  <span class="tag">Topic 2 · Lesson 4</span>
+  <h1>Expanding double brackets</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>expand two brackets by multiplying every term in the first by every term in the second</li>
+      <li>collect like terms in the answer, taking care with negative signs</li>
+      <li>expand a squared bracket such as (x + 3)²</li>
+    </ul>
+  </div>
+
+  <h2>1. Two brackets</h2>
+  <div class="key">
+    <p>Multiply <strong>every term in the first bracket by every term in the second</strong>. For two terms each that gives 4 products, then you collect like terms.</p>
+    <p>A grid helps: <span class="m">(x + 4)(x − 7)</span> gives x × x, x × (−7), 4 × x and 4 × (−7).</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> Is <span class="m">(x + 3)(x + 2)</span> equal to <span class="m">x² + 6</span> or <span class="m">x² + 5x + 6</span>?<details><summary>Check my prediction</summary><p>x² + 5x + 6. The four products are x², 2x, 3x and 6. The two x terms are like terms: 2x + 3x = 5x.</p></details></div>
+    <p>Type two brackets, or tap an example.</p>
+    <div class="row"><input type="text" id="db-in" value="(x + 4)(x − 7)" size="22" aria-label="Two brackets to expand" autocapitalize="off" spellcheck="false"></div>
+    <div class="chips" id="db-ch"></div>
+    <div class="tablewrap"><table class="compact" id="db-tab"></table></div>
+    <div id="db-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="dbl1"></div>
+
+  <h2>2. Bigger numbers in the brackets</h2>
+  <p>With <span class="m">(2x + 3)(x − 5)</span> multiply carefully: 2x × x = 2x², 2x × (−5) = −10x, 3 × x = 3x, 3 × (−5) = −15. Then −10x + 3x = −7x.</p>
+  <div data-practice="dbl2"></div>
+
+  <h2>3. Squares of brackets</h2>
+  <div class="key"><span class="m">(x + 3)²</span> means <span class="m">(x + 3)(x + 3)</span>. It is <strong>not</strong> x² + 9. Write it out as two brackets and expand.</div>
+  <div data-practice="dbl3"></div>
+  <div class="nav"><a class="btn ghost" href="lesson-3-brackets-common-factors.html">‹ Lesson 3</a><a class="btn" href="lesson-5-factorising-quadratics.html">Lesson 5 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="../assets/algebra.js"></script>
+<script src="lesson4.js"></script>
+</body>
+</html>

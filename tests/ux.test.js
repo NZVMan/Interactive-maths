@@ -47,7 +47,7 @@ const ok = (cond, msg) => { if (!cond) { failed++; console.log("FAIL", msg); } e
   ok(/1 of 3 sets done/.test(txt), "topic page shows saved progress (" + txt + ")");
 
   // 4. no sideways scrolling on phone width
-  for (const p of ["index.html", "course/index.html", "number/index.html", "algebra/index.html"].concat(fs.readdirSync(path.join(__dirname,"..","number")).filter((f)=>/^lesson-\d+-.*\.html$/.test(f)).map((f)=>"number/"+f))) {
+  for (const p of ["index.html", "course/index.html", "number/index.html", "algebra/index.html"].concat(require("./pages.js")())) {
     await page.goto(url(p));
     const w = await page.evaluate(() => document.documentElement.scrollWidth);
     ok(w <= 390, "no sideways scroll: " + p + " (" + w + ")");

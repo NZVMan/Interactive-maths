@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 3: Brackets and common factors – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 2: Algebra</a> › Lesson 3</div></header>
+<main id="main">
+  <span class="tag">Topic 2 · Lesson 3</span>
+  <h1>Brackets and common factors</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>expand a bracket by multiplying every term inside by the number or term outside</li>
+      <li>expand and simplify more than one bracket, including with negative numbers</li>
+      <li>take out the highest common factor to factorise an expression</li>
+    </ul>
+  </div>
+
+  <h2>1. Expanding brackets</h2>
+  <div class="key">
+    <p>To <strong>expand</strong> a bracket, multiply <strong>every term inside</strong> by what is outside: <span class="m">3(x + 4) = 3x + 12</span>.</p>
+    <p>Take care with signs: a negative outside changes the sign of every term inside. <span class="m">−2(x − 3) = −2x + 6</span>.</p>
+    <p>Multiply the numbers, then the letters: <span class="m">3x × 2x = 6x²</span> and <span class="m">3x × 4y = 12xy</span>.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> Is <span class="m">−2(x − 3)</span> equal to <span class="m">−2x − 6</span> or <span class="m">−2x + 6</span>?<details><summary>Check my prediction</summary><p>−2x + 6. Multiply each term: −2 × x = −2x, and −2 × (−3) = +6. A negative times a negative is positive.</p></details></div>
+    <p>Type a bracket to expand, or tap an example.</p>
+    <div class="row"><input type="text" id="ex-in" value="3x(2x − 4y)" size="22" aria-label="Bracket to expand" autocapitalize="off" spellcheck="false"></div>
+    <div class="chips" id="ex-ch"></div>
+    <div id="ex-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="expand1"></div>
+  <div data-practice="expand2"></div>
+
+  <h2>2. Taking out common factors</h2>
+  <div class="key">
+    <p><strong>Factorising</strong> is expanding backwards. Find the <strong>highest common factor (HCF)</strong> of all the terms, write it outside a bracket, and divide each term by it.</p>
+    <p>Check by expanding: the answer must give you back the starting expression. Take out as much as you can: <span class="m">6x + 12 = 6(x + 2)</span>, not 3(2x + 4).</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> What is the HCF of <span class="m">9x²</span> and <span class="m">15xy</span>: 3, 3x or 3xy?<details><summary>Check my prediction</summary><p>3x. The HCF of 9 and 15 is 3. Both terms contain x (but only one has y, and only one has x²). So the HCF is 3x.</p></details></div>
+    <p>Type an expression with two or three terms.</p>
+    <div class="row"><input type="text" id="fc-in" value="9x² + 15xy" size="22" aria-label="Expression to factorise" autocapitalize="off" spellcheck="false"></div>
+    <div class="chips" id="fc-ch"></div>
+    <div id="fc-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="factor1"></div>
+  <div data-practice="factor2"></div>
+  <div class="nav"><a class="btn ghost" href="lesson-2-rearranging-formulae.html">‹ Lesson 2</a><a class="btn" href="lesson-4-double-brackets.html">Lesson 4 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="../assets/algebra.js"></script>
+<script src="lesson3.js"></script>
+</body>
+</html>

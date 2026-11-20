@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 5: Factorising quadratics – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 2: Algebra</a> › Lesson 5</div></header>
+<main id="main">
+  <span class="tag">Topic 2 · Lesson 5</span>
+  <h1>Factorising quadratics</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>factorise x² + bx + c by finding two numbers that multiply to c and add to b</li>
+      <li>factorise ax² + bx + c when a is more than 1</li>
+      <li>check a factorisation by expanding it</li>
+    </ul>
+  </div>
+
+  <h2>1. Quadratics with x² on its own</h2>
+  <div class="key">
+    <p>Factorising <span class="m">x² + bx + c</span> is expanding <span class="m">(x + p)(x + q)</span> backwards.</p>
+    <p>Find two numbers <strong>p and q</strong> that <strong>multiply to c</strong> and <strong>add to b</strong>. Then <span class="m">x² + bx + c = (x + p)(x + q)</span>.</p>
+    <p>Check by expanding. If c is positive, p and q have the <strong>same sign</strong> as b. If c is negative, they have different signs.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> To factorise <span class="m">x² + 5x + 6</span>, which pair of numbers multiplies to 6 <em>and</em> adds to 5: 1 and 6, or 2 and 3?<details><summary>Check my prediction</summary><p>2 and 3. 2 × 3 = 6 and 2 + 3 = 5. (1 and 6 multiply to 6 but add to 7.) So x² + 5x + 6 = (x + 2)(x + 3).</p></details></div>
+    <p>Type the numbers in ax² + bx + c. Try a = 1 first.</p>
+    <div class="row">
+      <label for="fq-a">a</label><input type="text" id="fq-a" value="1" size="4" inputmode="text">
+      <label for="fq-b">b</label><input type="text" id="fq-b" value="5" size="4" inputmode="text">
+      <label for="fq-c">c</label><input type="text" id="fq-c" value="6" size="4" inputmode="text">
+    </div>
+    <div class="tablewrap"><table class="compact" id="fq-tab"></table></div>
+    <div id="fq-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="fq1"></div>
+
+  <h2>2. When a is not 1</h2>
+  <div class="key">
+    <p>For <span class="m">ax² + bx + c</span>, find two numbers that <strong>multiply to a × c</strong> and <strong>add to b</strong>. Use them to split the middle term, then factorise in pairs.</p>
+    <p>Example: <span class="m">2x² + 7x + 3</span>. a × c = 6, and 1 + 6 = 7. Write <span class="m wrap">2x² + x + 6x + 3 = x(2x + 1) + 3(2x + 1) = (x + 3)(2x + 1)</span>.</p>
+  </div>
+  <p>Try a = 2 in the applet above, for example a = 2, b = 7, c = 3.</p>
+  <div data-practice="fq2"></div>
+
+  <h2>3. Taking out a common factor first</h2>
+  <div class="key">Always look for a common factor first. <span class="m wrap">2x² + 10x + 12 = 2(x² + 5x + 6) = 2(x + 2)(x + 3)</span>.</div>
+  <div data-practice="fq3"></div>
+  <div class="nav"><a class="btn ghost" href="lesson-4-double-brackets.html">‹ Lesson 4</a><a class="btn" href="lesson-6-index-laws.html">Lesson 6 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="../assets/algebra.js"></script>
+<script src="lesson5.js"></script>
+</body>
+</html>

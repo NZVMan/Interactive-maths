@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("fs");
 const root = path.resolve(__dirname, "..");
 const url = (p) => "file://" + path.join(root, p);
-const lessons = fs.readdirSync(path.join(root, "number")).filter((f) => /^lesson-.*\.html$/.test(f)).map((f) => "number/" + f);
+const lessons = require("./pages.js")();
 const pages = ["index.html", "course/index.html", "number/index.html", "algebra/index.html"].concat(lessons);
 let failed = 0;
 const ok = (c, m) => { if (!c) { failed++; console.log("FAIL", m); } else console.log("ok  ", m); };

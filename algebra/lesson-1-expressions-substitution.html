@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 1: Expressions and substitution – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 2: Algebra</a> › Lesson 1</div></header>
+<main id="main">
+  <span class="tag">Topic 2 · Lesson 1</span>
+  <h1>Expressions and substitution</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>use letters to stand for numbers and write expressions from words</li>
+      <li>collect like terms to simplify an expression</li>
+      <li>substitute numbers (including negatives) into expressions and formulae</li>
+    </ul>
+  </div>
+
+  <h2>1. Letters stand for numbers</h2>
+  <div class="key">
+    <p>A <strong>letter</strong> (a variable) stands for a number we don't know yet, or one that can change.</p>
+    <p><span class="m">3n</span> means 3 × n. <span class="m">n²</span> means n × n. <span class="m">n/4</span> means n ÷ 4. We leave out the × sign.</p>
+    <p>An <strong>expression</strong> is made of <strong>terms</strong> joined by + and −. In <span class="m">5x + 3y − 7</span> the terms are 5x, 3y and −7.</p>
+  </div>
+  <div data-practice="words"></div>
+
+  <h2>2. Collecting like terms</h2>
+  <p><strong>Like terms</strong> have exactly the same letters and powers, so they can be added or subtracted. <span class="m">3x</span> and <span class="m">5x</span> are like terms. <span class="m">3x</span> and <span class="m">3x²</span> are not.</p>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> Is <span class="m">3x + 2x</span> equal to 5x or 5x²?<details><summary>Check my prediction</summary><p>5x. Think of it as 3 x's and 2 more x's, which makes 5 x's. The power doesn't change.</p></details></div>
+    <p>Type an expression, or tap an example.</p>
+    <div class="row"><input type="text" id="lt-in" value="3x + 2y + 5x − y + 4" size="24" aria-label="Expression to simplify" autocapitalize="off" spellcheck="false"></div>
+    <div class="chips" id="lt-ex"></div>
+    <div id="lt-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="collect"></div>
+
+  <h2>3. Substituting numbers</h2>
+  <div class="key">To <strong>substitute</strong>, replace each letter with its number. Put <strong>brackets round negative numbers</strong>, and remember the order of operations: <span class="m">x² with x = −2</span> is <span class="m">(−2)² = 4</span>.</div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> If x = −2, is 3x² equal to 12 or −12?<details><summary>Check my prediction</summary><p>12. Square first: (−2)² = 4, then multiply: 3 × 4 = 12. The power only applies to the x, which is wrapped in its own brackets once you substitute.</p></details></div>
+    <div class="row">
+      <label for="sb-e">Expression</label><input type="text" id="sb-e" value="3x² − 2y + 1" size="18" autocapitalize="off" spellcheck="false">
+    </div>
+    <div class="row">
+      <label for="sb-x">x =</label><input type="text" id="sb-x" value="−2" size="5" inputmode="text">
+      <label for="sb-y">y =</label><input type="text" id="sb-y" value="5" size="5" inputmode="text">
+    </div>
+    <div id="sb-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="subst"></div>
+  <div data-practice="formula"></div>
+  <div class="nav"><a class="btn ghost" href="../number/lesson-11-revision-test.html">‹ Number revision</a><a class="btn" href="lesson-2-rearranging-formulae.html">Lesson 2 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="../assets/algebra.js"></script>
+<script src="lesson1.js"></script>
+</body>
+</html>

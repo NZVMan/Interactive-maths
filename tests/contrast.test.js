@@ -4,7 +4,7 @@ const path = require("path");
 const root = path.resolve(__dirname, "..");
 const pages = ["index.html", "course/index.html", "algebra/index.html", "number/index.html",
   ]
-  .concat(require("fs").readdirSync(path.join(root, "number")).filter((f) => /^lesson-\d+-.*\.html$/.test(f)).map((f) => "number/" + f));
+  .concat(require("./pages.js")());
 
 function inPage() {
   const parse = (c) => { const m = c.match(/rgba?\(([^)]+)\)/); if (!m) return null; const p = m[1].split(/[,\s/]+/).filter(Boolean).map(Number); return { r: p[0], g: p[1], b: p[2], a: p[3] === undefined ? 1 : p[3] }; };

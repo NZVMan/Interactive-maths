@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 2: Rearranging formulae – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 2: Algebra</a> › Lesson 2</div></header>
+<main id="main">
+  <span class="tag">Topic 2 · Lesson 2</span>
+  <h1>Rearranging formulae</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>explain what "make x the subject" means</li>
+      <li>rearrange a formula by doing the same thing to both sides</li>
+      <li>rearrange formulae that need two or more steps</li>
+    </ul>
+  </div>
+
+  <h2>1. Changing the subject</h2>
+  <p>In <span class="m">v = u + at</span> the letter <strong>v is the subject</strong>: it is on its own on one side. To make a different letter the subject, <strong>undo what has been done to it</strong>, one step at a time, and do the <strong>same thing to both sides</strong> so the formula stays true.</p>
+  <div class="key">
+    <p>Undo operations in the <strong>reverse order</strong> to how they were built. In <span class="m">y = 3x + 5</span>, x was multiplied by 3 and then 5 was added. So undo the + 5 first, then the × 3.</p>
+    <p>Opposites: + and −, × and ÷, square and square root.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> <span class="m">y = 3x + 5</span>. To make x the subject, should you divide by 3 or subtract 5 first?<details><summary>Check my prediction</summary><p>Subtract 5 first. That gives y − 5 = 3x. Then divide <strong>everything</strong> on the left by 3: x = (y − 5)/3.</p></details></div>
+    <div class="row">
+      <label for="fm-f">Formula</label><select id="fm-f"></select>
+      <label for="fm-s">Make this the subject</label><select id="fm-s"></select>
+    </div>
+    <div id="fm-out" class="out" aria-live="polite"></div>
+  </div>
+  <div class="worked">
+    <p>Make t the subject of <span class="m">v = u + at</span>.</p>
+    <p class="m">Subtract u from both sides: v − u = at</p>
+    <p class="m">Divide both sides by a: (v − u)/a = t</p>
+    <p class="m">So t = (v − u)/a</p>
+  </div>
+  <div data-practice="rearr1"></div>
+
+  <h2>2. Two or more steps</h2>
+  <p>When the letter is inside brackets, or has a power, you may need to expand, divide first, or use a square root. Take care to divide or multiply <strong>the whole side</strong>, so use brackets on the answer.</p>
+  <div data-practice="rearr2"></div>
+  <div class="nav"><a class="btn ghost" href="lesson-1-expressions-substitution.html">‹ Lesson 1</a><a class="btn" href="lesson-3-brackets-common-factors.html">Lesson 3 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="../assets/algebra.js"></script>
+<script src="lesson2.js"></script>
+</body>
+</html>

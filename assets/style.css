@@ -150,3 +150,4 @@ table.t.compact { min-width: 0 !important; } table.t.compact th, table.t.compact
 .checklist a { margin-left: 34px; }
 .checklist .prog { margin-left: 8px; color: var(--muted); font-size: .9em; }
 .checklist .prog.done { color: var(--good); }
+.m.wrap { white-space: normal; overflow-wrap: anywhere; }
