@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 9: Money and personal finance – Interactive Maths</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><a href="../index.html">Interactive Maths</a><div class="crumbs"><a href="index.html">Topic 1: Number</a> › Lesson 9</div></header>
+<main id="main">
+  <span class="tag">Topic 1 · Lesson 9</span>
+  <h1>Money and personal finance</h1>
+
+  <div class="obj"><strong>By the end of this lesson you can:</strong>
+    <ul>
+      <li>convert between currencies using a given exchange rate</li>
+      <li>work out discounts, GST, profit and loss</li>
+      <li>calculate simple interest and compound interest</li>
+      <li>read tables of hours and pay to work out earnings</li>
+    </ul>
+  </div>
+
+  <h2>1. Changing currency</h2>
+  <div class="key">An exchange rate such as <span class="m">1 NZD = 0.60 USD</span> tells you what $1 NZ is worth. <strong>Going from NZD to another currency: multiply.</strong> <strong>Coming back to NZD: divide.</strong></div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> If 1 NZD = 0.60 USD, will $100 NZ buy more than 100 US dollars or fewer?<details><summary>Check my prediction</summary><p>Fewer: 100 × 0.60 = 60 USD. Each NZ dollar is worth less than one US dollar.</p></details></div>
+    <div class="row">
+      <label for="fx-a">Amount</label><input type="text" id="fx-a" value="100" size="8" inputmode="decimal">
+      <label for="fx-r">1 NZD =</label><input type="text" id="fx-r" value="0.6" size="6" inputmode="decimal">
+      <select id="fx-d" aria-label="Direction"><option value="to" selected>NZD → other</option><option value="from">other → NZD</option></select>
+    </div>
+    <div id="fx-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="currency"></div>
+
+  <h2>2. Discount, GST, profit and loss</h2>
+  <ul>
+    <li><strong>Discount:</strong> a price reduced by a percentage. Sale price = price × (1 − discount ÷ 100). For 20% off, multiply by 0.8.</li>
+    <li><strong>GST</strong> in NZ is 15%. To add GST, multiply by 1.15.</li>
+    <li><strong>Profit</strong> = selling price − cost price. <strong>Loss</strong> is when selling is less than cost.</li>
+    <li><strong>Percentage profit</strong> = profit ÷ <strong>cost price</strong> × 100.</li>
+  </ul>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> A $80 jacket is 25% off. Is the sale price $55, $60 or $65?<details><summary>Check my prediction</summary><p>$60. 25% of 80 is 20, and 80 − 20 = 60. (Or multiply by 0.75.)</p></details></div>
+    <div class="row">
+      <label for="di-p">Price $</label><input type="text" id="di-p" value="80" size="7" inputmode="decimal">
+      <label for="di-r">Percent</label><input type="text" id="di-r" value="25" size="5" inputmode="decimal">
+      <select id="di-m" aria-label="Type of change"><option value="off" selected>discount</option><option value="gst">add percentage (like GST)</option></select>
+    </div>
+    <div id="di-out" class="out" aria-live="polite"></div>
+    <hr>
+    <div class="row">
+      <label for="pl-c">Cost $</label><input type="text" id="pl-c" value="40" size="7" inputmode="decimal">
+      <label for="pl-s">Sold for $</label><input type="text" id="pl-s" value="52" size="7" inputmode="decimal">
+    </div>
+    <div id="pl-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="discount"></div>
+  <div data-practice="profit"></div>
+
+  <h2>3. Simple and compound interest</h2>
+  <div class="key">
+    <p><strong>Simple interest</strong> is the same every year: <span class="m">I = P × R × T ÷ 100</span> (P = amount invested, R = rate per year in %, T = years).</p>
+    <p><strong>Compound interest</strong> adds the interest to the amount each year, so next year's interest is bigger. Use <span class="m">A = P(1 + R/100)<sup>n</sup></span>, where A is the final amount and n is the number of years.</p>
+  </div>
+  <div class="try">
+    <div class="predict"><strong>Predict first:</strong> $1000 is invested at 5% for 2 years. Which gives more: simple or compound interest?<details><summary>Check my prediction</summary><p>Compound. Simple: 1000 × 5 × 2 ÷ 100 = $100. Compound: year 1 earns $50, but year 2 earns 5% of $1050 = $52.50, so $102.50 in total.</p></details></div>
+    <div class="row">
+      <label for="in-p">Invest $</label><input type="text" id="in-p" value="1000" size="8" inputmode="decimal">
+      <label for="in-r">Rate %</label><input type="text" id="in-r" value="5" size="5" inputmode="decimal">
+      <label for="in-n">Years</label><input type="text" id="in-n" value="5" size="4" inputmode="numeric">
+    </div>
+    <div class="tablewrap"><table class="compact" id="in-tab"></table></div>
+    <div id="in-out" class="out" aria-live="polite"></div>
+  </div>
+  <div data-practice="simple"></div>
+  <div data-practice="compound"></div>
+
+  <h2>4. Earnings from a table</h2>
+  <p>Read the table carefully. Work out the hours at the normal rate and the hours at the overtime rate separately, then add the two pay amounts.</p>
+  <div data-practice="earnings"></div>
+
+  <div class="nav"><a class="btn ghost" href="lesson-8-calculator-and-time.html">‹ Lesson 8</a><a class="btn" href="lesson-10-sets-venn.html">Lesson 10 ›</a></div>
+</main>
+<script src="../assets/maths.js"></script>
+<script src="lesson9.js"></script>
+</body>
+</html>
