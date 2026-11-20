@@ -31,7 +31,7 @@ Details for each client are in **[CLAUDE.md](CLAUDE.md)**.
 - `<topic>/index.html` for Topics 2–11: outline pages of what each topic covers
 - `assets/style.css`, `assets/maths.js`: shared styles, maths helpers and the practice-question engine
 - `tools/build-site.js`: regenerates the home page, course page, handbook copy and outline pages from the JSON
-- `tests/`: `node tests/maths.test.js` (logic) and `node tests/browser.test.js` (loads every page in headless Chrome and checks every practice question type), `node tests/ux.test.js` (practice sets, symbol buttons, saved progress, no sideways scrolling on a phone)
+- `tests/`: `node tests/maths.test.js` (logic) and `node tests/browser.test.js` (loads every page in headless Chrome and checks every practice question type), `node tests/ux.test.js` (practice sets, symbol buttons, saved progress), `node tests/contrast.test.js` (colour contrast, light and dark) and `node tests/a11y.test.js` (screen sizes, labels, tap targets, keyboard)
 
 ## Working on it
 

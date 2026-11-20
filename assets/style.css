@@ -1,11 +1,11 @@
 :root {
   --bg: #fbfaf7; --card: #ffffff; --ink: #1d2433; --muted: #5c6678; --line: #dfe3ea;
   --accent: #1f4e8c; --accent-ink: #ffffff; --soft: #e8f0fa; --good: #1c7a45; --good-bg: #e6f4ec; --bad: #a3321f; --bad-bg: #fbeae6;
-  --hi: #f3c14a; --radius: 12px;
+  --hi: #f3c14a; --field: #767f91; --radius: 12px;
 }
 @media (prefers-color-scheme: dark) {
   :root { --bg: #12161f; --card: #1a2030; --ink: #e8ecf4; --muted: #9aa5ba; --line: #2b3347; --accent: #7fb0f0; --accent-ink: #0d1424;
-    --soft: #1f2a42; --good: #6fd09b; --good-bg: #17301f; --bad: #f0907d; --bad-bg: #3a1f1a; --hi: #c99a2a; }
+    --soft: #1f2a42; --good: #6fd09b; --good-bg: #17301f; --bad: #f0907d; --bad-bg: #3a1f1a; --hi: #c99a2a; --field: #7d88a0; }
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -30,7 +30,7 @@ h3 { font-size: 1.1rem; margin: 1.4em 0 .3em; }
 .worked { border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px; margin: 14px 0; background: var(--card); }
 .worked::before { content: "Worked example"; display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-bottom: 4px; }
 .m { font-family: "Cambria Math", "STIX Two Math", Georgia, serif; font-size: 1.08em; white-space: nowrap; }
-input[type=text], input[type=number], select { font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); max-width: 100%; }
+input[type=text], input[type=number], select { font: inherit; padding: 8px 10px; border: 1px solid var(--field); border-radius: 8px; background: var(--card); color: var(--ink); max-width: 100%; }
 input[type=text]:focus, input[type=number]:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 input[type=range] { width: 100%; accent-color: var(--accent); }
 .btn { font: inherit; font-weight: 600; background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 8px; padding: 8px 16px; cursor: pointer; min-height: 40px; }
@@ -94,7 +94,7 @@ h2 { scroll-margin-top: 12px; }
 .practice::before { display: none; }
 .p-head::before { content: "Practice"; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); margin-right: auto; order: -1; }
 .p-keys { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.key-btn { font: inherit; font-size: 20px; min-width: 52px; min-height: 48px; border-radius: 10px; border: 1px solid var(--line); background: var(--soft); color: var(--ink); cursor: pointer; }
+.key-btn { font: inherit; font-size: 20px; min-width: 52px; min-height: 48px; border-radius: 10px; border: 1px solid var(--field); background: var(--soft); color: var(--ink); cursor: pointer; }
 .key-btn:active { background: var(--accent); color: var(--accent-ink); }
 .key-btn:focus-visible { outline: 3px solid var(--hi); outline-offset: 2px; }
 .p-choices { display: flex; gap: 10px; margin: 6px 0; }
@@ -112,3 +112,10 @@ details.later summary { cursor: pointer; font-weight: 650; padding: 10px 0; colo
 .prog { font-size: 14px; }
 .prog.done { color: var(--good); font-weight: 650; }
 @media print { header.site, .nav, .p-keys, .p-actions, .toc, .skip { display: none; } body { background: #fff; color: #000; } .try, .practice { break-inside: avoid; } }
+
+input::placeholder { color: var(--muted); opacity: 1; }
+.predict { background: var(--soft); border-radius: 10px; padding: 10px 14px; margin: 8px 0 12px; }
+.predict details { margin-top: 6px; }
+.predict summary { cursor: pointer; color: var(--accent); font-weight: 650; padding: 6px 0; min-height: 32px; }
+.predict summary:focus-visible { outline: 3px solid var(--hi); outline-offset: 2px; }
+.predict p { margin: 4px 0; }

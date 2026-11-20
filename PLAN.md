@@ -78,12 +78,12 @@ Lesson counts come from the handbook. Titles and applet ideas are suggestions, n
 ## How each lesson is built (definition of done)
 
 1. Objectives box that matches the handbook codes it covers.
-2. Short explanation, a key-idea box, at least one "Try it" applet and one worked example.
+2. Short explanation, a key-idea box, at least one "Try it" applet (each with a "Predict first" prompt and reveal) and one worked example.
 3. At least two practice question types using the shared engine (see below). Every question has a `hint` and an `explain`, plus a `placeholder` showing the answer format. Add `keys: ["×", "^"]` for symbol buttons, or `choices: ["yes", "no"]` for tap-to-answer questions.
 4. Works at 390 px wide with no horizontal scrolling, and in light and dark mode.
 5. Uses NZ English and the handbook's wording and notation (e.g. "HCF", "standard form", "three-figure bearings").
 6. Added to the topic contents page and linked from the previous and next lesson.
-7. `node tests/maths.test.js`, `node tests/browser.test.js` and `node tests/ux.test.js` all pass (add tests for any new helper in `assets/maths.js`).
+7. `node tests/maths.test.js`, `node tests/browser.test.js` and `node tests/ux.test.js`, `node tests/contrast.test.js` and `node tests/a11y.test.js` all pass (add tests for any new helper in `assets/maths.js`).
 8. This file updated.
 
 ## UX review (done and still to do)
@@ -95,10 +95,13 @@ Done in round 1:
 - [x] "On this page" jump links on each lesson; practice progress saved in the browser (no accounts) and shown on the topic contents page
 - [x] Skip-to-content link, larger breadcrumb tap targets, print layout, worked example one step per line
 
+Done in round 2:
+- [x] "Predict first" prompt with a reveal on every "Try it" applet (add one to every new applet)
+- [x] Colour contrast checked in light and dark mode (`node tests/contrast.test.js`): text 4.5:1 (3:1 large), form-field borders 3:1; placeholder and field-border colours fixed
+- [x] Emulated checks (`node tests/a11y.test.js`): no sideways scroll from 320 to 1280 px wide, field labels, tap targets, heading order, visible keyboard focus, a practice set finishable by keyboard
+
 Still to do:
-- [ ] Add a short "predict first" prompt to each "Try it" applet
-- [ ] Check colour contrast with a tool and fix anything under 4.5:1
-- [ ] Try on a real phone (iPhone Safari and Android Chrome) and with a screen reader
+- [ ] Try on a real phone (iPhone Safari and Android Chrome) and with a real screen reader (VoiceOver or NVDA). The automated checks above cannot replace this.
 - [ ] Two-column layout for applets on wide screens
 - [ ] Decide whether the outline pages for later topics should be hidden from students
 
